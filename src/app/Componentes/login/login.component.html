@@ -1,3 +1,67 @@
-<p>
-  login works!
-</p>
+
+<div id="content" class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+        <div class="offset-4 col-md-4" style="margin-top:50px; margin-bottom:50px;">
+          <div class="service-box">
+            <div class="service-content">
+                <form name="form" [(formGroup)]="form" (ngSubmit)="login($event)">
+                    <div class="text-center">
+                        <h4>Iniciar Sesión</h4>
+                      </div>
+                  <div class="form-group offset-md-3" style="margin-top: 5%;">
+                    <img id="avatar_alumno" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="border-radius: 50%; width: 60%;">
+                    <p id="nombre_alumno" class="hidden">
+                      
+                    </p>
+                    <p id="matricula_alumno" class="hidden">
+                      
+                    </p>
+                  </div>
+                  <div class="form-group" style="margin-top: 5%;">
+                    <label for="">Matricula</label>
+                    <input type="text" class="form-control" placeholder="Ingrese su matricula"
+                            formControlName="matricula" id="matricula" [(ngModel)]="matricula"
+                            [ngClass]="{'is-invalid': form.get('matricula').touched && form.get('matricula').invalid, 'is-valid': form.get('matricula').touched && form.get('matricula').valid}">
+                    <div class="invalid-feedback">
+                      <ul>
+                        <li>El matricula es obligatorio.</li>
+                        <li>Mínimo debe contener 2 caracteres.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Ingrese su contraseña"
+                            formControlName="curp"
+                            [ngClass]="{'is-invalid': form.get('curp').touched && form.get('curp').invalid, 'is-valid': form.get('curp').touched && form.get('curp').valid}">
+                    <div class="invalid-feedback">
+                      <ul>
+                        <li>La curp es obligatorio.</li>
+                        <li>Mínimo debe contener 6 caracteres.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block" [disabled]="!form.valid" style="margin-bottom: 5%;">Iniciar</button>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+<footer style="margin-top:170px;">
+
+    <!-- Copyright -->
+    <div id="txtfooter" class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="#"> LAME UTT</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+
+
+</div>
