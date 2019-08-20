@@ -1,0 +1,99 @@
+<div>
+
+    <form name="form" [(formGroup)]="form" (ngSubmit)="crear()">
+
+        <div class="form-group">
+            <label for="">Nickname</label>
+            <input type="text" class="form-control" placeholder="Ingrese su nickname"
+                    formControlName="nickname"
+                    [ngClass]="{'is-invalid': form.get('nickname').touched &&
+                    form.get('nickname').invalid, 'is-valid': form.get('nickname').touched &&
+                    form.get('nickname').valid}">
+            <div class="invalid-feedback">
+                <ul>
+                <li>El nickname es obligatorio.</li>
+                <li>Mínimo debe contener 2 caracteres.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Nickname</label>
+            <input type="text" class="form-control" placeholder="Ingrese su nickname"
+                    formControlName="nickname"
+                    [ngClass]="{'is-invalid': form.get('nickname').touched &&
+                    form.get('nickname').invalid, 'is-valid': form.get('nickname').touched &&
+                    form.get('nickname').valid}">
+            <div class="invalid-feedback">
+                <ul>
+                <li>El nickname es obligatorio.</li>
+                <li>Mínimo debe contener 2 caracteres.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+                <label for="">Nickname</label>
+                <input type="text" class="form-control" placeholder="Ingrese su nickname"
+                        formControlName="nickname"
+                        [ngClass]="{'is-invalid': form.get('nickname').touched &&
+                        form.get('nickname').invalid, 'is-valid': form.get('nickname').touched &&
+                        form.get('nickname').valid}">
+                <div class="invalid-feedback">
+                    <ul>
+                    <li>El nickname es obligatorio.</li>
+                    <li>Mínimo debe contener 2 caracteres.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                    <label for="">Nickname</label>
+                    <input type="text" class="form-control" placeholder="Ingrese su nickname"
+                            formControlName="nickname"
+                            [ngClass]="{'is-invalid': form.get('nickname').touched &&
+                            form.get('nickname').invalid, 'is-valid': form.get('nickname').touched &&
+                            form.get('nickname').valid}">
+                    <div class="invalid-feedback">
+                        <ul>
+                        <li>El nickname es obligatorio.</li>
+                        <li>Mínimo debe contener 2 caracteres.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                        <label for="">Nickname</label>
+                        <input type="text" class="form-control" placeholder="Ingrese su nickname"
+                                formControlName="nickname"
+                                [ngClass]="{'is-invalid': form.get('nickname').touched &&
+                                form.get('nickname').invalid, 'is-valid': form.get('nickname').touched &&
+                                form.get('nickname').valid}">
+                        <div class="invalid-feedback">
+                            <ul>
+                            <li>El nickname es obligatorio.</li>
+                            <li>Mínimo debe contener 2 caracteres.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="">Nickname</label>
+                            <input type="text" class="form-control" placeholder="Ingrese su nickname"
+                                    formControlName="nickname"
+                                    [ngClass]="{'is-invalid': form.get('nickname').touched &&
+                                    form.get('nickname').invalid, 'is-valid': form.get('nickname').touched &&
+                                    form.get('nickname').valid}">
+                            <div class="invalid-feedback">
+                                <ul>
+                                <li>El nickname es obligatorio.</li>
+                                <li>Mínimo debe contener 2 caracteres.</li>
+                                </ul>
+                            </div>
+                        </div>
+            
+
+    </form>
+
+
+</div>
