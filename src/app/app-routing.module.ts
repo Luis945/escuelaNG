@@ -7,7 +7,7 @@ import { MaestroComponent } from './Componentes/maestro/maestro.component';
 
 const routes: Routes = [
   { path:'login', component: LoginComponent },
-  { path:'registro', component: RegistroComponent },
+  // { path:'login', component: RegistroComponent },
   { path:'prueba', component: PruebaComponent },
   { path:'RegistroMaestro',component:MaestroComponent},
 ];

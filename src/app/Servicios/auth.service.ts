@@ -8,24 +8,28 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  crearUser(nickname: string,  password: string) {
+  // crearUser(nickname: string,  password: string) {
 
-    var data = {
-      nickname:nickname,
-      password: password
-    };
+  //   var data = {
+  //     nickname:nickname,
+  //     password: password
+  //   };
 
-    return this.http.post(this.root + 'registro', data);
-  }
+  //   return this.http.post(this.root + 'registro', data);
+  // }
 
   root: string = 'http://127.0.0.1:3333/';
   flag: boolean = false;
 
-  login(nickname: string, password: string) {
-    let jugador = {
-      nickname: nickname,
-      password: password
+  login(matricula: String, curp: String) {
+    let alumno = {
+      matricula: matricula,
+      curp: curp
     }
-    return this.http.post<any>(this.root + 'login', jugador);
+    return this.http.post<any>(this.root + 'login', alumno);
+  }
+
+  buscar(matricula: String) {
+    return this.http.get<any>(this.root + 'alumno/' + matricula);
   }
 }
