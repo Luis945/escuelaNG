@@ -13,6 +13,7 @@ import { RegistroComponent } from './Componentes/registro/registro.component';
 import { MaestroComponent } from './Componentes/maestro/maestro.component';
 import { MateriaComponent } from './Componentes/materia/materia.component';
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
+import { AlumnoComponent } from './Componentes/alumno/alumno.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { MenuComponent } from './Componentes/globals/menu/menu.component';
     MaestroComponent,
     MateriaComponent,
     MenuComponent,
-    UrlComponent,
+    AlumnoComponent,
   ],
   imports: [
     BrowserModule,
