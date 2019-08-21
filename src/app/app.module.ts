@@ -11,6 +11,8 @@ import { LoginComponent } from './Componentes/login/login.component';
 import { PruebaComponent } from './prueba/prueba.component';
 import { RegistroComponent } from './Componentes/registro/registro.component';
 import { MaestroComponent } from './Componentes/maestro/maestro.component';
+import { MateriaComponent } from './Componentes/materia/materia.component';
+import { MenuComponent } from './Componentes/globals/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,10 @@ import { MaestroComponent } from './Componentes/maestro/maestro.component';
     LoginComponent,
     PruebaComponent,
     RegistroComponent,
-    MaestroComponent
+    MaestroComponent,
+    MateriaComponent,
+    MenuComponent,
+    UrlComponent,
   ],
   imports: [
     BrowserModule,
