@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MateriaComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+  }
+  materia_Array= new Array();
 
   ngOnInit() {
   }
