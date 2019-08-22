@@ -1,11 +1,12 @@
 .box-container {
-    background-color:white;
+    background-color:#95E1FB;
     padding: 2rem;
     box-shadow: 0rem 0rem 0.3rem rgba(45, 134, 236, 0.548);
     margin-bottom: 2rem;
     border-radius: 0.3rem;
     margin-top: 2rem;
 }
+
 .btn {
 
     font-size: .9rem;
@@ -14,23 +15,11 @@
     outline: transparent !important;
     transition: .4s;
     background-color: #95E1FB;
-    color: black;
-    
+    width: 200px;
+    color:black
 }
 
-.hover-chido:hover { 
-    background-color:#95E1FB;
-    transform: scale(1.02);
-    color: black
-  }
-.t-header {
-    background-color:#95E1FB;
-}
-.eliminar:hover {
-    background-color: red
-}
 .otros:hover{
     background-color: white;
     color: black
 }
-  

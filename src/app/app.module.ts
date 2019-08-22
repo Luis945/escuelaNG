@@ -14,6 +14,9 @@ import { MaestroComponent } from './Componentes/maestro/maestro.component';
 import { MateriaComponent } from './Componentes/materia/materia.component';
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
 import { CrearSalonComponent } from './Componentes/crear-salon/crear-salon.component';
+import { AgregarSalonComponent } from './Componentes/agregar-salon/agregar-salon.component';
+import { MateriasPorsalonComponent } from './Componentes/materias-porsalon/materias-porsalon.component';
+import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos-porsalon.component';
 import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/registro-alumno.component';
 import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumnos.component';
 
@@ -27,6 +30,9 @@ import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumno
     MateriaComponent,
     MenuComponent,
     CrearSalonComponent,
+    AgregarSalonComponent,
+    MateriasPorsalonComponent,
+    AlumnosPorsalonComponent,
     RegistroAlumnoComponent,
     VerAlumnosComponent
   ],
