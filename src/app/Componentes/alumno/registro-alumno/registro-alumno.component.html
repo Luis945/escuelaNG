@@ -1,0 +1,174 @@
+<div class="">
+  <form name="form" [(formGroup)]="form" (ngSubmit)="GuardarAlumno()">
+      <div class="datoprimario col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
+          <div>
+              <h4>Datos del Alumno.</h4>
+          </div>
+
+          <div class="form-group">
+              <label for="">Nombre(s)</label>
+              <input type="text" class="form-control" 
+                      placeholder="Ingrese su(s) Nombre(s)"
+                      formControlName="Nombre"
+                      [ngClass]="{'is-invalid': form.get('Nombre').touched 
+                      && form.get('Nombre').invalid, 'is-valid': form.get('Nombre').touched 
+                      && form.get('Nombre').valid}">
+              <div class="invalid-feedback">
+                  <ul>
+                      <li>El Nombre es obligatorio.</li>
+                      <li>Mínimo debe contener 3 caracteres.</li>
+                  </ul>
+              </div>
+          </div>
+
+          <!------PRIMERA ROW------->
+          <div class="row">
+              <div class="form-group col-md-6 col-xs-6">
+                  <label for="">Apellido Paterno</label>
+                  <input type="text" class="form-control" 
+                          placeholder="Ingrese su Apellido Paterno"
+                          formControlName="Apellido_paterno"
+                          [ngClass]="{'is-invalid': form.get('Apellido_paterno').touched 
+                          && form.get('Apellido_paterno').invalid, 'is-valid': form.get('Apellido_paterno').touched 
+                          && form.get('Apellido_paterno').valid}">
+                  <div class="invalid-feedback">
+                      <ul>
+                          <li>El Apellido Paterno es obligatorio.</li>
+                          <li>Mínimo debe contener 3 caracteres.</li>
+                      </ul>
+                  </div>
+              </div>
+      
+              <div class="form-group col-md-6 col-xs-6">
+                  <label for="">Apellido Materno</label>
+                  <input type="text" class="form-control" 
+                          placeholder="Ingrese su Apellido Materno"
+                          formControlName="Apellido_materno"
+                          [ngClass]="{'is-invalid': form.get('Apellido_materno').touched 
+                          && form.get('Apellido_materno').invalid, 'is-valid': form.get('Apellido_materno').touched 
+                          && form.get('Apellido_materno').valid}">
+                  <div class="invalid-feedback">
+                      <ul>
+                          <li>El Apellido Materno es obligatorio.</li>
+                          <li>Mínimo debe contener 3 caracteres.</li>
+                      </ul>
+                  </div>
+              </div>
+          </div><!-----PRIMERA ROW (APELLIDOS)------>
+
+          <div class="form-group">
+              <label for="">Dirección</label>
+              <input type="text" class="form-control" 
+                      placeholder="Ingresa tu dirección"
+                      formControlName="Direccion"
+                      [ngClass]="{'is-invalid': form.get('Direccion').touched 
+                      && form.get('Direccion').invalid, 'is-valid': form.get('Direccion').touched 
+                      && form.get('Direccion').valid}">
+              <div class="invalid-feedback">
+                  <ul>
+                      <li>La Dirección es obligatoria.</li>
+                      <li>Es necesario incluir Colonia, Calle y número.</li>
+                  </ul>
+              </div>
+          </div>
+
+          <!------SEGUNDA ROW------->
+          <div class="row">
+              <div class="form-group col-lg-3">
+                  <label for="">Fecha de Nacimiento</label>
+                  <input type="date" class="form-control" 
+                          placeholder="Ingrese su Fecha de Nacimiento"
+                          formControlName="Fecha_nacimiento"
+                          [ngClass]="{'is-invalid': form.get('Fecha_nacimiento').touched 
+                          && form.get('Fecha_nacimiento').invalid, 'is-valid': form.get('Fecha_nacimiento').touched 
+                          && form.get('Fecha_nacimiento').valid}">
+                  <div class="invalid-feedback">
+                      <ul>
+                          <li>La Fecha de Nacimiento es obligatorio.</li>
+                          <li>Selecciona una fecha, por favor.</li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="form-group col-md-4">
+                  <label for="">Fotografía</label>
+                  <input type="file" class="form-control" 
+                          formControlName="Fotografia"
+                          [ngClass]="{'is-invalid': form.get('Fotografia').touched 
+                          && form.get('Fotografia').invalid, 'is-valid': form.get('Fotografia').touched 
+                          && form.get('Fotografia').valid}">
+                  <div class="invalid-feedback">
+                      <ul>
+                          <li>La Fotografía es obligatoria.</li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="form-group col-md-5">
+                  <label for="">CURP</label>
+                  <input type="text" class="form-control" 
+                          placeholder="Ingresa tu CURP"
+                          formControlName="Curp"
+                          [ngClass]="{'is-invalid': form.get('Curp').touched 
+                          && form.get('Curp').invalid, 'is-valid': form.get('Curp').touched 
+                          && form.get('Curp').valid}">
+                  <div class="invalid-feedback">
+                      <ul>
+                          <li>El CURP es obligatorio.</li>
+                          <li>Es necesario tu CURP.</li>
+                      </ul>
+                  </div>
+              </div>
+          </div><!-----SEGUNDA ROW------>   
+      </div><!----DATOS PRIMARIOS-->
+
+      <div class="col-xl-10 offset-xl-1">
+          <hr>
+      </div>
+  
+      <div class="datosecundario col-xl-10 offset-xl-1">
+
+          <div>
+              <h4>Datos secundarios.</h4><br>
+          </div>
+
+          <div class="form-group">
+              <label for="">Nombre del Padre o Tutor Legal</label>
+              <input type="text" class="form-control" 
+                      placeholder="Ingresar Nombre"
+                      formControlName="nombre_padre_tutor"
+                      [ngClass]="{'is-invalid': form.get('nombre_padre_tutor').touched 
+                      && form.get('nombre_padre_tutor').invalid, 'is-valid': form.get('nombre_padre_tutor').touched 
+                      && form.get('nombre_padre_tutor').valid}">
+              <div class="invalid-feedback">
+                  <ul>
+                      <li>El nombre del Padre o Tutor es obligatorio.</li>
+                      <li>Mínimo deben ser 3 caracteres.</li>
+                  </ul>
+              </div>
+          </div>    
+              
+          <div class="form-group">
+              <label for="">Teléfono del Padre o Tutor Legal</label>
+              <input type="text" class="form-control" 
+                      placeholder="Ingresa un Teléfono fijo o celular"
+                      formControlName="telefono_padre_tutor"
+                      [ngClass]="{'is-invalid': form.get('telefono_padre_tutor').touched 
+                      && form.get('telefono_padre_tutor').invalid, 'is-valid': form.get('telefono_padre_tutor').touched 
+                      && form.get('telefono_padre_tutor').valid}">
+              <div class="invalid-feedback">
+                  <ul>
+                      <li>El número telefónico es obligatorio.</li>
+                      <li>Mínimo deben ser 8 caracteres</li>
+                  </ul>
+              </div>
+          </div>     
+      </div><!----DATOS SECUNDARIOS-->
+
+      <div class="col-xl-10 offset-xl-1">
+          <button (click)="Cancelar()" class="btn btn-danger col-xl-6">Cancelar</button>
+          <button [disabled]="!form.valid" class="btn btn-success col-xl-6">Registrar</button>
+      </div>
+
+  </form>
+</div>

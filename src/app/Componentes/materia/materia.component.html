@@ -2,11 +2,81 @@
 <section>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-3">
-         <app-menu></app-menu>
-      </div>
       <div class="col text-center mt-4">
         <h1>Agregar Materia</h1>
+      </div>
+    </div>
+    <div class="row">
+     
+      <div class="col-12 col-md-6 col-lg-8 mb-4 ">
+        <form (keydown)="agregarNombre($event)">
+          <div class=" form-row">
+            <div class="col">
+                <label for="materia_Nombre">Nombre de la materia</label>
+                <input type="text" name="materia_Nombre" [(ngModel)]="materia_Nombre" class="form-control">
+            </div>
+
+          </div>
+        </form>
+        <br>
+
+        <div class="row wow fadeIn" data-wow-delay="0.5s" *ngIf="materiaNueva">
+          <div class="col">
+            <p class="lead">Agregar materias</p>
+
+            <form >
+              <div class="form-row">
+                <div class="col">
+                    <label for="Nombre_unidad">Nombre de la unidad</label>
+                    <input type="text" class="form-control" name="Nombre_unidad" [(ngModel)]="Nombre_unidad">    
+                </div>
+              </div>
+              <br>
+              <div class="form-row">
+                <div class="col">
+                    <label for="Num_unidad">Número de unidad </label>
+                    <input type="number" name="Num_unidad" class=" form-control" [(ngModel)]="Num_unidad" >
+               </div>
+               <div class="col">
+                  <label for="Hora_de_unidad">Horas X unidad </label>
+                  <input type="number" name="Hora_de_unidad" class=" form-control" [(ngModel)]="Hora_de_unidad" >
+               </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col">
+                  <button type="button" (click)="agregarUnidades()" class="btn btn-block btn-primary">Agregar Unidad </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="" *ngIf="materiaNueva">
+        <p class="lead">Visualizador de materia creada</p>
+        <ul class="list-unstyled">
+          <li>{{ materiaNueva.materia_Nombre}}</li>
+          <li class="ml-3 list-unstyled" *ngIf="materiaNueva.unidades.length>0">
+            <p class="lead">Unidad(es) de la materia</p>
+            <ul *ngFor="let unidad of materiaNueva.unidades">
+                <li>Nombre de la unidad: {{this.unidad.Nombre_unidad}}</li>
+                <li>Número de la unidad: {{this.unidad.Num_unidad}}</li>
+                <li>Horas de esta unidad: {{this.unidad.Hora_de_unidad}}</li>
+                <li>
+                    <button class="btn btn-block btn-danger" (click)="borrarUnidad(this.unidad)" >Borrar Unidad</button>
+                </li>
+                <br>
+            </ul>
+          </li>
+        </ul>
+      </div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center ">
+        <button class="btn  btn-info text-center"> Agregar materia</button>
       </div>
     </div>
   </div>
