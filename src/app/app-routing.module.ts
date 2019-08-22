@@ -6,13 +6,17 @@ import { RegistroComponent } from './Componentes/registro/registro.component';
 import { MateriaComponent } from './Componentes/materia/materia.component';
 import { CrearSalonComponent } from './Componentes/crear-salon/crear-salon.component';
 import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/registro-alumno.component';
+import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumnos.component';
 const routes: Routes = [
   { path:'login', component: LoginComponent },
   // { path:'login', component: RegistroComponent },
   { path:'prueba', component: PruebaComponent },  
-  { path:'RegistroAlumno',component:RegistroAlumnoComponent },
   { path:'RegistroMateria', component:MateriaComponent},
-  {path:'crear-salon', component:CrearSalonComponent}
+  {path:'crear-salon', component:CrearSalonComponent},
+  /*---------Alumnos--------*/
+  {path:'RegistroAlumno',component:RegistroAlumnoComponent },
+  {path:'VerAlumnos',component:VerAlumnosComponent}
+
 
 ];
 
