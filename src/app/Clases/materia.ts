@@ -6,5 +6,14 @@ export class Materia {
   unidades:Array<Unidad>;
   constructor(materia_Nombre: string){
     this.materia_Nombre=materia_Nombre;
+    this.unidades= new Array<Unidad>();
+
   };
+  setUnidad(unidad:Unidad){
+    this.unidades.push(unidad);
+    return this.unidades;
+  }
+  getUnidad(){
+    return this.unidades;
+  }
 }
