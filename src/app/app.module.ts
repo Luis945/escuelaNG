@@ -17,6 +17,8 @@ import { CrearSalonComponent } from './Componentes/crear-salon/crear-salon.compo
 import { AgregarSalonComponent } from './Componentes/agregar-salon/agregar-salon.component';
 import { MateriasPorsalonComponent } from './Componentes/materias-porsalon/materias-porsalon.component';
 import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos-porsalon.component';
+import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/registro-alumno.component';
+import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumnos.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos
     CrearSalonComponent,
     AgregarSalonComponent,
     MateriasPorsalonComponent,
-    AlumnosPorsalonComponent
+    AlumnosPorsalonComponent,
+    RegistroAlumnoComponent,
+    VerAlumnosComponent
   ],
   imports: [
     BrowserModule,
