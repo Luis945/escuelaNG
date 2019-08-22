@@ -167,7 +167,7 @@
 
       <div class="col-xl-10 offset-xl-1">
           <button (click)="Cancelar()" class="btn btn-danger col-xl-6">Cancelar</button>
-          <button class="btn btn-success col-xl-6">Registrar</button>
+          <button [disabled]="!form.valid" class="btn btn-success col-xl-6">Registrar</button>
       </div>
 
   </form>
