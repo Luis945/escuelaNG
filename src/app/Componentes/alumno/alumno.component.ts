@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlumnoService } from 'src/app/Servicios/alumno.service';
+import { Alumno } from 'src/app/Modelos/alumno';
 
 @Component({
   selector: 'app-alumno',
@@ -12,17 +13,17 @@ export class AlumnoComponent implements OnInit {
    //Reactive forms
    form = new FormGroup({
 
-    Nombre: new FormControl('Jaime',
+    Nombre: new FormControl('',
     [
       Validators.required,
       Validators.minLength(3),
     ]),
-    Apellido_paterno: new FormControl('Medina',
+    Apellido_paterno: new FormControl('',
     [
       Validators.required,
       Validators.minLength(3),
     ]),
-    Apellido_materno: new FormControl('Burciaga',
+    Apellido_materno: new FormControl('',
     [
       Validators.required,
       Validators.minLength(3),
@@ -35,10 +36,10 @@ export class AlumnoComponent implements OnInit {
     [
       Validators.required
     ]),
-    Direccion: new FormControl('Arbolocos',[
+    Direccion: new FormControl('',[
       Validators.required
     ]),
-    Curp: new FormControl('MEBJ980702HCLDRM01',
+    Curp: new FormControl('',
     [
       Validators.required,
       Validators.pattern("[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}" +
@@ -48,14 +49,17 @@ export class AlumnoComponent implements OnInit {
       "[B-DF-HJ-NP-TV-Z]{3}" +
       "[0-9A-Z]{1}[0-9]{1}$"),
     ]),
-    nombre_padre_tutor: new FormControl('Jaime ',[
+    nombre_padre_tutor: new FormControl('',[
       Validators.required,
       Validators.minLength(3),
     ]),
-    telefono_padre_tutor: new FormControl('8713056861',[
+    telefono_padre_tutor: new FormControl('',[
       Validators.required
     ]),
   });
+
+  //Objeto Alumno
+  matricula:string;
 
   constructor(private _AlumnoService:AlumnoService) { }
 
@@ -64,22 +68,28 @@ export class AlumnoComponent implements OnInit {
 
   GuardarAlumno(){
     
-    var {Nombre, Apellido_paterno, Apellido_materno, Fecha_nacimiento,
-       Fotografia, Direccion, Telefono, Curp, nombre_padre_tutor,
-        telefono_padre_tutor}=this.form.value;
+    this.matricula="";
+    var {Nombre,
+      Apellido_paterno,
+      Apellido_materno,
+      Fecha_nacimiento,
+      Fotografia,
+      Direccion,
+      Curp,
+      nombre_padre_tutor,
+      telefono_padre_tutor}=this.form.value;
 
       var alumno={
         Nombre:Nombre,
-        Apellido_paterno:Apellido_paterno, 
-        Apellido_materno:Apellido_materno, 
-        Fecha_nacimiento:Fecha_nacimiento, 
-        Fotografia:Fotografia, 
-        Direccion:Direccion, 
-        Telefono:Telefono,
-        Curp:Curp, 
-        nombre_padre_tutor:nombre_padre_tutor, 
-        telefono_padre_tutor:telefono_padre_tutor,
-      }
+        Apellido_paterno:Apellido_paterno,
+        Apellido_materno:Apellido_materno,
+        Fecha_nacimiento:Fecha_nacimiento,
+        Fotografia:Fotografia,
+        Direccion:Direccion,
+        Curp:Curp,
+        nombre_padre_tutor:nombre_padre_tutor,
+        telefono_padre_tutor:telefono_padre_tutor
+      };
 
       this._AlumnoService.GuardarAlumno(alumno).subscribe(data=>{
         console.log(data)

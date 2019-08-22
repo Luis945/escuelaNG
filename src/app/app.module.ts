@@ -15,6 +15,7 @@ import { MateriaComponent } from './Componentes/materia/materia.component';
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
 import { AlumnoComponent } from './Componentes/alumno/alumno.component';
 import { CrearSalonComponent } from './Componentes/crear-salon/crear-salon.component';
+import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/registro-alumno.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CrearSalonComponent } from './Componentes/crear-salon/crear-salon.compo
     MateriaComponent,
     MenuComponent,
     CrearSalonComponent,
-    AlumnoComponent
+    AlumnoComponent,
+    RegistroAlumnoComponent
   ],
   imports: [
     BrowserModule,
