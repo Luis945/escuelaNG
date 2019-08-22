@@ -67,7 +67,6 @@ export class RegistroAlumnoComponent implements OnInit {
 
   GuardarAlumno(){
     
-    this.matricula="";
     var {Nombre,
       Apellido_paterno,
       Apellido_materno,
@@ -91,7 +90,7 @@ export class RegistroAlumnoComponent implements OnInit {
       };
 
       this._AlumnoService.GuardarAlumno(alumno).subscribe(data=>{
-        
+        console.log(alumno)
       })
 
   }

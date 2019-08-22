@@ -5,16 +5,23 @@ import { PruebaComponent } from './prueba/prueba.component';
 import { RegistroComponent } from './Componentes/registro/registro.component';
 import { MateriaComponent } from './Componentes/materia/materia.component';
 import { CrearSalonComponent } from './Componentes/crear-salon/crear-salon.component';
+import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/registro-alumno.component';
+import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumnos.component';
 import { AgregarSalonComponent } from './Componentes/agregar-salon/agregar-salon.component';
 import { MateriasPorsalonComponent } from './Componentes/materias-porsalon/materias-porsalon.component';
 import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos-porsalon.component';
 import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
+
 const routes: Routes = [
   { path:'login', component: LoginComponent },
   // { path:'login', component: RegistroComponent },
   { path:'prueba', component: PruebaComponent },  
   { path:'RegistroMateria', component:MateriaComponent},
   { path:'VerMaterias', component:MateriaVerComponent},
+  {path:'crear-salon', component:CrearSalonComponent},
+  /*---------Alumnos--------*/
+  {path:'RegistroAlumno',component:RegistroAlumnoComponent },
+  {path:'VerAlumnos',component:VerAlumnosComponent},
   {path:'menu-salones', component:CrearSalonComponent},
   {path: 'agregar-salones',component:AgregarSalonComponent},
   {path: 'vermaterias',component:MateriasPorsalonComponent},

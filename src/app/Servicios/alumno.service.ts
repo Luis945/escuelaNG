@@ -14,4 +14,8 @@ export class AlumnoService {
     return this.http.post('http://127.0.0.1:3333/'+'GuardarAlumno',alumno);
   }
 
+  VerAlumnos(){
+    return this.http.get<any>('http://127.0.0.1:3333/'+'VerAlumnos');
+  }
+
 }
