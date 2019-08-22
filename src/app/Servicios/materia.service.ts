@@ -10,6 +10,6 @@ export class MateriaService {
   constructor(private http: HttpClient) { }
 
   mandar(materia:Materia){
-    return this.http.post<any>(url.url_http+'materia/setMateria/',materia);
+    return this.http.post(url.url_http+'materia/setMateria/',materia);
   }
 }
