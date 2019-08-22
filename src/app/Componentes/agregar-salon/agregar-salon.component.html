@@ -30,7 +30,10 @@
                       </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Selecciona el maestro</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select  multiple class="form-control" id="exampleFormControlSelect1">
+                          <option>1</option>
+                          <option>1</option>
+                          <option>1</option>
                           <option>1</option>
                         </select>
                       </div>
@@ -62,7 +65,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Selecciona las materias</label>
                             <select style="height: 20rem" multiple class="form-control" id="exampleFormControlSelect2">
-                              <option *ngFor="let materia of materias" [value]="materia.id">{{materia.name}}</option>
+                              <option *ngFor="let materia of materias" [value]="materia._id">{{materia.materia_Nombre}}</option>
                             
                             </select>
                           </div>
