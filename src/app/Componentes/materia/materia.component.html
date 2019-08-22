@@ -74,9 +74,9 @@
         
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="materiaNueva">
       <div class="col-12 text-center ">
-        <button class="btn  btn-info text-center"> Agregar materia</button>
+        <button class="btn  btn-info text-center" (click)="mandarMateria()" > Agregar materia</button>
       </div>
     </div>
   </div>

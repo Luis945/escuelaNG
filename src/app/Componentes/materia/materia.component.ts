@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Materia } from 'src/app/Clases/materia';
 import { Unidad } from 'src/app/Clases/unidad';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MateriaService } from 'src/app/Servicios/materia.service';
 
 @Component({
@@ -13,17 +14,16 @@ export class MateriaComponent implements OnInit {
   constructor(private servicio:MateriaService) {
 
   }
+
   materiaNueva:Materia;
-  unidades:Array<Unidad>;
+  unidades:Array<Unidad>=new Array<Unidad>();
   materia_Nombre:string;
   Nombre_unidad:string;
   Num_unidad:number=1;
   Hora_de_unidad:number;
 
   ngOnInit() {
-    if(this.materiaNueva.unidades){
-      this.Num_unidad= this.materiaNueva.unidades.length+1;
-    }
+   
   }
 
   // Set new materia, for save it
@@ -59,9 +59,18 @@ export class MateriaComponent implements OnInit {
     if (index > -1) {
     this.materiaNueva.unidades.splice(index, 1);
     }
+    this.Hora_de_unidad=this.materiaNueva.unidades.length+1;
   }
   mandarMateria(){
-    this.servicio.mandar(this.materiaNueva);
+
+    this.servicio.mandar(this.materiaNueva).subscribe((data)=>{
+      alert(data['msg']);
+      this.materiaNueva=null;
+      this.materia_Nombre="";
+      this.Num_unidad=1;
+      this.Hora_de_unidad=1;
+      this.Nombre_unidad="";
+    });
   }
 
 }
