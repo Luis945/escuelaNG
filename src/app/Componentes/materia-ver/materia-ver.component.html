@@ -1,0 +1,32 @@
+
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              <th>Nombre de Materia</th>
+              <th>Unidades</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let materia of materias">
+              <td>{{materia.materia_Nombre}}</td>
+              <td>
+                <div class="dropdown">
+                  <button id="my-dropdown" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Text</button>
+                  <div class="dropdown-menu" aria-labelledby="my-dropdown">
+                    <a class="dropdown-item active" href="#">Text</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</section>

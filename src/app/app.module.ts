@@ -19,6 +19,7 @@ import { MateriasPorsalonComponent } from './Componentes/materias-porsalon/mater
 import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos-porsalon.component';
 import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/registro-alumno.component';
 import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumnos.component';
+import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumno
     MateriasPorsalonComponent,
     AlumnosPorsalonComponent,
     RegistroAlumnoComponent,
-    VerAlumnosComponent
+    VerAlumnosComponent,
+    MateriaVerComponent
   ],
   imports: [
     BrowserModule,

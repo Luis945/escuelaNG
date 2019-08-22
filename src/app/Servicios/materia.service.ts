@@ -12,4 +12,7 @@ export class MateriaService {
   mandar(materia:Materia){
     return this.http.post(url.url_http+'materia/setMateria/',materia);
   }
+  ver(){
+    return this.http.get(url.url_http+'materia/materias/');
+  }
 }
