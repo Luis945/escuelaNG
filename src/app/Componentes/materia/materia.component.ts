@@ -61,7 +61,7 @@ export class MateriaComponent implements OnInit {
     }
   }
   mandarMateria(){
-    
+    this.servicio.mandar(this.materiaNueva);
   }
 
 }
