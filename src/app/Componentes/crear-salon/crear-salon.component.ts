@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-salon',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearSalonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rutas :Router) { }
 
   ngOnInit() {
+  }
+  agregarsalon(){
+    this.rutas.navigate(['agregar-salones']);
+  }
+  veralumnos(){
+    this.rutas.navigate(['veralumnos']);
+  }
+  vermaterias(){
+    this.rutas.navigate(['vermaterias']);
   }
 
 }
