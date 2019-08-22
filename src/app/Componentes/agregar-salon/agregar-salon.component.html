@@ -52,7 +52,7 @@
                     <div class="col-4">   
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Seleciona los alumnos</label>
-                            <select style="height: 30rem" multiple class="form-control" id="exampleFormControlSelect2">
+                            <select style="height: 30rem"  multiple class="form-control" id="exampleFormControlSelect2">
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
@@ -64,7 +64,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Selecciona las materias</label>
-                            <select style="height: 20rem" multiple class="form-control" id="exampleFormControlSelect2">
+                            <select (change)="onChange($event.target.value)"  style="height: 20rem" multiple class="form-control" id="exampleFormControlSelect2">
                               <option *ngFor="let materia of materias" [value]="materia._id">{{materia.materia_Nombre}}</option>
                             
                             </select>

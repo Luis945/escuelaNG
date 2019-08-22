@@ -10,6 +10,7 @@ import { SalonService } from '../../Servicios/salon.service';
 export class AgregarSalonComponent implements OnInit {
 //reactive forms
 materias=[]
+arraymaterias:Array<any>;
 form = new FormGroup({
   grado: new FormControl('',
   [
@@ -28,6 +29,10 @@ form = new FormGroup({
 
   ngOnInit() {
    this.getMaterias();
+  }
+
+  onChange(deviceValue){
+    console.log(deviceValue);
   }
 
   getMaterias(){
