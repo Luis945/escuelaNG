@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { SalonService } from '../../Servicios/salon.service';
 
 @Component({
   selector: 'app-agregar-salon',
@@ -8,7 +9,8 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 })
 export class AgregarSalonComponent implements OnInit {
 //reactive forms
-materias=[{id:1,name:'Geografia'},{id:2,name:'Español'},{id:3,name:'Programacion'}]
+materias=[]
+arraymaterias:Array<any>;
 form = new FormGroup({
   grado: new FormControl('',
   [
@@ -21,10 +23,26 @@ form = new FormGroup({
   ])
 
 });
-  constructor() { }
+  constructor(private _Servicio:SalonService) {
+   
+   }
 
   ngOnInit() {
-    console.log(this.materias)
+   this.getMaterias();
+  }
+
+  onChange(deviceValue){
+    console.log(deviceValue);
+  }
+
+  getMaterias(){
+    this._Servicio.getmaterias().subscribe(response=>{
+      console.log(response);
+      this.materias=response.materias;
+    },
+    error=>{
+      console.log(JSON.stringify(error));
+    })
   }
 
 }

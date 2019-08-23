@@ -51,8 +51,8 @@ export class PruebaComponent implements OnInit {
       data: datos,
       columns: [
           {
-            data: "id",
-            title: "id",
+            data: "id", //esto se llama igual que la propiedad de los objetos
+            title: "id", //placeholder
           }, 
           {
             data: "first_name",
