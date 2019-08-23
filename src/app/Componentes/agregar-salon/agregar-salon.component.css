@@ -1,5 +1,5 @@
 .box-container {
-    background-color:#95E1FB;
+    background-color:white;
     padding: 2rem;
     box-shadow: 0rem 0rem 0.3rem rgba(45, 134, 236, 0.548);
     margin-bottom: 2rem;
@@ -23,3 +23,5 @@
     background-color: white;
     color: black
 }
+
+
