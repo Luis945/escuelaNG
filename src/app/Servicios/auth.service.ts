@@ -8,16 +8,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  // crearUser(nickname: string,  password: string) {
-
-  //   var data = {
-  //     nickname:nickname,
-  //     password: password
-  //   };
-
-  //   return this.http.post(this.root + 'registro', data);
-  // }
-
   root: string = 'http://127.0.0.1:3333/';
   flag: boolean = false;
 
