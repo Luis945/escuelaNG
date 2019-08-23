@@ -28,10 +28,8 @@ const routes: Routes = [
   /*---------Alumnos--------*/
   {path:'RegistroAlumno',component:RegistroAlumnoComponent },
   {path:'VerAlumnos',component:VerAlumnosComponent},
-  /*--------Maistros--------*/,
+  /*--------Maestro--------*/
   {path:'RegistroMaestro',component:RegistroMaestroComponent},
-
-  /*----------Maestro-----------*/
   { path:'calificar', component: CalificacionesComponent },
 ];
 
