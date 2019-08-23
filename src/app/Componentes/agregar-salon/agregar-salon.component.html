@@ -1,0 +1,79 @@
+<div>
+  <div class="col-12">
+    <div class="box-container">
+      <div class="box-container-form">
+          <form name="form" [(formGroup)]="form" (ngSubmit)="guardar($event)">
+            <!-- campos del formulario -->
+            <div class="row">
+              <div class="col-4">
+                  <div class="form-group" style="margin-top: 5%;">
+                      <label for="">Grado</label>
+                      <input type="text" class="form-control" placeholder=""
+                              formControlName="grado"
+                              [ngClass]="{'is-invalid': form.get('grado').touched && form.get('grado').invalid, 'is-valid': form.get('grado').touched && form.get('grado').valid}">
+                      <div class="invalid-feedback">
+                        <ul>
+                          <li>El grado es obligatorio.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 5%;">
+                        <label for="">Sección</label>
+                        <input type="text" class="form-control" placeholder=""
+                                formControlName="seccion"
+                                [ngClass]="{'is-invalid': form.get('seccion').touched && form.get('seccion').invalid, 'is-valid': form.get('seccion').touched && form.get('seccion').valid}">
+                        <div class="invalid-feedback">
+                          <ul>
+                            <li>La sección es obligatoria.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Selecciona el maestro</label>
+                        <select  multiple class="form-control" id="exampleFormControlSelect1">
+                          <option>1</option>
+                          <option>1</option>
+                          <option>1</option>
+                          <option>1</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleFormControlSelect1">Selecciona el año de inicio escolar</label>
+                          <select class="form-control" id="exampleFormControlSelect1">
+                            <option>2019</option>
+                            <option>2020</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                            <option>2023</option>
+    
+                          </select>
+                        </div>
+              </div>
+                    <div class="col-4">   
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">Seleciona los alumnos</label>
+                            <select style="height: 30rem"  multiple class="form-control" id="exampleFormControlSelect2">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">Selecciona las materias</label>
+                            <select (change)="onChange($event.target.value)"  style="height: 20rem" multiple class="form-control" id="exampleFormControlSelect2">
+                              <option *ngFor="let materia of materias" [value]="materia._id">{{materia.materia_Nombre}}</option>
+                            
+                            </select>
+                          </div>
+                    </div>
+                  </div>
+                <button type="submit" class="btn btn-primary otros">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

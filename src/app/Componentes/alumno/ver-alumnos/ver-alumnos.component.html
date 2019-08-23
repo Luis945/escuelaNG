@@ -1,0 +1,106 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Matricula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Ap. Paterno</th>
+      <th scope="col">Ap. Materno</th>
+      <th scope="col">Fecha Nac.</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Generación</th>
+      <th scope="col">Más Información</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-----FOR PARA DATOS PRIMARIOS------->
+    <tr *ngFor="let item of this.alumnos">
+      <th scope="row" style="font-size:0.9rem;">{{item.Matricula}}</th>
+      <td>{{item.Nombre}}</td>
+      <td>{{item.Apellido_paterno}}</td>
+      <td>{{item.Apellido_materno}}</td>
+      <td>{{item.Fecha_nacimiento}}</td>
+      <td>{{item.Direccion}}</td>
+      <td>{{item.Generacion}}</td>
+
+
+      <!-------MODAL,DATOS SECUNDARIOS Y EDITAR ALUMNO------->
+      <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Ver más
+        </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Información detallada de {{item.Nombre}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                  <div *ngFor="let item2 of this.item.Datos_secundarios">
+                      <form name="form" [(formGroup)]="form" (ngSubmit)="GuardarAlumno()">
+                          <div class="form-group">
+                              <label for="">Nombre(s)</label>
+                              <input type="text" class="form-control" 
+                                      placeholder="Ingrese su(s) Nombre(s)"
+                                      formControlName="Nombre"
+                                      [ngClass]="{'is-invalid': form.get('Nombre').touched 
+                                      && form.get('Nombre').invalid, 'is-valid': form.get('Nombre').touched 
+                                      && form.get('Nombre').valid}"
+                                      value="{{item2.Curp}}">
+                              <div class="invalid-feedback">
+                                  <ul>S
+                                      <li>El Nombre es obligatorio.</li>
+                                      <li>Mínimo debe contener 3 caracteres.</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </form>
+                      
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                          </div>
+                          <input type="text"  class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                          </div>
+                          <input type="text" value="{{item2.Curp}}" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">@</span>
+                            </div>
+                            <input type="text" value="{{item2.Curp}}" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                  </div>
+                    
+                        <p *ngFor="let item2 of this.item.Datos_secundarios">
+                        {{item2.Curp}}
+                        {{item2.nombre_padre_tutor}}
+                        {{item2.telefono_padre_tutor}}
+                        </p>  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </td>
+            
+     
+    </tr>
+  </tbody>
+</table>
+
+
