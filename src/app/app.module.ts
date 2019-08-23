@@ -11,7 +11,6 @@ import { LoginComponent } from './Componentes/login/login.component';
 import { PruebaComponent } from './prueba/prueba.component';
 import { RegistroComponent } from './Componentes/registro/registro.component';
 import { CalificacionesComponent } from './Componentes/calificaciones/calificaciones.component';
-import { MaestroComponent } from './Componentes/maestro/maestro.component';
 import { MateriaComponent } from './Componentes/materia/materia.component';
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
 import { CrearSalonComponent } from './Componentes/crear-salon/crear-salon.component';
@@ -21,6 +20,7 @@ import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos
 import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/registro-alumno.component';
 import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumnos.component';
 import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
+import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro/registro-maestro.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,6 @@ import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.compo
     PruebaComponent,
     RegistroComponent,
     CalificacionesComponent,
-    MaestroComponent,
     MateriaComponent,
     MenuComponent,
     CrearSalonComponent,
@@ -38,7 +37,8 @@ import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.compo
     AlumnosPorsalonComponent,
     RegistroAlumnoComponent,
     VerAlumnosComponent,
-    MateriaVerComponent
+    MateriaVerComponent,
+    RegistroMaestroComponent,
   ],
   imports: [
     BrowserModule,
