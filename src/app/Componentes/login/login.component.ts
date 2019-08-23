@@ -17,13 +17,13 @@ export class LoginComponent implements OnInit {
 
   //reactive forms
   form = new FormGroup({
-    matricula: new FormControl('',
+    matricula: new FormControl('XAXX010101000',
     [
       Validators.required,
       Validators.minLength(2),
       Validators.pattern("^[a-zA-Z0-9_]*$")
     ]),
-    curp: new FormControl('',
+    curp: new FormControl('XEXX010101HNEXXXA4 ',
     [
       Validators.required,
       Validators.minLength(6)
@@ -46,11 +46,17 @@ export class LoginComponent implements OnInit {
     var { matricula, curp } = this.form.value;
 
     this.service.login(matricula, curp).subscribe(res => {
+
+      debugger;
       localStorage.setItem('token', res.token);
-      this.router.navigate(['/chat']);
+      this.router.navigate(['/']);
     }, error => {
         //this.alerta.setMessage('Usuario o contraseña invalidos','error');
     });
+  }
+
+  logout() {
+    localStorage.clear();
   }
 
   buscando() {
@@ -58,7 +64,7 @@ export class LoginComponent implements OnInit {
     var obs = fromEvent(input, 'input');
 
     obs.pipe(
-      debounceTime(2000))
+      debounceTime(800))
     .subscribe((x) => {
       var matricula = x.target['value'];
       

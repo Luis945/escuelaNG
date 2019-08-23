@@ -44,7 +44,7 @@ export class MateriaComponent implements OnInit {
       var nuevo = new Unidad();
       nuevo.Nombre_unidad= this.Nombre_unidad;
       nuevo.Num_unidad= this.Num_unidad;
-      nuevo.Hora_de_unidad= this.Hora_de_unidad;
+      nuevo.Horas_de_unidad= this.Hora_de_unidad;
       
       this.materiaNueva.setUnidad(nuevo);
 
@@ -55,22 +55,34 @@ export class MateriaComponent implements OnInit {
   }
   borrarUnidad(unidad){
     //delete this.materiaNueva.unidades[numero-1]
-    const index = this.materiaNueva.unidades.indexOf(unidad, 0);
-    if (index > -1) {
-    this.materiaNueva.unidades.splice(index, 1);
-    }
-    this.Hora_de_unidad=this.materiaNueva.unidades.length+1;
+  
+    if (confirm("¿está seguro de borro ?")) {
+      const index = this.materiaNueva.unidades.indexOf(unidad, 0);
+      if (index > -1) {
+      this.materiaNueva.unidades.splice(index, 1);
+      }
+      this.Hora_de_unidad=this.materiaNueva.unidades.length+1;  
+
+   } else {
+
+   }
+
   }
   mandarMateria(){
+    if (confirm("¿está seguro de guardar ?")) {
+      this.servicio.mandar(this.materiaNueva).subscribe((data)=>{
+        alert(data['msg']);
+        this.materiaNueva=null;
+        this.materia_Nombre="";
+        this.Num_unidad=1;
+        this.Hora_de_unidad=1;
+        this.Nombre_unidad="";
+      });  
 
-    this.servicio.mandar(this.materiaNueva).subscribe((data)=>{
-      alert(data['msg']);
-      this.materiaNueva=null;
-      this.materia_Nombre="";
-      this.Num_unidad=1;
-      this.Hora_de_unidad=1;
-      this.Nombre_unidad="";
-    });
+   } else {
+
+   }
+ 
   }
 
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './Componentes/login/login.component';
 import { PruebaComponent } from './prueba/prueba.component';
+import { CalificacionesComponent } from './Componentes/calificaciones/calificaciones.component';
 import { RegistroComponent } from './Componentes/registro/registro.component';
 import { MateriaComponent } from './Componentes/materia/materia.component';
 import { CrearSalonComponent } from './Componentes/crear-salon/crear-salon.component';
@@ -25,7 +26,10 @@ const routes: Routes = [
   {path:'menu-salones', component:CrearSalonComponent},
   {path: 'agregar-salones',component:AgregarSalonComponent},
   {path: 'vermaterias',component:MateriasPorsalonComponent},
-  {path: 'veralumnos',component:AlumnosPorsalonComponent}
+  {path: 'veralumnos',component:AlumnosPorsalonComponent},
+
+  /*----------Maestro-----------*/
+  { path:'calificar', component: CalificacionesComponent },
 ];
 
 @NgModule({

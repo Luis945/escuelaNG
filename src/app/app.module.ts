@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Componentes/login/login.component';
 import { PruebaComponent } from './prueba/prueba.component';
 import { RegistroComponent } from './Componentes/registro/registro.component';
+import { CalificacionesComponent } from './Componentes/calificaciones/calificaciones.component';
 import { MaestroComponent } from './Componentes/maestro/maestro.component';
 import { MateriaComponent } from './Componentes/materia/materia.component';
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
@@ -27,6 +28,7 @@ import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.compo
     LoginComponent,
     PruebaComponent,
     RegistroComponent,
+    CalificacionesComponent,
     MaestroComponent,
     MateriaComponent,
     MenuComponent,

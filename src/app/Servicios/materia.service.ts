@@ -15,4 +15,10 @@ export class MateriaService {
   ver(){
     return this.http.get(url.url_http+'materia/materias/');
   }
+  // EDITAR Y ELIMINAR
+
+  eliminar(materia:Materia){
+    return this.http.delete(url.url_http+'materia/eliminar/'+materia['_id']);
+  }
+  
 }
