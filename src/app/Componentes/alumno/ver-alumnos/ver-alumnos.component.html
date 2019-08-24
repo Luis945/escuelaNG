@@ -14,7 +14,7 @@
   <tbody>
 
     <!-----FOR PARA DATOS PRIMARIOS------->
-    <tr *ngFor="let item of this.alumnos">
+    <tr *ngFor="let item of this.alumnos">       <!--  Hago un for para leer los contactos---->
       <th scope="row" style="font-size:0.9rem;">{{item.Matricula}}</th>
       <td>{{item.Nombre}}</td>
       <td>{{item.Apellido_paterno}}</td>
@@ -25,7 +25,7 @@
       <td>
           <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="Seleccionado(item)">
-            Ver más
+            Ver más                                                                                                                                 
         </button> 
       </td>
     </tr>
@@ -54,14 +54,9 @@
                     <input type="text" class="form-control" 
                             placeholder="Ingrese su(s) Nombre(s)"
                             formControlName="Nombre"
-                            [ngClass]="{'is-invalid': 
-                                        form.get('Nombre').touched 
-                                        && form.get('Nombre').invalid,
-                                        'is-valid': 
-                                        form.get('Nombre').touched 
-                                        && form.get('Nombre').valid}"
+                            [ngClass]="{}"
                                         required
-                            value="{{alumnosel.Nombre}}">
+                            [ngModel]="alumnosel.Nombre">
                     <div class="invalid-feedback">
                         <ul>
                             <li>El Nombre es obligatorio.</li>
@@ -70,15 +65,15 @@
                     </div>
                 </div>
 
+
+
                 <div class="form-group">
                     <label for="">Apellido Paterno</label>
                     <input type="text" class="form-control" 
                             placeholder="Ingrese su Apellido Paterno"
                             formControlName="Apellido_paterno"
-                            [ngClass]="{'is-invalid': form.get('Apellido_paterno').touched 
-                            && form.get('Apellido_paterno').invalid, 'is-valid': form.get('Apellido_paterno').touched 
-                            && form.get('Apellido_paterno').valid}"
-                            value="{{alumnosel.Apellido_paterno}}">
+                            [ngClass]="{}"
+                            [ngModel]="alumnosel.Apellido_paterno">
                     <div class="invalid-feedback">
                         <ul>
                             <li>El Apellido Paterno es obligatorio.</li>
@@ -92,9 +87,7 @@
                     <input type="text" class="form-control" 
                             placeholder="Ingrese su Apellido Materno"
                             formControlName="Apellido_materno"
-                            [ngClass]="{'is-invalid': form.get('Apellido_materno').touched 
-                            && form.get('Apellido_materno').invalid, 'is-valid': form.get('Apellido_materno').touched 
-                            && form.get('Apellido_materno').valid}"
+                            [ngClass]="{}"
                             value="{{alumnosel.Apellido_materno}}">
                     <div class="invalid-feedback">
                         <ul>
@@ -109,9 +102,7 @@
                     <input type="text" class="form-control" 
                             placeholder="Ingresa tu dirección"
                             formControlName="Direccion"
-                            [ngClass]="{'is-invalid': form.get('Direccion').touched 
-                            && form.get('Direccion').invalid, 'is-valid': form.get('Direccion').touched 
-                            && form.get('Direccion').valid}"
+                            [ngClass]="{}"
                             value="{{alumnosel.Direccion}}">
                     <div class="invalid-feedback">
                         <ul>
@@ -119,24 +110,7 @@
                             <li>Es necesario incluir Colonia, Calle y número.</li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" 
-                            placeholder="Ingrese su Fecha de Nacimiento"
-                            formControlName="Fecha_nacimiento"
-                            [ngClass]="{'is-invalid': form.get('Fecha_nacimiento').touched 
-                            && form.get('Fecha_nacimiento').invalid, 'is-valid': form.get('Fecha_nacimiento').touched 
-                            && form.get('Fecha_nacimiento').valid}"
-                            value="{{alumnosel.Fecha_nacimiento}}">
-                    <div class="invalid-feedback">
-                        <ul>
-                            <li>La Fecha de Nacimiento es obligatorio.</li>
-                            <li>Selecciona una fecha, por favor.</li>
-                        </ul>
-                    </div>
-                </div>    
+                </div>  
 
                 <!---------DATOS SECUNDARIOS------------>
                 
@@ -148,9 +122,7 @@
                                         <input type="text" class="form-control" 
                                                 placeholder="Ingresa tu CURP"
                                                 formControlName="Curp"
-                                                [ngClass]="{'is-invalid': form.get('Curp').touched 
-                                                && form.get('Curp').invalid, 'is-valid': form.get('Curp').touched 
-                                                && form.get('Curp').valid}"
+                                                [ngClass]="{}"
                                                 value="{{item2.Curp}}">
                                         <div class="invalid-feedback">
                                             <ul>
@@ -165,9 +137,7 @@
                                         <input type="text" class="form-control" 
                                                 placeholder="Ingresar Nombre"
                                                 formControlName="nombre_padre_tutor"
-                                                [ngClass]="{'is-invalid': form.get('nombre_padre_tutor').touched 
-                                                && form.get('nombre_padre_tutor').invalid, 'is-valid': form.get('nombre_padre_tutor').touched 
-                                                && form.get('nombre_padre_tutor').valid}"
+                                                [ngClass]="{}"
                                                 value="{{item2.nombre_padre_tutor}}">
                                         <div class="invalid-feedback">
                                             <ul>
@@ -182,9 +152,7 @@
                                         <input type="text" class="form-control" 
                                                 placeholder="Ingresa un Teléfono fijo o celular"
                                                 formControlName="telefono_padre_tutor"
-                                                [ngClass]="{'is-invalid': form.get('telefono_padre_tutor').touched 
-                                                && form.get('telefono_padre_tutor').invalid, 'is-valid': form.get('telefono_padre_tutor').touched 
-                                                && form.get('telefono_padre_tutor').valid}"
+                                                [ngClass]="{}"
                                                 value="{{item2.telefono_padre_tutor}}">
                                         <div class="invalid-feedback">
                                             <ul>
@@ -203,8 +171,8 @@
             </form>
         </div><!------MODAL BODY--------> 
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="CerrarModal()">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+            <button type="button" class="btn btn-primary" (click)="ActualizaAlumno()">Save changes</button>
         </div>
         </div>
     </div>
