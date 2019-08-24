@@ -13,4 +13,8 @@ export class MaestroService {
     return this.http.post(url.url_http+'RegistroMaestro',maestro);
   }
 
+  VerMaestros(){
+    return this.http.get<any>(url.url_http+'VerMaestros');
+  }
+
 }

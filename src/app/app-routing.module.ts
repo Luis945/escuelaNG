@@ -13,6 +13,7 @@ import { MateriasPorsalonComponent } from './Componentes/materias-porsalon/mater
 import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos-porsalon.component';
 import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
 import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro/registro-maestro.component';
+import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-maestros.component';
 
 const routes: Routes = [
   { path:'login', component: LoginComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   /*--------Maestro--------*/
   {path:'RegistroMaestro',component:RegistroMaestroComponent},
   { path:'calificar', component: CalificacionesComponent },
+  {path:'VerMaestros',component:VerMaestrosComponent},
 ];
 
 @NgModule({
