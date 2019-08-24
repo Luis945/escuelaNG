@@ -33,10 +33,6 @@ export class VerAlumnosComponent implements OnInit {
     [
       Validators.required,
     ]),
-    Fotografia: new FormControl('',
-    [
-      Validators.required
-    ]),
     Direccion: new FormControl('',[
       Validators.required
     ]),
@@ -70,6 +66,14 @@ export class VerAlumnosComponent implements OnInit {
     this._AlumnoService.VerAlumnos().subscribe(data=>{ 
       this.alumnos=data;
     })
+  }
+
+  alumnosel:any;
+  alumnosel2:any;
+  Seleccionado(item){
+    this.form.reset();
+    this.alumnosel=item;
+    this.alumnosel2=item['Datos_secundarios']
   }
 
 }

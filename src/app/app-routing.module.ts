@@ -12,6 +12,7 @@ import { AgregarSalonComponent } from './Componentes/agregar-salon/agregar-salon
 import { MateriasPorsalonComponent } from './Componentes/materias-porsalon/materias-porsalon.component';
 import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos-porsalon.component';
 import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
+import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro/registro-maestro.component';
 
 const routes: Routes = [
   { path:'login', component: LoginComponent },
@@ -20,15 +21,15 @@ const routes: Routes = [
   { path:'RegistroMateria', component:MateriaComponent},
   { path:'VerMaterias', component:MateriaVerComponent},
   {path:'crear-salon', component:CrearSalonComponent},
-  /*---------Alumnos--------*/
-  {path:'RegistroAlumno',component:RegistroAlumnoComponent },
-  {path:'VerAlumnos',component:VerAlumnosComponent},
   {path:'menu-salones', component:CrearSalonComponent},
   {path: 'agregar-salones',component:AgregarSalonComponent},
   {path: 'vermaterias',component:MateriasPorsalonComponent},
   {path: 'veralumnos',component:AlumnosPorsalonComponent},
-
-  /*----------Maestro-----------*/
+  /*---------Alumnos--------*/
+  {path:'RegistroAlumno',component:RegistroAlumnoComponent },
+  {path:'VerAlumnos',component:VerAlumnosComponent},
+  /*--------Maestro--------*/
+  {path:'RegistroMaestro',component:RegistroMaestroComponent},
   { path:'calificar', component: CalificacionesComponent },
 ];
 

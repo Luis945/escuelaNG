@@ -22,85 +22,190 @@
       <td>{{item.Fecha_nacimiento}}</td>
       <td>{{item.Direccion}}</td>
       <td>{{item.Generacion}}</td>
-
-
-      <!-------MODAL,DATOS SECUNDARIOS Y EDITAR ALUMNO------->
       <td>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="Seleccionado(item)">
             Ver más
-        </button>
-          
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Información detallada de {{item.Nombre}}</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-
-                  <div *ngFor="let item2 of this.item.Datos_secundarios">
-                      <form name="form" [(formGroup)]="form" (ngSubmit)="GuardarAlumno()">
-                          <div class="form-group">
-                              <label for="">Nombre(s)</label>
-                              <input type="text" class="form-control" 
-                                      placeholder="Ingrese su(s) Nombre(s)"
-                                      formControlName="Nombre"
-                                      [ngClass]="{'is-invalid': form.get('Nombre').touched 
-                                      && form.get('Nombre').invalid, 'is-valid': form.get('Nombre').touched 
-                                      && form.get('Nombre').valid}"
-                                      value="{{item2.Curp}}">
-                              <div class="invalid-feedback">
-                                  <ul>S
-                                      <li>El Nombre es obligatorio.</li>
-                                      <li>Mínimo debe contener 3 caracteres.</li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </form>
-                      
-                      <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                          </div>
-                          <input type="text"  class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                          </div>
-                          <input type="text" value="{{item2.Curp}}" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1">@</span>
-                            </div>
-                            <input type="text" value="{{item2.Curp}}" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                          </div>
-                  </div>
-                    
-                        <p *ngFor="let item2 of this.item.Datos_secundarios">
-                        {{item2.Curp}}
-                        {{item2.nombre_padre_tutor}}
-                        {{item2.telefono_padre_tutor}}
-                        </p>  
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-          </div>
-        </div>
+        </button> 
       </td>
-            
-     
     </tr>
   </tbody>
 </table>
 
 
+<!-- Modal -->
+<div *ngIf="this.alumnosel" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Información detallada de {{alumnosel.Nombre}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!------MODAL BODY-------->
+        <div class="modal-body" style="overflow:auto;" >
+
+            <!-----FORM----->
+            <form name="form" [(formGroup)]="form" (ngSubmit)="GuardarAlumno()">
+                
+                <div class="form-group">
+                    <label for="">Nombre(s)</label>
+                    <input type="text" class="form-control" 
+                            placeholder="Ingrese su(s) Nombre(s)"
+                            formControlName="Nombre"
+                            [ngClass]="{'is-invalid': 
+                                        form.get('Nombre').touched 
+                                        && form.get('Nombre').invalid,
+                                        'is-valid': 
+                                        form.get('Nombre').touched 
+                                        && form.get('Nombre').valid}"
+                                        required
+                            value="{{alumnosel.Nombre}}">
+                    <div class="invalid-feedback">
+                        <ul>
+                            <li>El Nombre es obligatorio.</li>
+                            <li>Mínimo debe contener 3 caracteres.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Apellido Paterno</label>
+                    <input type="text" class="form-control" 
+                            placeholder="Ingrese su Apellido Paterno"
+                            formControlName="Apellido_paterno"
+                            [ngClass]="{'is-invalid': form.get('Apellido_paterno').touched 
+                            && form.get('Apellido_paterno').invalid, 'is-valid': form.get('Apellido_paterno').touched 
+                            && form.get('Apellido_paterno').valid}"
+                            value="{{alumnosel.Apellido_paterno}}">
+                    <div class="invalid-feedback">
+                        <ul>
+                            <li>El Apellido Paterno es obligatorio.</li>
+                            <li>Mínimo debe contener 3 caracteres.</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="">Apellido Materno</label>
+                    <input type="text" class="form-control" 
+                            placeholder="Ingrese su Apellido Materno"
+                            formControlName="Apellido_materno"
+                            [ngClass]="{'is-invalid': form.get('Apellido_materno').touched 
+                            && form.get('Apellido_materno').invalid, 'is-valid': form.get('Apellido_materno').touched 
+                            && form.get('Apellido_materno').valid}"
+                            value="{{alumnosel.Apellido_materno}}">
+                    <div class="invalid-feedback">
+                        <ul>
+                            <li>El Apellido Materno es obligatorio.</li>
+                            <li>Mínimo debe contener 3 caracteres.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Dirección</label>
+                    <input type="text" class="form-control" 
+                            placeholder="Ingresa tu dirección"
+                            formControlName="Direccion"
+                            [ngClass]="{'is-invalid': form.get('Direccion').touched 
+                            && form.get('Direccion').invalid, 'is-valid': form.get('Direccion').touched 
+                            && form.get('Direccion').valid}"
+                            value="{{alumnosel.Direccion}}">
+                    <div class="invalid-feedback">
+                        <ul>
+                            <li>La Dirección es obligatoria.</li>
+                            <li>Es necesario incluir Colonia, Calle y número.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" 
+                            placeholder="Ingrese su Fecha de Nacimiento"
+                            formControlName="Fecha_nacimiento"
+                            [ngClass]="{'is-invalid': form.get('Fecha_nacimiento').touched 
+                            && form.get('Fecha_nacimiento').invalid, 'is-valid': form.get('Fecha_nacimiento').touched 
+                            && form.get('Fecha_nacimiento').valid}"
+                            value="{{alumnosel.Fecha_nacimiento}}">
+                    <div class="invalid-feedback">
+                        <ul>
+                            <li>La Fecha de Nacimiento es obligatorio.</li>
+                            <li>Selecciona una fecha, por favor.</li>
+                        </ul>
+                    </div>
+                </div>    
+
+                <!---------DATOS SECUNDARIOS------------>
+                
+                    <div class="datossecundarios">
+
+                        <div *ngFor="let item2 of alumnosel2">
+                                <div class="form-group">
+                                        <label for="">CURP</label>
+                                        <input type="text" class="form-control" 
+                                                placeholder="Ingresa tu CURP"
+                                                formControlName="Curp"
+                                                [ngClass]="{'is-invalid': form.get('Curp').touched 
+                                                && form.get('Curp').invalid, 'is-valid': form.get('Curp').touched 
+                                                && form.get('Curp').valid}"
+                                                value="{{item2.Curp}}">
+                                        <div class="invalid-feedback">
+                                            <ul>
+                                                <li>El CURP es obligatorio.</li>
+                                                <li>Es necesario tu CURP.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+            
+                                    <div class="form-group">
+                                        <label for="">Nombre del Padre o Tutor Legal</label>
+                                        <input type="text" class="form-control" 
+                                                placeholder="Ingresar Nombre"
+                                                formControlName="nombre_padre_tutor"
+                                                [ngClass]="{'is-invalid': form.get('nombre_padre_tutor').touched 
+                                                && form.get('nombre_padre_tutor').invalid, 'is-valid': form.get('nombre_padre_tutor').touched 
+                                                && form.get('nombre_padre_tutor').valid}"
+                                                value="{{item2.nombre_padre_tutor}}">
+                                        <div class="invalid-feedback">
+                                            <ul>
+                                                <li>El nombre del Padre o Tutor es obligatorio.</li>
+                                                <li>Mínimo deben ser 3 caracteres.</li>
+                                            </ul>
+                                        </div>
+                                    </div>    
+                                        
+                                    <div class="form-group">
+                                        <label for="">Teléfono del Padre o Tutor Legal</label>
+                                        <input type="text" class="form-control" 
+                                                placeholder="Ingresa un Teléfono fijo o celular"
+                                                formControlName="telefono_padre_tutor"
+                                                [ngClass]="{'is-invalid': form.get('telefono_padre_tutor').touched 
+                                                && form.get('telefono_padre_tutor').invalid, 'is-valid': form.get('telefono_padre_tutor').touched 
+                                                && form.get('telefono_padre_tutor').valid}"
+                                                value="{{item2.telefono_padre_tutor}}">
+                                        <div class="invalid-feedback">
+                                            <ul>
+                                                <li>El número telefónico es obligatorio.</li>
+                                                <li>Mínimo deben ser 8 caracteres</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                        </div>
+
+                        
+
+                    </div><!-----DATOS SECUNDARIOS------>
+                
+                
+            </form>
+        </div><!------MODAL BODY--------> 
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="CerrarModal()">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+</div>
