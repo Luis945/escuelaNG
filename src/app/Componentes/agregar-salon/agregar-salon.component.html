@@ -30,11 +30,8 @@
                       </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Selecciona el maestro</label>
-                        <select  multiple class="form-control" id="exampleFormControlSelect1">
-                          <option>1</option>
-                          <option>1</option>
-                          <option>1</option>
-                          <option>1</option>
+                        <select formControlName="maestro"  class="form-control" id="exampleFormControlSelect1">
+                          <option [value]="maestro._id" *ngFor="let maestro of maestros" >{{maestro.Nombre}} {{maestro.Apellido_paterno}}</option>
                         </select>
                       </div>
                       <div class="form-group" style="margin-top: 5%;">
@@ -52,17 +49,16 @@
                     <div class="col-4">   
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Seleciona los alumnos</label>
-                            <select (change)="onChangeAl($event.target.value)"  style="height: 30rem"  multiple class="form-control" >
-                              <option  *ngFor="let alumno of alumnos" [value]="alumno._id">{{alumno.Nombre}}</option>
+                            <select  style="height: 30rem"  multiple class="form-control" >
+                              <option (click)="clickopcionalumno(alumno)" *ngFor="let alumno of alumnos" [value]="alumno">{{alumno.Nombre}} {{alumno.Apellido_paterno}}</option>
                             </select>
                           </div>
                     </div>
                     <div class="col-4">
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Selecciona las materias</label>
-                            <select (change)="onChange($event.target.value)"  style="height: 20rem" multiple class="form-control" id="selectmaterias">
-                              <option class="border-s" *ngFor="let materia of materias" [value]="materia._id">{{materia.materia_Nombre}}</option>
-                            
+                            <select   style="height: 20rem" multiple class="form-control" id="selectmaterias">
+                              <option  (click)="clickopcionmateria(materia)" class="border-s" *ngFor="let materia of materias" [value]="materia">{{materia.materia_Nombre}}</option>
                             </select>
                           </div>
                     </div>

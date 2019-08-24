@@ -5,16 +5,18 @@ export class Grupo {
     id: String;
     Grado: String;
     Seccion: String;
-    ciclo:String;
+    Ciclo:String;
+    Maestro:String;
     Alumnos:Array<Alumno>;
     Materias:Array<Materia>;
 
 
     
-    constructor(grado: String, seccion: String,ciclo: String) {
+    constructor(grado: String, seccion: String,ciclo: String,maestro:String) {
         this.Grado = grado;
         this.Seccion =seccion;
-        this.ciclo=ciclo;
+        this.Ciclo=ciclo;
+        this.Maestro=maestro;
         this.Alumnos= new Array<Alumno>();
         this.Materias= new  Array<Materia>();
     }

@@ -21,6 +21,7 @@ import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/re
 import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumnos.component';
 import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
 import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro/registro-maestro.component';
+import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-maestros.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro
     VerAlumnosComponent,
     MateriaVerComponent,
     RegistroMaestroComponent,
+    VerMaestrosComponent,
   ],
   imports: [
     BrowserModule,
