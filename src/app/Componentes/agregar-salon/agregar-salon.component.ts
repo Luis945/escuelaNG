@@ -17,6 +17,7 @@ materias:Array<Materia>= new Array();
 alumnos:Array<Alumno>= new Array();
 arraymaterias:Array<Materia>= new Array();
 arrayalumnos:Array<Alumno>= new Array();
+maestros:Array<any>=new Array();
 Gruponuevo:Grupo;
 form = new FormGroup({
   grado: new FormControl('',
@@ -32,7 +33,13 @@ form = new FormGroup({
   [
     Validators.required
   ]
+  ),
+  maestro: new FormControl('',
+  [
+    Validators.required
+  ]
   )
+
 
 });
   constructor(private _Servicio:SalonService,private rutas :Router) {
@@ -40,7 +47,7 @@ form = new FormGroup({
    }
    guardar(){
 
-    this.Gruponuevo = new Grupo(this.form.value.grado,this.form.value.seccion,this.form.value.ciclo);
+    this.Gruponuevo = new Grupo(this.form.value.grado,this.form.value.seccion,this.form.value.ciclo,this.form.value.maestro);
     this.Gruponuevo.setMateria(this.arraymaterias);
     this.Gruponuevo.setAlumno(this.arrayalumnos);
 
@@ -64,13 +71,30 @@ form = new FormGroup({
   ngOnInit() {
    this.getMaterias();
    this.getAlumnos();
+   this.getMaestros();
+  }
+  clickopcionalumno(alumno:Alumno){
+    if ( this.arrayalumnos.includes( alumno ) ) {
+      alert('Ya has seleccionado este alumno')
+      console.log('existe')
+      console.log(this.arrayalumnos)
+
+  }
+    else{
+      alert('Has agregado a este alumno a tu selección')
+      console.log(this.arrayalumnos)
+      this.arrayalumnos.push(alumno);
+    }
+    //console.log(alumno);
+     
+  }
+  clickopcionmateria(materia:Materia){
+    //console.log(alumno);
+     this.arraymaterias.push(materia);
+     console.log(this.arraymaterias)
   }
 
-  onChange(deviceValue){
-    this.arraymaterias.push(deviceValue)
-    console.log(this.arraymaterias);
-
-  }
+ 
   onChangeAl(deviceValue){
     this.arrayalumnos.push(deviceValue)
     console.log(this.arrayalumnos);
@@ -94,6 +118,12 @@ form = new FormGroup({
     error=>{
       console.log(JSON.stringify(error));
     })
+  }
+  getMaestros(){
+    this._Servicio.getMaestros().subscribe(response=>{
+      console.log(response)
+      this.maestros=response;
+    });
   }
 
 }
