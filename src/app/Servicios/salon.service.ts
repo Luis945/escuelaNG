@@ -21,4 +21,11 @@ export class SalonService {
     console.log('entro');
     return this.http.post<any>(url.url_http+'creargrupo',grupo);
   }
+
+  getsalones(){
+    return this.http.get<any>(url.url_http+'versalones');
+  }
+  getMaestros(){
+    return this.http.get<any>(url.url_http+'vermaestros');
+  }
 }

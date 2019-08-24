@@ -29,11 +29,11 @@
               </tr>
           </thead>
           <tbody>
-              <tr class="hover-chido">
-                  <th scope="row" class="t-subtitles">1</th>
-                  <td>A</td>
-                  <td>Benito Tocamelas</td>
-                  <td>Enero-Abril</td>
+              <tr *ngFor="let grupo of grupos" class="hover-chido">
+                  <th scope="row" class="t-subtitles">{{grupo.Grado}}°</th>
+                  <td>{{grupo.Seccion}}</td>
+                  <td>{{grupo.Maestro.Nombre}} {{grupo.Maestro.Apellido_paterno}}</td>
+                  <td>{{grupo.Ciclo}}</td>
                   <td><button class="btn btn-primary otros" (click)="vermaterias()">Ver materias</button></td>
                   <td><button class="btn btn-primary otros"(click)="veralumnos()">Ver alumnos</button></td>
                   <td><button class="btn btn-primary otros">Editar</button></td>
