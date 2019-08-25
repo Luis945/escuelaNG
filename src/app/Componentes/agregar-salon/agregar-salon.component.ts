@@ -5,6 +5,7 @@ import { Materia } from 'src/app/Clases/materia';
 import { Alumno } from 'src/app/Modelos/alumno';
 import { Grupo } from 'src/app/Clases/grupo';
 import { Router } from '@angular/router';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-agregar-salon',
@@ -42,7 +43,7 @@ form = new FormGroup({
 
 
 });
-  constructor(private _Servicio:SalonService,private rutas :Router) {
+  constructor(private _Servicio:SalonService,private rutas :Router,private alertService: AlertService) {
    
    }
    guardar(){
@@ -55,8 +56,9 @@ form = new FormGroup({
     console.log(this.Gruponuevo);
     this._Servicio.creargrupo(this.Gruponuevo).subscribe(response=>{
       console.log(response);
-      // this.form.reset();
-      // this.rutas.navigate(['menu-salones']);
+      this.form.reset();
+      this.rutas.navigate(['menu-salones']);
+      
     
 
       
@@ -72,26 +74,50 @@ form = new FormGroup({
    this.getMaterias();
    this.getAlumnos();
    this.getMaestros();
+   this.alertService.info('Ingresa la información que se te pide');
+  }
+  clicktablamaterias(indice){
+    this.arraymaterias.splice(indice, 1);
+    this.alertService.danger('Selección eliminada');
+  }
+  clicktablaalumnos(indice){
+    this.arrayalumnos.splice(indice, 1);
+    this.alertService.danger('Selección eliminada');
   }
   clickopcionalumno(alumno:Alumno){
     if ( this.arrayalumnos.includes( alumno ) ) {
-      alert('Ya has seleccionado este alumno')
-      console.log('existe')
-      console.log(this.arrayalumnos)
+     // alert('Ya has seleccionado este alumno')
+     this.alertService.warning('Ya has seleccionado a este alumno');
+  }
+    else{
+      //alert('Has agregado a este alumno a tu selección')
+      if(this.arrayalumnos.length==10){
+        this.alertService.warning('Unicamente se permiten 15 alumnos por salon');
+      }
+      else{
+        this.arrayalumnos.push(alumno);
+        this.alertService.success('Has agregado a este alumno a tu selección');
+      }
+    }
+  }
+  clickopcionmateria(materia:Materia){
+    if ( this.arraymaterias.includes( materia ) ) {
+      this.alertService.warning('Ya has seleccionado esta materia');
+      
+      console.log(this.arraymaterias)
 
   }
     else{
-      alert('Has agregado a este alumno a tu selección')
-      console.log(this.arrayalumnos)
-      this.arrayalumnos.push(alumno);
-    }
-    //console.log(alumno);
+      if(this.arraymaterias.length==9){
+        this.alertService.warning('Unicamente se permiten 9 materias por salon');
+      }
+      else{
+        this.arraymaterias.push(materia);
+        this.alertService.success('Has agregado a esta materia a tu selección');
+      }
+      
      
-  }
-  clickopcionmateria(materia:Materia){
-    //console.log(alumno);
-     this.arraymaterias.push(materia);
-     console.log(this.arraymaterias)
+    }
   }
 
  
