@@ -48,8 +48,8 @@ form = new FormGroup({
     console.log(this.Gruponuevo);
     this._Servicio.creargrupo(this.Gruponuevo).subscribe(response=>{
       console.log(response);
-      this.form.reset();
-      this.rutas.navigate(['menu-salones']);
+      // this.form.reset();
+      // this.rutas.navigate(['menu-salones']);
     
 
       
