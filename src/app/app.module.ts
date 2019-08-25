@@ -4,7 +4,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AlertModule } from 'ngx-alerts';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Componentes/login/login.component';
@@ -43,12 +44,14 @@ import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-mae
     VerMaestrosComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     DataTablesModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    AlertModule.forRoot({maxMessages: 5, timeout: 3000, position: 'left'})
   ],
   providers: [],
   bootstrap: [AppComponent]

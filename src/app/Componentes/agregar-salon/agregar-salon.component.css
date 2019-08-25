@@ -8,20 +8,70 @@
 }
 
 .btn {
-
     font-size: .9rem;
     padding-top: 0.7rem;
     padding-bottom: .7rem;
     outline: transparent !important;
     transition: .4s;
     background-color: #95E1FB;
-    width: 200px;
+    width: 100%;
     color:black
 }
 
 .otros:hover{
-    background-color: white;
-    color: black
+    background-color:white;
+    color: black;
+    
 }
+
+.t-header {
+    background-color:white
+  
+}
+
+.t-header:hover{
+    background-color:#95E1FB;
+  
+}
+
+
+.hover-chido:hover { 
+    background-color:#FD857F;
+    transform: scale(1.02);
+    color: black
+  }
+.borde{
+    
+    font-size: 8px;
+}
+
+body{
+    background-color: #95E1FB
+}
+
+#tablascroll {
+    overflow:scroll;
+    height:23rem;
+     width:500px;
+    
+}
+#tablascroll table {
+    width:345px;
+    
+}
+.form-control{
+    outline: transparent !important;
+  border-color: #95E1FB;
+}
+
+label{
+    font-family: 'Poppins', 'sans-serif'!important;
+  color: black
+}
+
+
+
+
+
 
 
