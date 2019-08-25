@@ -16,19 +16,19 @@ export class MateriaVerComponent implements OnInit {
 
     this.servicio.ver().subscribe((data)=>{
       this.materias=data['materias'];
-      
+
     });
 
    }
 
   ngOnInit() {
   }
-  
+
   public editar(obtenido:Materia){
     this.obtener_editar= obtenido;
-    
+    console.log(this.obtener_editar);
   }
-  public eliminar(materia:Materia){ 
+  public eliminar(materia:Materia){
     if (confirm("¿está seguro de borrar ?")) {
        this.servicio.eliminar(materia).subscribe((data)=>{
        this.materias=data['materias'];
@@ -37,6 +37,6 @@ export class MateriaVerComponent implements OnInit {
     } else {
 
     }
-  
+
   }
 }

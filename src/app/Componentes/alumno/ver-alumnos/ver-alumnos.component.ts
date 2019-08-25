@@ -11,6 +11,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class VerAlumnosComponent implements OnInit {
 
+  $:any;
+
   //Reactive forms
   form = new FormGroup({
 
@@ -28,10 +30,6 @@ export class VerAlumnosComponent implements OnInit {
     [
       Validators.required,
       Validators.minLength(3),
-    ]),
-    Fecha_nacimiento: new FormControl('',
-    [
-      Validators.required,
     ]),
     Direccion: new FormControl('',[
       Validators.required
@@ -68,12 +66,45 @@ export class VerAlumnosComponent implements OnInit {
     })
   }
 
-  alumnosel:any;
-  alumnosel2:any;
+  alumnosel:any;     ////Alumno Seleccionado es igual al ruco que agarré
+  alumnosel2:any;     ///Alumno Seleccionado 2 es el mismo ruco solo que estoy usando mongoDb
+                      ////y uso otra variable para poder obtener el arreglo dentro del objeto
+
   Seleccionado(item){
-    this.form.reset();
-    this.alumnosel=item;
+    this.alumnosel=item;  //Item es igual 
     this.alumnosel2=item['Datos_secundarios']
+  }
+
+  _id:string;
+  ActualizaAlumno(){
+
+    this._id=this.alumnosel.Matricula;
+
+    var {Nombre,
+      Apellido_paterno,
+      Apellido_materno,
+      Direccion,
+      Curp,
+      nombre_padre_tutor,
+      telefono_padre_tutor}=this.form.value;
+
+    var alumno={
+      _id:this._id,
+      Nombre:Nombre,
+      Apellido_paterno:Apellido_paterno,
+      Apellido_materno:Apellido_materno,
+      Direccion:Direccion,
+      Curp:Curp,
+      nombre_padre_tutor:nombre_padre_tutor,
+      telefono_padre_tutor:telefono_padre_tutor
+    };
+
+    console.log(alumno);
+
+    this._AlumnoService.ActualizaAlumno(alumno).subscribe(data=>{
+      console.log(data);
+    });
+
   }
 
 }
