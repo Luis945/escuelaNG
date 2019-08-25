@@ -1,13 +1,17 @@
 <div>
+  <ngx-alerts></ngx-alerts>
   <div class="col-12">
     <div class="box-container">
       <div class="box-container-form">
+        <div class="container-header">
+          <p><strong>Crea un salon</strong></p>
+        </div>
           <form name="form" [(formGroup)]="form" (ngSubmit)="guardar()">
             <!-- campos del formulario -->
             <div class="row">
               <div class="col-4">
                   <div class="form-group" style="margin-top: 5%;">
-                      <label for="">Grado</label>
+                      <label  for="">Grado</label>
                       <input type="text" class="form-control"  placeholder=""
                               formControlName="grado"
                               [ngClass]="{'is-invalid': form.get('grado').touched && form.get('grado').invalid, 'is-valid': form.get('grado').touched && form.get('grado').valid}">
@@ -49,11 +53,29 @@
                     <div class="col-4">   
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Seleciona los alumnos</label>
-                            <select  style="height: 30rem"  multiple class="form-control" >
+                            <select  style="height: 20rem"  multiple class="form-control" >
                               <option (click)="clickopcionalumno(alumno)" *ngFor="let alumno of alumnos" [value]="alumno">{{alumno.Nombre}} {{alumno.Apellido_paterno}}</option>
                             </select>
                           </div>
                     </div>
+                    <div id="tablascroll"  class="col-4">
+                      <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="t-header">Alumno seleccionado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let alumno of arrayalumnos;let indice=index" (click)="clicktablaalumnos(indice)"> 
+                                <th  scope="row" class="hover-chido borde">{{alumno.Nombre}}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div class="col-4">
+                        <button [disabled]="!form.valid" style="margin-top: 19rem;" type="submit" class="btn btn-primary otros">Guardar</button>
+                    </div>
+                    
                     <div class="col-4">
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Selecciona las materias</label>
@@ -62,8 +84,23 @@
                             </select>
                           </div>
                     </div>
+                    <div id="tablascroll" class="col-4">
+                      <table  class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="t-header">Materia seleccionada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let materia of arraymaterias;let indice=index" (click)="clicktablamaterias(indice)" >
+                                <th scope="row" class="hover-chido borde">{{materia.materia_Nombre}}</th>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    </div>
                   </div>
-                <button [disabled]="!form.valid" type="submit" class="btn btn-primary otros">Guardar</button>
+                
           </form>
         </div>
       </div>

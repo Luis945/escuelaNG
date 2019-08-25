@@ -27,18 +27,18 @@
                       <td>{{unidad.Num_unidad}}</td>
                       <td>{{unidad.Nombre_unidad}}</td>
                       <td>{{unidad.Horas_de_unidad}}</td>
-                     
+
                      </tr>
 
                   </tbody>
-                </table>    
+                </table>
               </td>
               <td>
                   <button class="btn btn-block btn-primary" (click)="editar(this.materia)" data-toggle="modal" data-target="#editar-modal" >Editar</button>
                   <button class=" btn-danger btn-block" (click)="eliminar(this.materia)">Eliminar</button>
                 </td>
             </tr>
-           
+
           </tbody>
         </table>
         <div id="editar-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -52,7 +52,12 @@
               </div>
 
               <div class="modal-body">
-
+                  <form >
+                    <div class="form-group">
+                      <label for="">Nombre de materia</label>
+                      <!-- <input type="text" value="{{ this.obtener_editar.materia_Nombre }}"> -->
+                    </div>
+                  </form>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
