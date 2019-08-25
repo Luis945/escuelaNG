@@ -14,7 +14,7 @@ export class SalonService {
     return this.http.get<any>(url.url_http+'materia/getMaterias/nombre');
   }
   getalumnos(){
-    return this.http.get<any>(url.url_http+'VerAlumnos');
+    return this.http.get<any>(url.url_http+'VerAlumnos_octa');
   }
   creargrupo(grupo:Grupo){
    
@@ -27,5 +27,9 @@ export class SalonService {
   }
   getMaestros(){
     return this.http.get<any>(url.url_http+'vermaestros');
+  }
+
+  eliminarSalon(id:String){
+    return this.http.delete<any>(url.url_http+'eliminargrupo/'+id);
   }
 }

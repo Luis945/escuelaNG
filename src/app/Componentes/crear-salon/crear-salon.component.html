@@ -34,13 +34,123 @@
                   <td>{{grupo.Seccion}}</td>
                   <td>{{grupo.Maestro.Nombre}} {{grupo.Maestro.Apellido_paterno}}</td>
                   <td>{{grupo.Ciclo}}</td>
-                  <td><button class="btn btn-primary otros" (click)="vermaterias()">Ver materias</button></td>
-                  <td><button class="btn btn-primary otros"(click)="veralumnos()">Ver alumnos</button></td>
-                  <td><button class="btn btn-primary otros">Editar</button></td>
-                  <td><button class="btn btn-primary eliminar">Eliminar</button></td>
+                  <td><button type="button" class="btn btn-primary otros" data-toggle="modal" data-target="#exampleModal" (click)="seleccionado(grupo.Materias)">
+                     Ver materias                                                                                                                    
+                  </button></td>
+                  <td><button type="button" class="btn btn-primary otros" data-toggle="modal" data-target="#exampleModal1" (click)="seleccionadoal(grupo.Alumnos)">
+                      Ver Alumnos                                                                                                                   
+                   </button></td>
+                  <td><button type="button" class="btn btn-primary otros" data-toggle="modal" data-target="#exampleModal1">
+                      Editar                                                                                                               
+                   </button></td>
+                  <td><button type="button" class="btn btn-primary eliminar" data-toggle="modal" data-target="#exampleModal2" (click)="eliminado(grupo._id)">
+                      Eliminar                                                                                                                 
+                   </button></td>
               </tr>
           </tbody>
       </table>
  </div>
   </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Materias asignadas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!------MODAL BODY-------->
+        <div class="modal-body" style="overflow:auto;" >
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Nombre de la materia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let materia of arraymaterias">      
+                    <td>{{materia.materia_Nombre}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div><!------MODAL BODY--------> 
+        <div class="modal-footer">
+           
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Alumnos asignados</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!------MODAL BODY-------->
+        <div class="modal-body" style="overflow:auto;" >
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                      <th scope="col">Matricula</th>
+                    <th scope="col">Nombre del alumno</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let alumno of arrayalumnos">     
+                    <td>{{alumno.Matricula}} </td> 
+                    <td>{{alumno.Nombre}} {{alumno.Apellido_paterno}} {{alumno.Apellido_materno}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div><!------MODAL BODY--------> 
+        <div class="modal-footer">
+           
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">¿Seguro que deseas eliminar?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!------MODAL BODY-------->
+        <div class="modal-body" style="overflow:auto;" >
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" data-dismiss="modal"  (click)="eliminar()" class="btn btn-primary eliminar">
+                            Eliminar                                                                                                                 
+                         </button>
+                      </div>
+                      <div class="col-md-6">
+                          
+                 <button data-dismiss="modal" type="button" class="btn btn-primary otros">
+                    Cancelar                                                                                                             
+                 </button>
+                        </div>
+                </div>
+                
+            </div>
+            
+        </div><!------MODAL BODY--------> 
+        <div class="modal-footer">
+           
+        </div>
+        </div>
+    </div>
 </div>
