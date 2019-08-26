@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Materia } from '../Clases/materia';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as url from '../Clases/url';
 import { Grupo } from '../Clases/grupo';
 @Injectable({
@@ -31,5 +31,8 @@ export class SalonService {
 
   eliminarSalon(id:String){
     return this.http.delete<any>(url.url_http+'eliminargrupo/'+id);
+  }
+  eliminaralumnosalon(id:string,grupo:Grupo){
+    return this.http.post<any>(url.url_http+'eliminaralumnosalon/'+id,grupo);
   }
 }

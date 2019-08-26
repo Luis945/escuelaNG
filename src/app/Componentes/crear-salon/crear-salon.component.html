@@ -24,7 +24,6 @@
                   <th scope="col"  class="t-header"></th>
                   <th scope="col"  class="t-header"></th>
                   <th scope="col"  class="t-header"></th>
-                  <th scope="col"  class="t-header"></th>
                   
               </tr>
           </thead>
@@ -37,11 +36,8 @@
                   <td><button type="button" class="btn btn-primary otros" data-toggle="modal" data-target="#exampleModal" (click)="seleccionado(grupo.Materias)">
                      Ver materias                                                                                                                    
                   </button></td>
-                  <td><button type="button" class="btn btn-primary otros" data-toggle="modal" data-target="#exampleModal1" (click)="seleccionadoal(grupo.Alumnos)">
+                  <td><button type="button" class="btn btn-primary otros" data-toggle="modal" data-target="#exampleModal1" (click)="seleccionadoal(grupo,grupo.Alumnos)">
                       Ver Alumnos                                                                                                                   
-                   </button></td>
-                  <td><button type="button" class="btn btn-primary otros" data-toggle="modal" data-target="#exampleModal1">
-                      Editar                                                                                                               
                    </button></td>
                   <td><button type="button" class="btn btn-primary eliminar" data-toggle="modal" data-target="#exampleModal2" (click)="eliminado(grupo._id)">
                       Eliminar                                                                                                                 
@@ -101,13 +97,15 @@
                   <tr>
                       <th scope="col">Matricula</th>
                     <th scope="col">Nombre del alumno</th>
+                    <th scope="col">Dar de baja</th>
                     
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let alumno of arrayalumnos">     
+                  <tr *ngFor="let alumno of arrayalumnos;let indice=index">     
                     <td>{{alumno.Matricula}} </td> 
                     <td>{{alumno.Nombre}} {{alumno.Apellido_paterno}} {{alumno.Apellido_materno}}</td>
+                    <td><button data-dismiss="modal"  (click)="eliminaralumno(alumno._id)" class="btn btn-primary eliminar">Eliminar</button></td>
                   </tr>
                 </tbody>
               </table>

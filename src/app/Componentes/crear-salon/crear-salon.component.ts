@@ -15,7 +15,9 @@ export class CrearSalonComponent implements OnInit {
   grupos:Array<Grupo>= new Array();
   arraymaterias:Array<Materia>= new Array();
   arrayalumnos:Array<Alumno>= new Array();
-  id_grupo:String
+  id_grupo:String;
+  grupo:Grupo;
+
 
   constructor(private rutas :Router,private _Servicio:SalonService,private alertService: AlertService) { }
 
@@ -45,9 +47,10 @@ export class CrearSalonComponent implements OnInit {
    this.arraymaterias=materias;
     }
 
-    seleccionadoal(alumnos:Array<Alumno>){
+    seleccionadoal(grupo:Grupo,alumnos:Array<Alumno>){
       console.log(alumnos);
       this.arrayalumnos=alumnos;
+      this.grupo=grupo
        }
 
 eliminado(grupo_id:string)
@@ -63,5 +66,14 @@ eliminado(grupo_id:string)
 
   })
      }
+
+  eliminaralumno(id_alumno:string){
+      this._Servicio.eliminaralumnosalon(id_alumno,this.grupo).subscribe(response=>{
+        console.log('aquiiiiiiiiiiiiiiiii')
+        console.log(response)
+        this.versalones();
+
+      })
+  }
 
 }
