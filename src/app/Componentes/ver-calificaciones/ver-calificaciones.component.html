@@ -1,0 +1,15 @@
+<div class="row offset-md-4" style="margin-top: 2%;">
+  <label for="ciclo_escolar">Ciclo escolar: </label>&nbsp;
+    <select name="carlist" form="carform" id="ciclo_escolar">
+        <option *ngFor="let item of ciclos" value="item">{{item}}</option>
+        <!-- <option value="2002-2008">2002-2008</option>
+        <option value="2008-2014">2008-2014</option>
+        <option value="2014-2020">2014-2020</option> -->
+        </select>
+
+      <button type="button" (click)="buscar()" id="btnSearch" class="btn btn-primary">Buscar jrupo</button>
+</div>
+<div *ngIf="busco" class="row offset-md-1" style="margin-top: 5%;">
+  <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover" id="datat"></table> -->
+  <table class="row-border hover" id="datat"></table>
+</div>

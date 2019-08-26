@@ -1,31 +1,22 @@
 <div class="row offset-md-4" style="margin-top: 2%;">
   <label for="ciclo_escolar">Ciclo escolar: </label>&nbsp;
     <select name="carlist" form="carform" id="ciclo_escolar">
-        <option value="2019">2019</option>
+        <option *ngFor="let item of ciclos" value="item">{{item}}</option>
         <!-- <option value="2002-2008">2002-2008</option>
         <option value="2008-2014">2008-2014</option>
         <option value="2014-2020">2014-2020</option> -->
       </select>
     <label for="grado">Grado: </label>
       <select name="carlist" form="carform" id="grado">&nbsp;
-          <option value="9">9°</option>
-          <!-- <option value="2">2°</option>
-          <option value="3">3°</option>
-          <option value="4">4°</option>
-          <option value="5">5°</option>
-          <option value="6">6°</option> -->
+          <option *ngFor="let item of grados" value="item">{{item}}°</option>
         </select>
       <label for="seccion">Seccion: </label>&nbsp;
         <select name="carlist" form="carform" id="seccion">
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
+          <option *ngFor="let item of secciones" value="item">"{{item}}"</option>
         </select>
       <label for="materia">Materia: </label>&nbsp;
       <select name="carlist" form="carform" id="materia">
-        <option value="5d62272130c55468709e7c3b">Ciencias Naturales</option>
-        <option value="5d62267230c55468709e7c30">Expresión Anal</option>
-        <!-- <option value="69">Matemáticas</option> -->
+        <option *ngFor="let item of materias" value="item._id">{{ item.materia }}</option>
       </select>
 
       <button type="button" (click)="buscar()" id="btnSearch" class="btn btn-primary">Buscar jrupo</button>
@@ -34,5 +25,5 @@
   <table datatable [dtOptions]="dtOptions" class="row-border hover" id="datat"></table>
 </div>
 
-<button type="button" class="btn btn-primary" (click)="displayToConsole(datatableElement)">CALIFICAR</button>
+<button type="button" class="btn btn-primary" (click)="calificarAlumnos(datatableElement)">CALIFICAR</button>
 

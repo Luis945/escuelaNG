@@ -14,6 +14,7 @@ import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos
 import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
 import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro/registro-maestro.component';
 import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-maestros.component';
+import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver-calificaciones.component';
 
 const routes: Routes = [
   { path:'login', component: LoginComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   /*--------Maestro--------*/
   {path:'RegistroMaestro',component:RegistroMaestroComponent},
   { path:'calificar', component: CalificacionesComponent },
+  { path:'calificaciones', component: VerCalificacionesComponent },
   {path:'VerMaestros',component:VerMaestrosComponent},
 ];
 

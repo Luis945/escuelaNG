@@ -21,13 +21,24 @@ export class CalificacionesComponent implements OnInit {
   // dtTrigger: Subject<any> = new Subject();
   busco: Boolean = false;
 
+  grados: any;
+  secciones: any;
+  ciclos: any;
+  materias: any;
+
+
   constructor(public service: CalificacionesService) { }
 
   ngOnInit() {
-    // $('#datat').DataTable().destroy();
+    this.service.getSalones().subscribe(res => {
+      this.grados = res.grados;
+      this.secciones = res.secciones;
+      this.ciclos = res.ciclos;
+      this.materias = res.materias;
+    });
   }
 
-  displayToConsole(datatableElement: DataTableDirective): void {
+  calificarAlumnos(datatableElement: DataTableDirective): void {
     datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
       var calificaciones = [];
       
@@ -51,6 +62,7 @@ export class CalificacionesComponent implements OnInit {
 
       this.service.calificarAlumnos(calificaciones).subscribe((res) => {
         debugger;
+        //alerta y recargar página porfa
       });
     });
   }
