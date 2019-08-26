@@ -8,7 +8,7 @@
       <th scope="col">Fecha Nac.</th>
       <th scope="col">Dirección</th>
       <th scope="col">Generación</th>
-      <th scope="col">Más Información</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -25,7 +25,7 @@
       <td>
           <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="Seleccionado(item)">
-            Ver más                                                                                                                                 
+            Editar                                                                                                                                
         </button> 
       </td>
     </tr>
@@ -54,9 +54,9 @@
                     <input type="text" class="form-control" 
                             placeholder="Ingrese su(s) Nombre(s)"
                             formControlName="Nombre"
-                            [ngClass]="{}"
-                                        required
-                            [ngModel]="alumnosel.Nombre">
+                            [ngClass]="{'is-invalid': form.get('Nombre').touched 
+                      && form.get('Nombre').invalid, 'is-valid': form.get('Nombre').touched 
+                      && form.get('Nombre').valid}">
                     <div class="invalid-feedback">
                         <ul>
                             <li>El Nombre es obligatorio.</li>
@@ -65,15 +65,14 @@
                     </div>
                 </div>
 
-
-
                 <div class="form-group">
                     <label for="">Apellido Paterno</label>
                     <input type="text" class="form-control" 
                             placeholder="Ingrese su Apellido Paterno"
                             formControlName="Apellido_paterno"
-                            [ngClass]="{}"
-                            [ngModel]="alumnosel.Apellido_paterno">
+                            [ngClass]="{'is-invalid': form.get('Apellido_paterno').touched 
+                          && form.get('Apellido_paterno').invalid, 'is-valid': form.get('Apellido_paterno').touched 
+                          && form.get('Apellido_paterno').valid}">
                     <div class="invalid-feedback">
                         <ul>
                             <li>El Apellido Paterno es obligatorio.</li>
@@ -87,8 +86,9 @@
                     <input type="text" class="form-control" 
                             placeholder="Ingrese su Apellido Materno"
                             formControlName="Apellido_materno"
-                            [ngClass]="{}"
-                            value="{{alumnosel.Apellido_materno}}">
+                            [ngClass]="{'is-invalid': form.get('Apellido_materno').touched 
+                          && form.get('Apellido_materno').invalid, 'is-valid': form.get('Apellido_materno').touched 
+                          && form.get('Apellido_materno').valid}">
                     <div class="invalid-feedback">
                         <ul>
                             <li>El Apellido Materno es obligatorio.</li>
@@ -102,8 +102,9 @@
                     <input type="text" class="form-control" 
                             placeholder="Ingresa tu dirección"
                             formControlName="Direccion"
-                            [ngClass]="{}"
-                            value="{{alumnosel.Direccion}}">
+                            [ngClass]="{'is-invalid': form.get('Direccion').touched 
+                      && form.get('Direccion').invalid, 'is-valid': form.get('Direccion').touched 
+                      && form.get('Direccion').valid}">
                     <div class="invalid-feedback">
                         <ul>
                             <li>La Dirección es obligatoria.</li>
@@ -115,64 +116,61 @@
                 <!---------DATOS SECUNDARIOS------------>
                 
                     <div class="datossecundarios">
-
                         <div *ngFor="let item2 of alumnosel2">
-                                <div class="form-group">
-                                        <label for="">CURP</label>
-                                        <input type="text" class="form-control" 
-                                                placeholder="Ingresa tu CURP"
-                                                formControlName="Curp"
-                                                [ngClass]="{}"
-                                                value="{{item2.Curp}}">
-                                        <div class="invalid-feedback">
-                                            <ul>
-                                                <li>El CURP es obligatorio.</li>
-                                                <li>Es necesario tu CURP.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                            <div class="form-group">
+                                <label for="">CURP</label>
+                                <input type="text" class="form-control" 
+                                        placeholder="Ingresa tu CURP"
+                                        formControlName="Curp"
+                                        [ngClass]="{'is-invalid': form.get('Curp').touched 
+                                        && form.get('Curp').invalid, 'is-valid': form.get('Curp').touched 
+                                        && form.get('Curp').valid}">
+                                <div class="invalid-feedback">
+                                    <ul>
+                                        <li>El CURP es obligatorio.</li>
+                                        <li>Es necesario tu CURP.</li>
+                                    </ul>
+                                </div>
+                            </div>
             
-                                    <div class="form-group">
-                                        <label for="">Nombre del Padre o Tutor Legal</label>
-                                        <input type="text" class="form-control" 
-                                                placeholder="Ingresar Nombre"
-                                                formControlName="nombre_padre_tutor"
-                                                [ngClass]="{}"
-                                                value="{{item2.nombre_padre_tutor}}">
-                                        <div class="invalid-feedback">
-                                            <ul>
-                                                <li>El nombre del Padre o Tutor es obligatorio.</li>
-                                                <li>Mínimo deben ser 3 caracteres.</li>
-                                            </ul>
-                                        </div>
-                                    </div>    
-                                        
-                                    <div class="form-group">
-                                        <label for="">Teléfono del Padre o Tutor Legal</label>
-                                        <input type="text" class="form-control" 
-                                                placeholder="Ingresa un Teléfono fijo o celular"
-                                                formControlName="telefono_padre_tutor"
-                                                [ngClass]="{}"
-                                                value="{{item2.telefono_padre_tutor}}">
-                                        <div class="invalid-feedback">
-                                            <ul>
-                                                <li>El número telefónico es obligatorio.</li>
-                                                <li>Mínimo deben ser 8 caracteres</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                            <div class="form-group">
+                                <label for="">Nombre del Padre o Tutor Legal</label>
+                                <input type="text" class="form-control" 
+                                        placeholder="Ingresar Nombre"
+                                        formControlName="nombre_padre_tutor"
+                                        [ngClass]="{'is-invalid': form.get('nombre_padre_tutor').touched 
+                                        && form.get('nombre_padre_tutor').invalid, 'is-valid': form.get('nombre_padre_tutor').touched 
+                                        && form.get('nombre_padre_tutor').valid}">
+                                <div class="invalid-feedback">
+                                    <ul>
+                                        <li>El nombre del Padre o Tutor es obligatorio.</li>
+                                        <li>Mínimo deben ser 3 caracteres.</li>
+                                    </ul>
+                                </div>
+                            </div>    
+                                
+                            <div class="form-group">
+                                <label for="">Teléfono del Padre o Tutor Legal</label>
+                                <input type="text" class="form-control" 
+                                        placeholder="Ingresa un Teléfono fijo o celular"
+                                        formControlName="telefono_padre_tutor"
+                                        [ngClass]="{'is-invalid': form.get('telefono_padre_tutor').touched 
+                                        && form.get('telefono_padre_tutor').invalid, 'is-valid': form.get('telefono_padre_tutor').touched 
+                                        && form.get('telefono_padre_tutor').valid}">
+                                <div class="invalid-feedback">
+                                    <ul>
+                                        <li>El número telefónico es obligatorio.</li>
+                                        <li>Mínimo deben ser 8 caracteres</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-
-                        
-
                     </div><!-----DATOS SECUNDARIOS------>
-                
-                
             </form>
         </div><!------MODAL BODY--------> 
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
-            <button type="button" class="btn btn-primary" (click)="ActualizaAlumno()">Save changes</button>
+            <button data-dismiss="modal" type="button" class="btn btn-primary" (click)="ActualizaAlumno()">Save changes</button>
         </div>
         </div>
     </div>
