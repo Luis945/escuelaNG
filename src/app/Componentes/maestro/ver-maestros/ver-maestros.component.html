@@ -1,3 +1,4 @@
+<ngx-alerts></ngx-alerts>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -23,7 +24,7 @@
       <td>
           <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="Seleccionado(item)">
-            Ver más                                                                                                                                 
+            Editar                                                                                                                               
         </button> 
       </td>
     </tr>
@@ -52,9 +53,9 @@
                     <input type="text" class="form-control" 
                             placeholder="Ingrese su(s) Nombre(s)"
                             formControlName="Nombre"
-                            [ngClass]="{}"
-                                        required
-                            [ngModel]="maestrosel.Nombre">
+                            [ngClass]="{'is-invalid': form.get('Nombre').touched 
+                            && form.get('Nombre').invalid, 'is-valid': form.get('Nombre').touched 
+                            && form.get('Nombre').valid}">
                     <div class="invalid-feedback">
                         <ul>
                             <li>El Nombre es obligatorio.</li>
@@ -63,15 +64,14 @@
                     </div>
                 </div>
 
-
-
                 <div class="form-group">
                     <label for="">Apellido Paterno</label>
                     <input type="text" class="form-control" 
                             placeholder="Ingrese su Apellido Paterno"
                             formControlName="Apellido_paterno"
-                            [ngClass]="{}"
-                            [ngModel]="maestrosel.Apellido_paterno">
+                            [ngClass]="{'is-invalid': form.get('Apellido_paterno').touched 
+                            && form.get('Apellido_paterno').invalid, 'is-valid': form.get('Apellido_paterno').touched 
+                            && form.get('Apellido_paterno').valid}">
                     <div class="invalid-feedback">
                         <ul>
                             <li>El Apellido Paterno es obligatorio.</li>
@@ -85,8 +85,9 @@
                     <input type="text" class="form-control" 
                             placeholder="Ingrese su Apellido Materno"
                             formControlName="Apellido_materno"
-                            [ngClass]="{}"
-                            value="{{maestrosel.Apellido_materno}}">
+                            [ngClass]="{'is-invalid': form.get('Apellido_materno').touched 
+                            && form.get('Apellido_materno').invalid, 'is-valid': form.get('Apellido_materno').touched 
+                            && form.get('Apellido_materno').valid}">
                     <div class="invalid-feedback">
                         <ul>
                             <li>El Apellido Materno es obligatorio.</li>
@@ -100,8 +101,9 @@
                     <input type="text" class="form-control" 
                             placeholder="Ingresa tu dirección"
                             formControlName="Direccion"
-                            [ngClass]="{}"
-                            value="{{maestrosel.Direccion}}">
+                            [ngClass]="{'is-invalid': form.get('Direccion').touched 
+                            && form.get('Direccion').invalid, 'is-valid': form.get('Direccion').touched 
+                            && form.get('Direccion').valid}">
                     <div class="invalid-feedback">
                         <ul>
                             <li>La Dirección es obligatoria.</li>
@@ -110,14 +112,14 @@
                     </div>
                 </div>  
 
-        
                 <div class="form-group">
                         <label for="">RFC</label>
                         <input type="text" class="form-control" 
                                 placeholder="Ingresa tu Rfc"
                                 formControlName="Rfc"
-                                [ngClass]="{}"
-                                value="{{maestrosel.Rfc}}">
+                                [ngClass]="{'is-invalid': form.get('Rfc').touched 
+                                && form.get('Rfc').invalid, 'is-valid': form.get('Rfc').touched 
+                                && form.get('Rfc').valid}">
                         <div class="invalid-feedback">
                             <ul>
                                 <li>El CURP es obligatorio.</li>
@@ -131,24 +133,21 @@
                         <input type="text" class="form-control" 
                                 placeholder="Ingresa un Teléfono"
                                 formControlName="Telefono"
-                                [ngClass]="{}"
-                                value="{{maestrosel.Telefono}}">
+                                [ngClass]="{'is-invalid': form.get('Telefono').touched 
+                                && form.get('Telefono').invalid, 'is-valid': form.get('Telefono').touched 
+                                && form.get('Telefono').valid}">
                         <div class="invalid-feedback">
                             <ul>
                                 <li>El número telefónico es obligatorio.</li>
                                 <li>Mínimo deben ser 8 caracteres</li>
                             </ul>
                         </div>
-                    </div>
-
-
-                
-                
+                    </div>                
             </form>
         </div><!------MODAL BODY--------> 
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
-            <button type="button" class="btn btn-primary" (click)="ActualizaAlumno()">Save changes</button>
+            <button data-dismiss="modal" type="button" class="btn btn-primary" (click)="ActualizaMaestro()">Save changes</button>
         </div>
         </div>
     </div>

@@ -1,19 +1,19 @@
 <div class="row offset-md-4" style="margin-top: 2%;">
   <label for="ciclo_escolar">Ciclo escolar: </label>&nbsp;
     <select name="carlist" form="carform" id="ciclo_escolar">
-        <option value="1996-2002">1996-2002</option>
-        <option value="2002-2008">2002-2008</option>
+        <option value="2019">2019</option>
+        <!-- <option value="2002-2008">2002-2008</option>
         <option value="2008-2014">2008-2014</option>
-        <option value="2014-2020">2014-2020</option>
+        <option value="2014-2020">2014-2020</option> -->
       </select>
     <label for="grado">Grado: </label>
       <select name="carlist" form="carform" id="grado">&nbsp;
-          <option value="1">1°</option>
-          <option value="2">2°</option>
+          <option value="9">9°</option>
+          <!-- <option value="2">2°</option>
           <option value="3">3°</option>
           <option value="4">4°</option>
           <option value="5">5°</option>
-          <option value="6">6°</option>
+          <option value="6">6°</option> -->
         </select>
       <label for="seccion">Seccion: </label>&nbsp;
         <select name="carlist" form="carform" id="seccion">
@@ -23,12 +23,14 @@
         </select>
       <label for="materia">Materia: </label>&nbsp;
       <select name="carlist" form="carform" id="materia">
-        <option value="420">Ciencias Naturales</option>
-        <option value="666">Expresión Anal</option>
-        <option value="69">Matemáticas</option>
+        <option value="5d62272130c55468709e7c3b">Ciencias Naturales</option>
+        <option value="5d62267230c55468709e7c30">Expresión Anal</option>
+        <!-- <option value="69">Matemáticas</option> -->
       </select>
+
+      <button type="button" (click)="buscar()" id="btnSearch" class="btn btn-primary">Buscar jrupo</button>
 </div>
-<div class="row offset-md-1" style="margin-top: 5%;">
+<div *ngIf="busco" class="row offset-md-1" style="margin-top: 5%;">
   <table datatable [dtOptions]="dtOptions" class="row-border hover" id="datat"></table>
 </div>
 

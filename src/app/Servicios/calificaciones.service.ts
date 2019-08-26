@@ -9,6 +9,10 @@ export class CalificacionesService {
 
   constructor(private http: HttpClient) { }
 
+  buscarSalon(grado, seccion, ciclo, materia) {
+    return this.http.get<any>(this.root + 'salon/' + grado + '/' + seccion + '/'+ ciclo + '/'+ materia);
+  }
+
   calificarAlumnos(calificaciones: any) {
 
     var data = {

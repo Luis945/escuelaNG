@@ -17,4 +17,8 @@ export class MaestroService {
     return this.http.get<any>(url.url_http+'VerMaestros');
   }
 
+  ActualizaMaestro(maestro){
+    return this.http.post(url.url_http+'ActualizaMaestro',maestro)
+  }
+
 }
