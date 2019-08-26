@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MaestroService } from 'src/app/Servicios/maestro.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-ver-maestros',
@@ -12,7 +13,7 @@ export class VerMaestrosComponent implements OnInit {
   //Reactive forms
   form;
 
-  constructor(private _MaestroService:MaestroService) { }
+  constructor(private _MaestroService:MaestroService,private alertService:AlertService) { }
 
   ngOnInit() {
     this.VerMaestros();
@@ -53,7 +54,7 @@ export class VerMaestrosComponent implements OnInit {
       Direccion: new FormControl(item.Direccion,[
         Validators.required
       ]),
-      Rfc: new FormControl(item.Rfc,[
+      Rfc: new FormControl({value:item.Rfc,disabled:true},[
         Validators.required
       ]),
       Telefono: new FormControl(item.Telefono,[
@@ -68,14 +69,13 @@ export class VerMaestrosComponent implements OnInit {
   ActualizaMaestro(){
 
     this._id= this.maestrosel._id;
-    var {Nombre,Apellido_paterno,Apellido_materno,Rfc,Direccion,Telefono}=this.form.value;
+    var {Nombre,Apellido_paterno,Apellido_materno,Direccion,Telefono}=this.form.value;
 
       this.MaestroActualizado={
         _id:this._id,
         Nombre:Nombre,
         Apellido_paterno:Apellido_paterno,
         Apellido_materno:Apellido_materno,
-        Rfc:Rfc,
         Direccion:Direccion,
         Telefono:Telefono
       };
@@ -84,10 +84,8 @@ export class VerMaestrosComponent implements OnInit {
 
     });
 
-    
+    this.alertService.success('Registro Actualizado con Exito');
+    this.VerMaestros();
+
   }
-
-
-
-
 }
