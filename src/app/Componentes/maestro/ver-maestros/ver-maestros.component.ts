@@ -9,42 +9,8 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 })
 export class VerMaestrosComponent implements OnInit {
 
-    //Reactive forms
-    form = new FormGroup({
-
-      Nombre: new FormControl('',
-      [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
-      Apellido_paterno: new FormControl('',
-      [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
-      Apellido_materno: new FormControl('',
-      [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
-      Fecha_nacimiento: new FormControl('',
-      [
-        Validators.required,
-      ]),
-      Fotografia: new FormControl('',
-      [
-        Validators.required
-      ]),
-      Direccion: new FormControl('',[
-        Validators.required
-      ]),
-      Rfc: new FormControl('',[
-        Validators.required
-      ]),
-      Telefono: new FormControl('',[
-        Validators.required
-      ]),
-    });
+  //Reactive forms
+  form;
 
   constructor(private _MaestroService:MaestroService) { }
 
@@ -62,6 +28,66 @@ export class VerMaestrosComponent implements OnInit {
   maestrosel:any;
   Seleccionado(item){
     this.maestrosel=item;
+    this.AñadirValidaciones(item);
   }
+
+  AñadirValidaciones(item){
+    //Reactive forms
+    this.form = new FormGroup({
+
+      Nombre: new FormControl(item.Nombre,
+      [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      Apellido_paterno: new FormControl(item.Apellido_paterno,
+      [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      Apellido_materno: new FormControl(item.Apellido_materno,
+      [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      Direccion: new FormControl(item.Direccion,[
+        Validators.required
+      ]),
+      Rfc: new FormControl(item.Rfc,[
+        Validators.required
+      ]),
+      Telefono: new FormControl(item.Telefono,[
+        Validators.required
+      ]),
+    });
+
+  }
+
+  MaestroActualizado:any;
+  _id:any;
+  ActualizaMaestro(){
+
+    this._id= this.maestrosel._id;
+    var {Nombre,Apellido_paterno,Apellido_materno,Rfc,Direccion,Telefono}=this.form.value;
+
+      this.MaestroActualizado={
+        _id:this._id,
+        Nombre:Nombre,
+        Apellido_paterno:Apellido_paterno,
+        Apellido_materno:Apellido_materno,
+        Rfc:Rfc,
+        Direccion:Direccion,
+        Telefono:Telefono
+      };
+
+    this._MaestroService.ActualizaMaestro(this.MaestroActualizado).subscribe(data=>{
+
+    });
+
+    
+  }
+
+
+
 
 }
