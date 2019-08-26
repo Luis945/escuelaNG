@@ -71,6 +71,7 @@ export class CalificacionesComponent implements OnInit {
 
       res.salon.Alumnos.forEach(alumno => {
         dataToSend.push({
+          Matricula: alumno.Matricula,
           Nombre: alumno.Nombre,
           Apellido_paterno: alumno.Apellido_paterno,
           Apellido_materno: alumno.Apellido_materno,
@@ -119,16 +120,9 @@ export class CalificacionesComponent implements OnInit {
     */
 
    var colIndexes = [];    
-   Object.keys(columns).slice(1).forEach((el) => {  colIndexes.push(parseInt(el))});
+   Object.keys(columns).slice(2).forEach((el) => {  colIndexes.push(parseInt(el))});
    this.indexes = colIndexes;
    //3>4-X
-
-   if (this.busco) {
-    this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
-    dtInstance.destroy();
-   }); 
-   }
-   
 
    this.dtOptions = {
     dom: 'Bfrtip',
@@ -175,9 +169,12 @@ export class CalificacionesComponent implements OnInit {
         }
       ]
     };
-    debugger;
     this.busco = true;
-
+    $("#grado").attr('disabled', "true");
+    $("#seccion").attr('disabled', "true");
+    $("#ciclo_escolar").attr('disabled', "true");
+    $("#materia").attr('disabled', "true");
+    $("#btnSearch").attr('disabled', "true");
   }
 
   // ngAfterViewInit(): void {
