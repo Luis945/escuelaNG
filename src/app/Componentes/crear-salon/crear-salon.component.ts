@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Grupo } from 'src/app/Clases/grupo';
 import { SalonService } from 'src/app/Servicios/salon.service';
+import { Materia } from 'src/app/Clases/materia';
+import { Alumno } from 'src/app/Modelos/alumno';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-crear-salon',
@@ -10,11 +13,17 @@ import { SalonService } from 'src/app/Servicios/salon.service';
 })
 export class CrearSalonComponent implements OnInit {
   grupos:Array<Grupo>= new Array();
+  arraymaterias:Array<Materia>= new Array();
+  arrayalumnos:Array<Alumno>= new Array();
+  id_grupo:String;
+  grupo:Grupo;
 
-  constructor(private rutas :Router,private _Servicio:SalonService) { }
+
+  constructor(private rutas :Router,private _Servicio:SalonService,private alertService: AlertService) { }
 
   ngOnInit() {
     this.versalones();
+    
   }
   agregarsalon(){
     this.rutas.navigate(['agregar-salones']);
@@ -28,10 +37,43 @@ export class CrearSalonComponent implements OnInit {
   versalones(){
     this._Servicio.getsalones().subscribe(response=>{
       this.grupos=response.salones;
-      console.log(this.grupos);
 
     })
 
+  }
+
+  seleccionado(materias:Array<Materia>){
+   console.log(materias);
+   this.arraymaterias=materias;
+    }
+
+    seleccionadoal(grupo:Grupo,alumnos:Array<Alumno>){
+      console.log(alumnos);
+      this.arrayalumnos=alumnos;
+      this.grupo=grupo
+       }
+
+eliminado(grupo_id:string)
+{
+  console.log(grupo_id);
+  this.id_grupo= grupo_id;
+   }
+
+   eliminar(){
+  this._Servicio.eliminarSalon(this.id_grupo).subscribe(response=>{
+    this.grupos=response.salones;
+    this.versalones()
+
+  })
+     }
+
+  eliminaralumno(id_alumno:string){
+      this._Servicio.eliminaralumnosalon(id_alumno,this.grupo).subscribe(response=>{
+        console.log('aquiiiiiiiiiiiiiiiii')
+        console.log(response)
+        this.versalones();
+
+      })
   }
 
 }

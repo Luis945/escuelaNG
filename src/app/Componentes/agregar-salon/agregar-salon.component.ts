@@ -91,8 +91,8 @@ form = new FormGroup({
   }
     else{
       //alert('Has agregado a este alumno a tu selección')
-      if(this.arrayalumnos.length==10){
-        this.alertService.warning('Unicamente se permiten 15 alumnos por salon');
+      if(this.arrayalumnos.length==20){
+        this.alertService.warning('Unicamente se permiten 20 alumnos por salon');
       }
       else{
         this.arrayalumnos.push(alumno);
