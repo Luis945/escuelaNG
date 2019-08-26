@@ -34,34 +34,98 @@
                 </table>
               </td>
               <td>
-                  <button class="btn btn-block btn-primary" (click)="editar(this.materia)" data-toggle="modal" data-target="#editar-modal" >Editar</button>
+                  <button class="btn btn-block btn-primary" (click)="editar(this.materia,this.materia._id)" data-toggle="modal" data-target="#editar-modal" >Editar</button>
                   <button class=" btn-danger btn-block" (click)="eliminar(this.materia)">Eliminar</button>
                 </td>
             </tr>
 
           </tbody>
         </table>
-        <div id="editar-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+        <!-- modal  -->
+        <div id="editar-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
 
               <!-- Modal Header -->
               <div class="modal-header">
                   <h4 class="modal-title text-center">Editar Materia</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <button type="button" class="close"  data-toggle="collapse" data-target="#editarunidad" data-dismiss="modal">&times;</button>
               </div>
 
-              <div class="modal-body">
-                  <form >
+              <form #form='ngForm'  [ngFormOptions]="{updateOn: 'blur'}" >
+              <div class="modal-body"  *ngIf="this.obtener_editar">
+
                     <div class="form-group">
                       <label for="">Nombre de materia</label>
-                      <!-- <input type="text" value="{{ this.obtener_editar.materia_Nombre }}"> -->
+                        <input type="text" class="form-control" name="NombreMateria" ngModel required  placeholder="{{ this.obtener_editar.materia_Nombre }}" >
+                        <input type="hidden" name="IdMateria" id="id_materia" value="{{ this.obtener_editar.id}}" >
                     </div>
-                  </form>
+
+                    <div class="form-group">
+                      <div class="col">
+                        <p class="lead text-center">Seleccione una unidad para editar</p>
+                        <div class="row">
+                          <div class="col-6" *ngFor="let unidad of this.obtener_editar.unidades">
+
+                            <a data-toggle="collapse" data-target="#editarunidad" (click)="editarUnidad(this.unidad,this.unidad['_id'] )">
+                              <div class="card h-100" >
+                                <div class="card-body">
+                                  <h5 class="card-title">{{ unidad.Nombre_unidad }}</h5>
+                                  <p class="card-text">Nº unidad: {{ unidad.Num_unidad }}, Horas x Unidad: {{ unidad.Horas_de_unidad }}</p>
+                                </div>
+                              </div>
+                            </a>
+
+                          </div>
+                          <div class="col-6 text-center">
+                            <a  data-toggle="collapse" data-target="#editarunidad"  (click)="nuevaUnidad()">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Agregar otra unidad</h5>
+                                    </div>
+                                  </div>
+                            </a>
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class=" collapse" id="editarunidad" *ngIf="this.unidad_seleccionada">
+                        <div class="form-group">
+                          <div class="col">
+                            <label for="">Nombre de unidad</label>
+                            <input type="text" class="form-control" name="nombre_Unidad" ngModel required placeholder="{{ this.unidad_seleccionada.Nombre_unidad }}">
+                            <input type="hidden" name="id_unidad" id="id_unidad" value="{{ this.unidad_seleccionada.id }}">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col">
+                                <label for="">Numero de unidad</label>
+                                <input type="number" min="1" max="100" class="form-control" name="numero_Unidad" ngModel required placeholder="{{ this.unidad_seleccionada.Num_unidad }}">
+                            </div>
+                            <div class="col">
+                                <label for="">Horas por unidad</label>
+                                <input type="number" min="1" max="100" class="form-control" name="hora_Unidad" ngModel required placeholder="{{ this.unidad_seleccionada.Horas_de_unidad }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col">
+                            <button class="btn btn-block" id="btn-unidad" (click)="guardarUnidad(form) ">Agregar</button>
+                          </div>
+                        </div>
+                    </div>
+
               </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                <div class="modal-footer">
+                  <button class="btn-info btn-lg " (click)="guardarMateria(form)"  type="submit" data-toggle="collapse" data-target="#editarunidad" data-dismiss="modal">Editar materia</button>
+                  <button type="button" class="btn-lg btn-danger"  data-toggle="collapse" data-target="#editarunidad" data-dismiss="modal">Close</button>
                 </div>
+
+              </form>
+
             </div>
           </div>
         </div>
