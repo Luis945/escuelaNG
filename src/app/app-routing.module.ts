@@ -18,7 +18,7 @@ import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-mae
 const routes: Routes = [
   { path:'login', component: LoginComponent },
   // { path:'login', component: RegistroComponent },
-  { path:'prueba', component: PruebaComponent },  
+  { path:'prueba', component: PruebaComponent },
   { path:'RegistroMateria', component:MateriaComponent},
   { path:'VerMaterias', component:MateriaVerComponent},
   {path:'crear-salon', component:CrearSalonComponent},
