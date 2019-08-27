@@ -16,6 +16,7 @@ import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro
 import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-maestros.component';
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
 const routes: Routes = [
+  
   { path:'login', component: LoginComponent },
   // { path:'login', component: RegistroComponent },
   { path:'prueba', component: PruebaComponent },
@@ -33,7 +34,7 @@ const routes: Routes = [
   {path:'RegistroMaestro',component:RegistroMaestroComponent},
   { path:'calificar', component: CalificacionesComponent },
   {path:'VerMaestros',component:VerMaestrosComponent},
-  {path:'/', component:MenuComponent}
+  {path:'', component:MenuComponent}
 ];
 
 @NgModule({

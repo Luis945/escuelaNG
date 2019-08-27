@@ -23,6 +23,9 @@ import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumno
 import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
 import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro/registro-maestro.component';
 import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-maestros.component';
+import { NavbarComponent } from './Componentes/globals/navbar/navbar.component';
+import { ChatComponent } from './Componentes/chat/chat.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-mae
     MateriaVerComponent,
     RegistroMaestroComponent,
     VerMaestrosComponent,
+    NavbarComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserAnimationsModule,
