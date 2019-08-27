@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MateriaService } from 'src/app/Servicios/materia.service';
 import { Materia } from 'src/app/Clases/materia';
 import { Unidad } from 'src/app/Clases/unidad';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-materia-ver',
@@ -29,15 +30,16 @@ export class MateriaVerComponent implements OnInit {
 
   constructor(private servicio:MateriaService) {
 
-    this.servicio.ver().subscribe((data)=>{
-      this.materias=data['materias'];
-
-    });
-
   }
 
   ngOnInit() {
     $(function () {
+    });
+
+
+    this.servicio.ver().subscribe((data)=>{
+      this.materias=data['materias'];
+
     });
   }
 
@@ -45,8 +47,9 @@ export class MateriaVerComponent implements OnInit {
     this.obtener_editar= obtenido;
     this.obtener_editar.id= id;
     console.log(this.obtener_editar);
+    this.validar(this.obtener_editar);
   }
-
+  formunidad;
   public eliminar(materia:Materia){
     if (confirm("¿está seguro de borrar ?")) {
        this.servicio.eliminar(materia).subscribe((data)=>{
@@ -56,17 +59,44 @@ export class MateriaVerComponent implements OnInit {
     } else {
 
     }
+    this.validacionUnidad(materia);
   }
+  public validacionUnidad(data){
+    this.formunidad= new FormGroup({
 
-  public editarUnidad(unidad:Unidad,id){
-    $('#btn-unidad').html('Editar');
-
-    this.unidad_seleccionada=unidad;
-    this.unidad_seleccionada.id=id;
+      Unidad: new FormControl(data.Nombre_unidad,[
+        Validators.required
+      ]),
+      Numero: new FormControl(data.Num_unidad,[
+        Validators.required
+      ]),
+      Hora:new FormControl(data.Horas_de_unidad,[
+        Validators.required
+      ]),
+    }); 
   }
-  public guardarMateria(form:NgForm){
-    console.log(form.value)
+  valor;
+  public editarUnidad(unidad){
+    
+    // this.unidad_seleccionada=unidad;
 
+      if(unidad==="nuevo"){
+        $('#agregar-unidad').html('Agregar');
+
+        this.unidad_seleccionada= new Unidad();
+        this.valor=undefined;
+
+      }else{
+        this.valor= this.obtener_editar.unidades.findIndex(k=>k.Nombre_unidad==unidad);
+        this.unidad_seleccionada= this.obtener_editar.unidades[this.valor];
+        $('#agregar-unidad').html('Editar');
+
+      }
+      this.validacionUnidad(this.unidad_seleccionada);
+  }
+  public guardarMateria(formulario){
+    
+    console.log(formulario.value)
 
 
   }
@@ -75,9 +105,40 @@ export class MateriaVerComponent implements OnInit {
 
     this.unidad_seleccionada= new Unidad();
   }
-  public guardarUnidad(form:NgForm){
-
-
+  public guardarUnidad(formulario){
+   
+    //this.obtener_editar.unidades[this.valor]
+    if(this.valor== undefined){
+  
+      var nuevo= new Unidad();
+        nuevo.Nombre_unidad=formulario.value.Unidad;
+        nuevo.Num_unidad=formulario.value.Numero;
+        nuevo.Horas_de_unidad=formulario.value.Hora;
+      this.obtener_editar.unidades.push(nuevo);
+      
+    }else{
+      this.obtener_editar.unidades[this.valor].Nombre_unidad=formulario.value.Unidad;
+      this.obtener_editar.unidades[this.valor].Num_unidad=formulario.value.Numero;
+      this.obtener_editar.unidades[this.valor].Horas_de_unidad=formulario.value.Hora;
+    }
+    this.servicio.editar(this.obtener_editar).subscribe(data=>{
+        this.materias= data['materias'];
+    });
   }
 
+  formulario;
+  public validar(data){
+    this.formulario= new FormGroup({
+
+      Nombre: new FormControl(data.materia_Nombre,[
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      id: new FormControl(data.id,[
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      Unidades:new FormControl(data.unidades),
+    });
+  }
 }
