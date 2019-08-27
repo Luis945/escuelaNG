@@ -1,0 +1,58 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  
+  a {
+    color: #00B7FF;
+  }
+  .sesion{
+    max-width: 150px;
+  }
+  .fondo{
+    background-image: url(/images/school.jpg);
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+  
+  }
+  .fondo2{
+    background-image: url(/images/class.jpg);
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+  
+  }
+  .dashback{
+    background-image: url(/images/class.jpg);
+    /* Center and scale the image nicely */
+    
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+    height:100vh;
+  }
+  .carta{
+     z-index: 990;
+     position: absolute;
+  }
+  .blanco{
+    background-color: rgba(255,255,255,0.9);
+    top:10px;
+    padding: 4%;
+    border-radius: 20px;
+    
+  
+  }
+  .primario{
+    background-color: #070157;
+  }
+  
+  /*
+  #EFF2F4
+  #18A4E0
+  #070157
+  */

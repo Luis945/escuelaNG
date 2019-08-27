@@ -1,0 +1,21 @@
+
+  <nav class="navbar navbar-expand-md sticky-top navbar-dark primario"><a class="navbar-brand" href="/">Inicio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmovil"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navmovil">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a class="nav-link" href="/"></a><span class="sr-only">Actual</span></li>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alumnos</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a class="dropdown-item" href="/alumno/login">Agregar alumnos inscritos</a><a class="dropdown-item" href="/maestro/login">Ver alumnos inscritos</a></div>
+        </li>
+        <li class="nav-item active"><a class="nav-link" href="/"></a><span class="sr-only">Actual</span></li>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profesor</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a class="dropdown-item" href="/alumno/login">Agregar profesor</a><a class="dropdown-item" href="/maestro/login">Ver profesor</a></div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="/nosotros">Menu de salones</a></li>
+        <li class="nav-item"><a class="nav-link" href="/nosotros">Alertas</a></li>
+        <li class="nav-item"><a class="nav-link" href="/nosotros">CHAT</a></li>
+        <li class="nav-item"><button (click)="cerrarSesion()"  *ngIf="iniciado" class="btn btn-danger">Cerrar sesión</button></li>
+        <li class="nav-item"><button (click)="iniciarSesion()"  *ngIf="!iniciado" class="btn btn-success">Iniciar sesión</button></li>
+      </ul>
+    </div>
+</nav>
