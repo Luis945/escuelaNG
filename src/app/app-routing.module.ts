@@ -36,7 +36,7 @@ const routes: Routes = [
   { path:'calificar', component: CalificacionesComponent },
   { path:'calificaciones', component: VerCalificacionesComponent },
   {path:'VerMaestros',component:VerMaestrosComponent},
-  {path:'/', component:MenuComponent}
+  {path:'', component:MenuComponent}
 ];
 
 @NgModule({

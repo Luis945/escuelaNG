@@ -22,7 +22,7 @@
       <button type="button" (click)="buscar()" id="btnSearch" class="btn btn-primary">Buscar jrupo</button>
 </div>
 <div *ngIf="busco" class="row offset-md-1" style="margin-top: 5%;">
-  <table datatable [dtOptions]="dtOptions" class="row-border hover" id="datat"></table>
+  <table datatable [dtOptions]="dtOptions" class="row-border hover table-striped table-inverse table-responsive" id="datat"></table>
 </div>
 
 <button type="button" class="btn btn-primary" (click)="calificarAlumnos(datatableElement)">CALIFICAR</button>
