@@ -26,6 +26,7 @@ import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-mae
 import { NavbarComponent } from './Componentes/globals/navbar/navbar.component';
 import { ChatComponent } from './Componentes/chat/chat.component';
 
+import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver-calificaciones.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ChatComponent } from './Componentes/chat/chat.component';
     VerMaestrosComponent,
     NavbarComponent,
     ChatComponent,
+    VerCalificacionesComponent,
   ],
   imports: [
     BrowserAnimationsModule,

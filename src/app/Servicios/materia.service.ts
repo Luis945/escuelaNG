@@ -20,5 +20,7 @@ export class MateriaService {
   eliminar(materia:Materia){
     return this.http.delete(url.url_http+'materia/eliminar/'+materia['_id']);
   }
-  
+  editar(materia:Materia){
+    return this.http.post(url.url_http+'materia/editar/',materia)
+  }
 }
