@@ -16,6 +16,7 @@ import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-mae
 import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver-calificaciones.component';
 import { AuthGuard } from './Guards/auth.guard';
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
+import { ChatComponent } from './Componentes/chat/chat.component';
 import { AlertasComponent } from './Componentes/maestro/alertas/alertas.component';
 import { PrincipalComponent } from './Componentes/maestro/principal/principal.component';
 const routes: Routes = [
@@ -41,7 +42,13 @@ const routes: Routes = [
   {path:'calificar', component: CalificacionesComponent ,canActivate:[AuthGuard]},
   {path:'calificaciones', component: VerCalificacionesComponent ,canActivate:[AuthGuard]},
   {path:'VerMaestros',component:VerMaestrosComponent,canActivate:[AuthGuard]},
-  {path:'', component:MenuComponent}
+  {path:'', component:MenuComponent},
+  {path:'RegistroMaestro',component:RegistroMaestroComponent},
+  {path:'calificar', component: CalificacionesComponent },
+  {path:'calificaciones', component: VerCalificacionesComponent },
+  {path:'VerMaestros',component:VerMaestrosComponent},
+  {path:'', component:MenuComponent},
+  {path:'chat', component: ChatComponent},
 ];
 
 @NgModule({
