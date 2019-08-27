@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
 
     if (matricula == 'yisus' && curp == 'yisus123') {
       localStorage.setItem('tipo', 'admin');
+      localStorage.setItem('token', 'admin');
       this.router.navigate(['/']);
     } else {
       this.service.login(matricula, curp).subscribe(res => {
