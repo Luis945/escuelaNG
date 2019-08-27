@@ -56,10 +56,10 @@
                 <form name="formulario" [(formGroup)]="formulario" (ngSubmit)="guardarMateria(formulario)">
                     <div class="form-group">
                       <label for="">Nombre de la Materia</label>
-                      <input type="text" class="form-control" placeholder="{{this.obtener_editar.materia_Nombre}}" 
+                      <input type="text" class="form-control" placeholder="{{this.obtener_editar.materia_Nombre}}"
                       formControlName="Nombre"
-                      [ngClass]="{'is-invalid': formulario.get('Nombre').touched 
-                            && formulario.get('Nombre').invalid, 'is-valid': formulario.get('Nombre').touched 
+                      [ngClass]="{'is-invalid': formulario.get('Nombre').touched
+                            && formulario.get('Nombre').invalid, 'is-valid': formulario.get('Nombre').touched
                             && formulario.get('Nombre').valid}">
 
                             <input type="hidden" formControlName="id">
@@ -76,34 +76,34 @@
                     <div class="form-group">
                       <label for="">Nombre de unidad</label>
                       <input type="text" class="form-control"  placeholder="" formControlName="Unidad"
-                      [ngClass]="{'is-invalid': formunidad.get('Unidad').touched 
-                            && formunidad.get('Unidad').invalid, 'is-valid': formunidad.get('Unidad').touched 
+                      [ngClass]="{'is-invalid': formunidad.get('Unidad').touched
+                            && formunidad.get('Unidad').invalid, 'is-valid': formunidad.get('Unidad').touched
                             && formunidad.get('Unidad').valid}" >
                     </div>
 
                     <div class="form-group">
                       <label for="">Número de unidad</label>
-                      <input type="number" min="1" class=" form-control" formControlName="Numero" 
-                      [ngClass]="{'is-invalid': formunidad.get('Numero').touched 
-                            && formunidad.get('Numero').invalid, 'is-valid': formunidad.get('Numero').touched 
+                      <input type="number" min="1" class=" form-control" formControlName="Numero"
+                      [ngClass]="{'is-invalid': formunidad.get('Numero').touched
+                            && formunidad.get('Numero').invalid, 'is-valid': formunidad.get('Numero').touched
                             && formunidad.get('Numero').valid}">
                     </div>
                     <div class=" form-group">
                       <label for="">Horas por unidad</label>
-                      <input type="number" min='1' class=" form-control" formControlName="Hora" 
-                      [ngClass]="{'is-invalid': formunidad.get('Hora').touched 
-                            && formunidad.get('Hora').invalid, 'is-valid': formunidad.get('Hora').touched 
+                      <input type="number" min='1' class=" form-control" formControlName="Hora"
+                      [ngClass]="{'is-invalid': formunidad.get('Hora').touched
+                            && formunidad.get('Hora').invalid, 'is-valid': formunidad.get('Hora').touched
                             && formunidad.get('Hora').valid}">
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-block" id="agregar-unidad"></button>
+                      <button type="submit" class="btn btn-block" id="agregar-unidad"  data-toggle="collapse" data-target="#editarunidad" >Editar</button>
                     </div>
                   </form>
 
                   <div class="modal-footer">
-                    <button type="submit" class="btn-block btn-info">Actualizar materia</button>  
+                    <button type="submit" class="btn-block btn-info"   data-toggle="collapse" data-target="#editarunidad" data-dismiss="modal" >Actualizar materia</button>
                   </div>
-              
+
 
                 </form>
               </div>
