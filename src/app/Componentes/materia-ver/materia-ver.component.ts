@@ -29,18 +29,16 @@ export class MateriaVerComponent implements OnInit {
     HorasDeUnidad_editar:string;
 
   constructor(private servicio:MateriaService) {
+    this.servicio.ver().subscribe((data)=>{
+      this.materias=data['materias'];
 
+    });
   }
 
   ngOnInit() {
     $(function () {
     });
 
-
-    this.servicio.ver().subscribe((data)=>{
-      this.materias=data['materias'];
-
-    });
   }
 
   public editar(obtenido:Materia,id){
@@ -73,11 +71,11 @@ export class MateriaVerComponent implements OnInit {
       Hora:new FormControl(data.Horas_de_unidad,[
         Validators.required
       ]),
-    }); 
+    });
   }
   valor;
   public editarUnidad(unidad){
-    
+
     // this.unidad_seleccionada=unidad;
 
       if(unidad==="nuevo"){
@@ -95,7 +93,7 @@ export class MateriaVerComponent implements OnInit {
       this.validacionUnidad(this.unidad_seleccionada);
   }
   public guardarMateria(formulario){
-    
+
     console.log(formulario.value)
 
 
@@ -106,16 +104,16 @@ export class MateriaVerComponent implements OnInit {
     this.unidad_seleccionada= new Unidad();
   }
   public guardarUnidad(formulario){
-   
+
     //this.obtener_editar.unidades[this.valor]
     if(this.valor== undefined){
-  
+
       var nuevo= new Unidad();
         nuevo.Nombre_unidad=formulario.value.Unidad;
         nuevo.Num_unidad=formulario.value.Numero;
         nuevo.Horas_de_unidad=formulario.value.Hora;
       this.obtener_editar.unidades.push(nuevo);
-      
+
     }else{
       this.obtener_editar.unidades[this.valor].Nombre_unidad=formulario.value.Unidad;
       this.obtener_editar.unidades[this.valor].Num_unidad=formulario.value.Numero;

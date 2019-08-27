@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="row">
-     
+
       <div class="col-12 col-md-6 col-lg-8 mb-4 ">
         <form (keydown)="agregarNombre($event)">
           <div class=" form-row">
@@ -28,7 +28,7 @@
               <div class="form-row">
                 <div class="col">
                     <label for="Nombre_unidad">Nombre de la unidad</label>
-                    <input type="text" class="form-control" name="Nombre_unidad" [(ngModel)]="Nombre_unidad">    
+                    <input type="text" class="form-control" name="Nombre_unidad" [(ngModel)]="Nombre_unidad">
                 </div>
               </div>
               <br>
@@ -71,15 +71,15 @@
           </li>
         </ul>
       </div>
-        
+
       </div>
     </div>
     <div class="row" *ngIf="materiaNueva">
-      <div class="col-12 text-center ">
+      <div class="col-12 text-center mb-5 ">
         <button class="btn  btn-info text-center" (click)="mandarMateria()" > Agregar materia</button>
       </div>
     </div>
 
-    
+
   </div>
 </section>
