@@ -17,7 +17,7 @@ export class SalonService {
     return this.http.get<any>(url.url_http+'VerAlumnos_octa');
   }
   creargrupo(grupo:Grupo){
-   
+
     console.log('entro');
     return this.http.post<any>(url.url_http+'creargrupo',grupo);
   }
@@ -34,5 +34,9 @@ export class SalonService {
   }
   eliminaralumnosalon(id:string,grupo:Grupo){
     return this.http.post<any>(url.url_http+'eliminaralumnosalon/'+id,grupo);
+  }
+
+  salonprofe(id:string){
+
   }
 }

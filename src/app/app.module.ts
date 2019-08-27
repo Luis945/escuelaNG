@@ -17,7 +17,6 @@ import { MenuComponent } from './Componentes/globals/menu/menu.component';
 import { CrearSalonComponent } from './Componentes/crear-salon/crear-salon.component';
 import { AgregarSalonComponent } from './Componentes/agregar-salon/agregar-salon.component';
 import { MateriasPorsalonComponent } from './Componentes/materias-porsalon/materias-porsalon.component';
-import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos-porsalon.component';
 import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/registro-alumno.component';
 import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumnos.component';
 import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
@@ -27,6 +26,8 @@ import { NavbarComponent } from './Componentes/globals/navbar/navbar.component';
 import { ChatComponent } from './Componentes/chat/chat.component';
 
 import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver-calificaciones.component';
+import { AlertasComponent } from './Componentes/maestro/alertas/alertas.component';
+import { PrincipalComponent } from './Componentes/maestro/principal/principal.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,6 @@ import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver
     CrearSalonComponent,
     AgregarSalonComponent,
     MateriasPorsalonComponent,
-    AlumnosPorsalonComponent,
     RegistroAlumnoComponent,
     VerAlumnosComponent,
     MateriaVerComponent,
@@ -49,6 +49,8 @@ import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver
     NavbarComponent,
     ChatComponent,
     VerCalificacionesComponent,
+    AlertasComponent,
+    PrincipalComponent,
   ],
   imports: [
     BrowserAnimationsModule,
