@@ -14,7 +14,7 @@ import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.compo
 import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro/registro-maestro.component';
 import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-maestros.component';
 import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver-calificaciones.component';
-
+import { AuthGuard } from './Guards/auth.guard';
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
 import { AlertasComponent } from './Componentes/maestro/alertas/alertas.component';
 import { PrincipalComponent } from './Componentes/maestro/principal/principal.component';
@@ -23,24 +23,24 @@ const routes: Routes = [
   {path:'login', component: LoginComponent },
   // { path:'login', component: RegistroComponent },
   {path:'prueba', component: PruebaComponent },
-  {path:'RegistroMateria', component:MateriaComponent},
-  {path:'VerMaterias', component:MateriaVerComponent},
-  {path:'crear-salon', component:CrearSalonComponent},
-  {path:'menu-salones', component:CrearSalonComponent},
-  {path: 'agregar-salones',component:AgregarSalonComponent},
-  {path: 'vermaterias',component:MateriasPorsalonComponent},
+  {path:'RegistroMateria', component:MateriaComponent,canActivate:[AuthGuard]},
+  {path:'VerMaterias', component:MateriaVerComponent,canActivate:[AuthGuard]},
+  {path:'crear-salon', component:CrearSalonComponent,canActivate:[AuthGuard]},
+  {path:'menu-salones', component:CrearSalonComponent,canActivate:[AuthGuard]},
+  {path: 'agregar-salones',component:AgregarSalonComponent,canActivate:[AuthGuard]},
+  {path: 'vermaterias',component:MateriasPorsalonComponent,canActivate:[AuthGuard]},
   /**-------------------------- Alertas   */
   {path:'maestro/alertas',component:AlertasComponent},
   {path:'maestro',component:PrincipalComponent},
 
   /*---------Alumnos--------*/
-  {path:'RegistroAlumno',component:RegistroAlumnoComponent },
-  {path:'VerAlumnos',component:VerAlumnosComponent},
+  {path:'RegistroAlumno',component:RegistroAlumnoComponent,canActivate:[AuthGuard] },
+  {path:'VerAlumnos',component:VerAlumnosComponent,canActivate:[AuthGuard]},
   /*--------Maestro--------*/
-  {path:'RegistroMaestro',component:RegistroMaestroComponent},
-  {path:'calificar', component: CalificacionesComponent },
-  {path:'calificaciones', component: VerCalificacionesComponent },
-  {path:'VerMaestros',component:VerMaestrosComponent},
+  {path:'RegistroMaestro',component:RegistroMaestroComponent,canActivate:[AuthGuard]},
+  {path:'calificar', component: CalificacionesComponent ,canActivate:[AuthGuard]},
+  {path:'calificaciones', component: VerCalificacionesComponent ,canActivate:[AuthGuard]},
+  {path:'VerMaestros',component:VerMaestrosComponent,canActivate:[AuthGuard]},
   {path:'', component:MenuComponent}
 ];
 
