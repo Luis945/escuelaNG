@@ -6,23 +6,24 @@
         <li class="nav-item active"><a class="nav-link" href="/"></a><span class="sr-only">Actual</span></li>
         <li *ngIf="iniciado&&!profesor_iniciado&&!padre_iniciado"  class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alumnos</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a *ngIf="!alumno_iniciado&&admin_iniciado" class="dropdown-item" href="/alumno/login">Agregar alumnos inscritos</a>
-            <a *ngIf="!alumno_iniciado&&admin_iniciado" class="dropdown-item" href="/maestro/login">Ver alumnos inscritos</a>
-            <a *ngIf="alumno_iniciado"  class="dropdown-item" href="/maestro/login">Ver mis calificaciones</a>
+            <a *ngIf="!alumno_iniciado&&admin_iniciado" class="dropdown-item" href="/RegistroAlumno">Agregar alumnos inscritos</a>
+            <a *ngIf="!alumno_iniciado&&admin_iniciado" class="dropdown-item" href="/VerAlumnos">Ver alumnos inscritos</a>
+            <a *ngIf="alumno_iniciado"  class="dropdown-item" href="/calificaciones">Ver mis calificaciones</a>
           </div>
         </li>
         <li class="nav-item active"><a class="nav-link" href="/"></a><span class="sr-only">Actual</span></li>
         <li *ngIf="iniciado&&admin_iniciado"  class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profesor</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a class="dropdown-item" href="/alumno/login">Agregar profesor</a><a class="dropdown-item" href="/maestro/login">Ver profesores</a></div>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a class="dropdown-item" href="/RegistroMaestro">Agregar profesor</a><a class="dropdown-item" href="/VerMaestros">Ver profesores</a></div>
         </li>
-        <li *ngIf="iniciado&&admin_iniciado"  class="nav-item"><a class="nav-link" href="/nosotros">Menu de salones</a></li>
-        <li *ngIf="iniciado&&alumno_iniciado"  class="nav-item"><a class="nav-link" href="/nosotros">Alertas</a></li>
+        <li *ngIf="iniciado&&admin_iniciado"  class="nav-item"><a class="nav-link" href="/RegistroMateria">Agregar materia</a></li>
+        <li *ngIf="iniciado&&admin_iniciado"  class="nav-item"><a class="nav-link" href="/menu-salones">Menu de salones</a></li>
+        <li *ngIf="iniciado&&alumno_iniciado"  class="nav-item"><a class="nav-link" href="/alertaalumno">Alertas</a></li>
         <li *ngIf="iniciado&&profesor_iniciado"  class="nav-item"><a class="nav-link" href="/alertaprofe">Alertas</a></li>
         <li *ngIf="iniciado&&admin_iniciado"  class="nav-item"><a class="nav-link" href="/alertaadmin">Alertas</a></li>
-        <li *ngIf="iniciado&&profesor_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/nosotros">CHAT con padres</a></li>
-        <li *ngIf="iniciado&&profesor_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/nosotros">Calificar</a></li>
-        <li *ngIf="iniciado&&padre_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/nosotros">CHAT con profesor</a></li>
-        <li *ngIf="iniciado&&padre_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/nosotros/padre">Ver calificaciones</a></li>
+        <li *ngIf="iniciado&&profesor_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/chat">CHAT con padres</a></li>
+        <li *ngIf="iniciado&&profesor_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/calificar">Calificar</a></li>
+        <li *ngIf="iniciado&&padre_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/chat">CHAT con profesor</a></li>
+        <li *ngIf="iniciado&&padre_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="calificacionpadres">Ver calificaciones</a></li>
         <li class="nav-item"><button (click)="cerrarSesion()"  *ngIf="iniciado" class="btn btn-danger">Cerrar sesión</button></li>
         <li class="nav-item"><button (click)="iniciarSesion()"  *ngIf="!iniciado" class="btn btn-success">Iniciar sesión</button></li>
       </ul>

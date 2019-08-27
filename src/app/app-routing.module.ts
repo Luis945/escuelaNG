@@ -10,7 +10,6 @@ import { RegistroAlumnoComponent } from './Componentes/alumno/registro-alumno/re
 import { VerAlumnosComponent } from './Componentes/Alumno/ver-alumnos/ver-alumnos.component';
 import { AgregarSalonComponent } from './Componentes/agregar-salon/agregar-salon.component';
 import { MateriasPorsalonComponent } from './Componentes/materias-porsalon/materias-porsalon.component';
-import { AlumnosPorsalonComponent } from './Componentes/alumnos-porsalon/alumnos-porsalon.component';
 import { MateriaVerComponent } from './Componentes/materia-ver/materia-ver.component';
 import { RegistroMaestroComponent } from './Componentes/maestro/registro-maestro/registro-maestro.component';
 import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-maestros.component';
@@ -28,7 +27,6 @@ const routes: Routes = [
   {path:'menu-salones', component:CrearSalonComponent},
   {path: 'agregar-salones',component:AgregarSalonComponent},
   {path: 'vermaterias',component:MateriasPorsalonComponent},
-  {path: 'veralumnos',component:AlumnosPorsalonComponent},
   /*---------Alumnos--------*/
   {path:'RegistroAlumno',component:RegistroAlumnoComponent },
   {path:'VerAlumnos',component:VerAlumnosComponent},
