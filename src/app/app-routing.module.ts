@@ -17,25 +17,31 @@ import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-mae
 import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver-calificaciones.component';
 
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
+import { AlertasComponent } from './Componentes/maestro/alertas/alertas.component';
+import { PrincipalComponent } from './Componentes/maestro/principal/principal.component';
 const routes: Routes = [
-  
-  { path:'login', component: LoginComponent },
+
+  {path:'login', component: LoginComponent },
   // { path:'login', component: RegistroComponent },
-  { path:'prueba', component: PruebaComponent },
-  { path:'RegistroMateria', component:MateriaComponent},
-  { path:'VerMaterias', component:MateriaVerComponent},
+  {path:'prueba', component: PruebaComponent },
+  {path:'RegistroMateria', component:MateriaComponent},
+  {path:'VerMaterias', component:MateriaVerComponent},
   {path:'crear-salon', component:CrearSalonComponent},
   {path:'menu-salones', component:CrearSalonComponent},
   {path: 'agregar-salones',component:AgregarSalonComponent},
   {path: 'vermaterias',component:MateriasPorsalonComponent},
   {path: 'veralumnos',component:AlumnosPorsalonComponent},
+  /**-------------------------- Alertas   */
+  {path:'maestro/alertas',component:AlertasComponent},
+  {path:'maestro',component:PrincipalComponent},
+
   /*---------Alumnos--------*/
   {path:'RegistroAlumno',component:RegistroAlumnoComponent },
   {path:'VerAlumnos',component:VerAlumnosComponent},
   /*--------Maestro--------*/
   {path:'RegistroMaestro',component:RegistroMaestroComponent},
-  { path:'calificar', component: CalificacionesComponent },
-  { path:'calificaciones', component: VerCalificacionesComponent },
+  {path:'calificar', component: CalificacionesComponent },
+  {path:'calificaciones', component: VerCalificacionesComponent },
   {path:'VerMaestros',component:VerMaestrosComponent},
   {path:'', component:MenuComponent}
 ];
