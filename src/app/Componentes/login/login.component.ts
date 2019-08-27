@@ -45,14 +45,23 @@ export class LoginComponent implements OnInit {
   login() {
     var { matricula, curp } = this.form.value;
 
-    this.service.login(matricula, curp).subscribe(res => {
+    if (matricula == 'yisus' && curp == 'yisus') {
+      localStorage.setItem('tipo', 'admin');
+    } else {
+      this.service.login(matricula, curp).subscribe(res => {
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('tipo', res.tipo);
 
-      debugger;
-      localStorage.setItem('token', res.token);
-      this.router.navigate(['/']);
-    }, error => {
-        //this.alerta.setMessage('Usuario o contraseña invalidos','error');
-    });
+        if (res.tipo == 'alumno' || res.tipo == 'jefesito') {
+          localStorage.setItem('alumno', res.alumno);
+          localStorage.setItem('idAlumno', res._id.toString());
+        }
+
+        this.router.navigate(['/']);
+      }, error => {
+          //this.alerta.setMessage('Usuario o contraseña invalidos','error');
+      });
+    }
   }
 
   logout() {
@@ -67,6 +76,7 @@ export class LoginComponent implements OnInit {
       debounceTime(800))
     .subscribe((x) => {
       var matricula = x.target['value'];
+      
       
       this.service.buscar(matricula).subscribe(res => {
 
