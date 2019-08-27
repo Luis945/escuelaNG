@@ -1,3 +1,205 @@
-<p>
-  chat works!
-</p>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
+    <div class="row overflow-auto ">
+        <!-----------BARRA LATERAL IZQUIERDA------->
+          <div class="col-12 barra-contact">
+
+            <!--------CONTACTOS, NICKNAME Y CERRAR SESIÓN------>
+            <div class="row barra">
+              <div class="addgroup col">
+                <img data-toggle="tooltip" data-placement="top" title="Contactos" (click)="MostrarContactos()" class="gruposimg" src="https://www.ktfg.co/wp-content/uploads/sites/3017/2019/04/plus.png" alt="imagen">
+              </div>
+              <div class="col-6 nickname" >
+                  <h6 class="display-9">{{this.nick}}
+                    <svg class="dot">
+                        <circle cx="50" cy="50" r="40" stroke-width="3" fill="green" />
+                    </svg>
+                  </h6>
+              </div>
+              <div class="col signout">
+                <img data-toggle="tooltip" data-placement="top" title="Cerrar Sesión" class="salir" (click)="CerrarSesion()" src="https://cdn4.iconfinder.com/data/icons/miu/24/common-logout-signout-exit-glyph-512.png" alt="">
+              </div>
+
+            </div>
+
+            <!--------------MODAL CREAR GRUPOS------------->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Crear Grupo</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" style="overflow:auto;">
+
+                      <!----------FORMULARIO PARA CREACIÓN DE GRUPO----------->
+                      <div>
+                        <div class="form-group">
+                          <label for="">Nombre del Grupo</label>
+                          <input type="text"
+                            class="form-control" [(ngModel)]="NombreGrupo" id="" aria-describedby="helpId" placeholder="Escuela">
+                        </div>
+                      </div>
+
+                      <div>
+                        <p>Seleccionar Contactos</p>
+                      </div>
+
+                      <!-------SECCIÓN DE MOSTRAR CONTACTOS EN MODAL-------->
+                      <div class="lista2">
+                          <ul class="list-group" id="contact-list">
+                            <li class="list-group-item contacto" *ngFor="let item of Usuario">
+                              <a class="contacto ">
+                                  <div class="row">
+                                    <input type="checkbox" class="checar" value="{{item.id}}">
+                                    <div class="col-10 col-sm-4 col-md-1 px-0">
+                                        <img src="https://img.icons8.com/bubbles/2x/user.png" alt="Mike Anamendolla" class="rounded-circle mx-auto d-block img-fluid">
+                                    </div>
+                                    <div class="pointer col-12 col-sm-6 col-md-9 text-center text-sm-left namecontact2">
+                                          <span class="name fa fa-user fa-2x text-secondary float-right pulse" title="online now"></span>
+                                          <label class="pointer name lead">{{item.nickname}}</label>
+                                          <br>
+                                    </div>
+                                  </div>
+                                </a>
+                            </li>
+                          </ul>
+                        </div>
+
+                    </div><!---MODAL BODY FIN-->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-success" data-dismiss="modal" (click)="CrearGrupo()">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </div><!--FIN MODAL--->
+
+            <!---------------BARRA DE CONTACTOS--------------->
+            <div class="conversaciones" *ngIf="ValidaContactos">
+              <p>Contactos</p>
+              <div class="lista" >
+                <ul class="list-group" id="contact-list">
+                  <li class="list-group-item contacto" *ngFor="let item of Usuario">
+                    <a (click)="ClickUsuario(item)" class="contacto">
+                      <div class="row w-100">
+                        <div class="col-12 col-sm-6 col-md-3 px-0">
+                            <img src="https://img.icons8.com/bubbles/2x/user.png" alt="Mike Anamendolla" class="rounded-circle mx-auto d-block img-fluid">
+                        </div>
+                        <div class="pointer col-12 col-sm-6 col-md-9 text-center text-sm-left namecontact">
+                              <span class="name fa fa-user fa-2x text-secondary float-right pulse" title="online now"></span>
+                              <label class="pointer name lead">{{item.nickname}}</label>
+                              <br>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-----------------BARRA DE GRUPOS----------------->
+            <div class="conversaciones" *ngIf="!ValidaContactos">
+              <div class="jider row">
+                <div class="col">
+                  <p>Conversaciones</p>
+                </div>
+                <div class="col">
+                  <img class="btncreagrupo" src="https://image.flaticon.com/icons/png/512/33/33308.png" alt="" data-toggle="modal" data-target="#exampleModal">
+                </div>
+              </div>
+              <div class="lista" >
+                <ul class="list-group" id="contact-list">
+                  <li class="list-group-item contacto" *ngFor="let grupo of grupos">
+                    <a class="contacto">
+                      <div class="row w-100">
+                        <div class="col-12 col-sm-6 col-md-3 px-0">
+                            <img src="https://img.icons8.com/bubbles/2x/user.png" alt="Mike Anamendolla" class="rounded-circle mx-auto d-block img-fluid">
+                        </div>
+                        <div class="pointer col-12 col-sm-6 col-md-9 text-center text-sm-left namecontact">
+
+                              <span class="name fa fa-user fa-2x text-success float-right pulse" *ngIf="grupo.tipo=='personal';else iconogrupal" title="online now"></span>
+
+                              <ng-template #iconogrupal>
+                                <span class="name fa fa-group fa-2x text-success float-right pulse"  title="online now"></span>
+                              </ng-template>
+
+                              <label class="pointer name lead" *ngIf="grupo.tipo=='personal';else normal">{{ mostrarNombre(grupo.nombre_grupo)  }}</label>
+                              <ng-template #normal>
+                                <label class="pointer name lead">{{grupo.nombre_grupo}}</label>
+                              </ng-template>
+
+                              <br>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div><!--FIN BARRA IZQUIERDA-->
+    </div>
+
+  </div><!--FIN BARRA IZQUIERDA-->
+
+
+    <!------------------------CHAT------------------------>
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-9 chat" *ngIf="Arreglo ; else principal" >
+        <div class="row bg-dark badge-dark animated fadeIn rounded-bottom shadow " style="height: 100vh" >
+            <div class="col-12 d-flex flex-column" >
+                <div class="text-center  ">
+                    <p class="lead">{{ this.MensajeTitulo }}</p>
+                </div>
+            </div>
+                <div class="col-12 text-right bd-highlight overflow-auto justify-content-end" style="height: 70%;" >
+                  <div style="margin: 10px;" class="" *ngFor="let item of Arreglo">
+                    <h6 *ngIf="!( item.msj.indexOf('.png') !== -1 || item.msj.indexOf('.jpeg') !== -1 || item.msj.indexOf('.jpg') !== -1 || item.msj.indexOf('.mp3') !== -1 || item.msj.indexOf('.mp4') !== -1)" class=" animated slideRight">
+                      <p class="lead ">
+                        <b>{{ item.emisor }}</b>: {{  item.msj }}
+                      </p>
+                    </h6>
+                  </div>
+                  <div id="llega" class="flex-grow-1"></div>
+                </div>
+
+            <div class="col-12 align-items-end justify-content-end align-content-end">
+                <div>
+                  <p>{{typing}}</p>
+                </div>
+              <form action="">
+                <div class="form-group">
+                    <div class="form-row">
+                    <div class="col-9">
+                      <input type="input" [(ngModel)]="mensaje" id="msjbox" (keyup.enter)="agregar()" name="mensaje" placeholder="Escribe el mensaje aquí" class="form-control rounded shadow-sm">
+                    </div>
+                    <div class="col">
+                      <button type="button" (click)="agregar()" class="btn-dark">
+                        <i class=" fa fa-arrow-circle-right" style="font-size: 30px; color: white;"></i>
+
+                      </button>
+                    </div><br>
+
+                  </div>
+                </div>
+              </form>
+            </div>
+        </div>
+  </div><!---FIN CHAT-->
+
+  <ng-template #principal>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-9 chat "  >
+        <div class="row bg-dark badge-dark animated fadeIn rounded-bottom shadow" style="height: 100vh" >
+            <div class="col-12 d-flex flex-column align-content-center align-self-center" >
+                <div class="text-center animated bounce  ">
+                    <p class="lead ">Elige un grupo para empezar a hablar </p>
+                    <i class=" fa fa-smile-o" style="font-size: 60px;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+  </ng-template>
+
+</div><!------FIN ROW------->

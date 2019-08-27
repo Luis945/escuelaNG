@@ -61,6 +61,9 @@ export class LoginComponent implements OnInit {
           if (res.tipo == 'alumno' || res.tipo == 'jefesito') {
             localStorage.setItem('alumno', res.alumno);
             localStorage.setItem('idAlumno', res._id.toString());
+            localStorage.setItem('tutor', res.tutor);
+            localStorage.setItem('salon', res.salon);
+            localStorage.setItem('salonNom', res.salonNom);
           }
 
           this.router.navigate(['/']);

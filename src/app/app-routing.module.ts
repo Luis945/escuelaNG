@@ -17,6 +17,7 @@ import { VerMaestrosComponent } from './Componentes/maestro/ver-maestros/ver-mae
 import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver-calificaciones.component';
 
 import { MenuComponent } from './Componentes/globals/menu/menu.component';
+import { ChatComponent } from './Componentes/chat/chat.component';
 const routes: Routes = [
   
   { path:'login', component: LoginComponent },
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path:'calificar', component: CalificacionesComponent },
   { path:'calificaciones', component: VerCalificacionesComponent },
   {path:'VerMaestros',component:VerMaestrosComponent},
-  {path:'', component:MenuComponent}
+  {path:'', component:MenuComponent},
+  {path:'chat', component: ChatComponent},
 ];
 
 @NgModule({
