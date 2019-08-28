@@ -9,15 +9,18 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/ro
 export class AdminGuard implements CanActivate {
     path: ActivatedRouteSnapshot[];
     route: ActivatedRouteSnapshot;
+    tipo:string
 
   constructor(private router:Router){ }
    
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    if(localStorage.getItem('token')){
-      return true;
-    }
-    this.router.navigate(['/'])
+   if( localStorage.getItem('tipo')=="admin"){
+    return true;
+   }
+   else{
+    this.router.navigate([''])
     return false;
+   }
 
   }
 }

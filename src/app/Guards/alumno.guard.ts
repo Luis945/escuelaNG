@@ -13,11 +13,13 @@ export class AlumnoGuard implements CanActivate {
   constructor(private router:Router){ }
    
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    if(localStorage.getItem('token')){
-      return true;
-    }
-    this.router.navigate(['/'])
-    return false;
+    if( localStorage.getItem('tipo')=="alumno"){
+        return true;
+       }
+       else{
+        this.router.navigate([''])
+        return false;
+       }
 
   }
 }

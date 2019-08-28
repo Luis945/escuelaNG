@@ -19,36 +19,35 @@ import { MenuComponent } from './Componentes/globals/menu/menu.component';
 import { ChatComponent } from './Componentes/chat/chat.component';
 import { AlertasComponent } from './Componentes/maestro/alertas/alertas.component';
 import { PrincipalComponent } from './Componentes/maestro/principal/principal.component';
+import { AdminGuard } from './Guards/admin.guard';
+import { ProfesorGuard } from './Guards/profesor.guard.';
+import { AlumnoGuard } from './Guards/alumno.guard';
+import { PadreGuard } from './Guards/padre.guard';
 const routes: Routes = [
 
   {path:'login', component: LoginComponent },
   // { path:'login', component: RegistroComponent },
   {path:'prueba', component: PruebaComponent },
-  {path:'RegistroMateria', component:MateriaComponent,canActivate:[AuthGuard]},
-  {path:'VerMaterias', component:MateriaVerComponent,canActivate:[AuthGuard]},
-  {path:'crear-salon', component:CrearSalonComponent,canActivate:[AuthGuard]},
-  {path:'menu-salones', component:CrearSalonComponent,canActivate:[AuthGuard]},
-  {path: 'agregar-salones',component:AgregarSalonComponent,canActivate:[AuthGuard]},
+  {path:'RegistroMateria', component:MateriaComponent,canActivate:[AuthGuard,AdminGuard]},
+  {path:'VerMaterias', component:MateriaVerComponent,canActivate:[AuthGuard,AdminGuard]},
+  {path:'crear-salon', component:CrearSalonComponent,canActivate:[AuthGuard,AdminGuard]},
+  {path:'menu-salones', component:CrearSalonComponent,canActivate:[AuthGuard,AdminGuard]},
+  {path: 'agregar-salones',component:AgregarSalonComponent,canActivate:[AuthGuard,AdminGuard]},
   {path: 'vermaterias',component:MateriasPorsalonComponent,canActivate:[AuthGuard]},
   /**-------------------------- Alertas   */
   {path:'maestro/alertas',component:AlertasComponent},
   {path:'maestro',component:PrincipalComponent},
 
   /*---------Alumnos--------*/
-  {path:'RegistroAlumno',component:RegistroAlumnoComponent,canActivate:[AuthGuard] },
-  {path:'VerAlumnos',component:VerAlumnosComponent,canActivate:[AuthGuard]},
+  {path:'RegistroAlumno',component:RegistroAlumnoComponent,canActivate:[AuthGuard,AdminGuard] },
+  {path:'VerAlumnos',component:VerAlumnosComponent,canActivate:[AuthGuard,AdminGuard]},
   /*--------Maestro--------*/
-  {path:'RegistroMaestro',component:RegistroMaestroComponent,canActivate:[AuthGuard]},
-  {path:'calificar', component: CalificacionesComponent ,canActivate:[AuthGuard]},
-  {path:'calificaciones', component: VerCalificacionesComponent ,canActivate:[AuthGuard]},
-  {path:'VerMaestros',component:VerMaestrosComponent,canActivate:[AuthGuard]},
+  {path:'RegistroMaestro',component:RegistroMaestroComponent,canActivate:[AuthGuard,AdminGuard]},
+  {path:'calificar', component: CalificacionesComponent ,canActivate:[AuthGuard,ProfesorGuard]},
+  {path:'calificaciones', component: VerCalificacionesComponent ,canActivate:[AuthGuard,AlumnoGuard]},
+  {path:'VerMaestros',component:VerMaestrosComponent,canActivate:[AuthGuard,AdminGuard]},
   {path:'', component:MenuComponent},
-  {path:'RegistroMaestro',component:RegistroMaestroComponent},
-  {path:'calificar', component: CalificacionesComponent },
-  {path:'calificaciones', component: VerCalificacionesComponent },
-  {path:'VerMaestros',component:VerMaestrosComponent},
-  {path:'', component:MenuComponent},
-  {path:'chat', component: ChatComponent},
+  {path:'chat', component: ChatComponent,canActivate:[AuthGuard,ProfesorGuard,PadreGuard]},
 ];
 
 @NgModule({

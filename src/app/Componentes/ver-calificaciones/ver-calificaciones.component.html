@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="row offset-md-4" style="margin-top: 2%;">
   <label for="ciclo_escolar">Ciclo escolar: </label>&nbsp;
     <select name="carlist" form="carform" id="ciclo_escolar">
@@ -7,7 +8,7 @@
         <option value="2014-2020">2014-2020</option> -->
         </select>
 
-      <button type="button" (click)="buscar()" id="btnSearch" class="btn btn-primary">Buscar jrupo</button>
+      <button type="button" (click)="buscar()" id="btnSearch" class="btn btn-primary">Buscar grupo</button>
 </div>
 <div *ngIf="busco" class="row offset-md-1" style="margin-top: 5%;">
   <table datatable [dtOptions]="dtOptions" class="row-border hover" id="datat"></table>
