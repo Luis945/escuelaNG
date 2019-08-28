@@ -13,4 +13,14 @@ export class ChatService {
     return this.http.get<any>(this.root + 'chat/' + salon);
   }
 
+  SendMessage(mensaje: String, emisor: String) {
+    var obj = {
+      idChat: localStorage.getItem('salon'),
+      mensaje: mensaje,
+      emisor: emisor
+    };
+
+    return this.http.post<any>(this.root + 'chat', obj);
+  }
+
 }

@@ -104,7 +104,7 @@
             <div class="conversaciones" *ngIf="!ValidaContactos">
               <div class="jider row">
                 <div class="col">
-                  <p>Conversaciones</p>
+                  <p>{{mensajeTitulo}}</p>
                 </div>
                 <div class="col">
                   <img class="btncreagrupo" src="https://image.flaticon.com/icons/png/512/33/33308.png" alt="" data-toggle="modal" data-target="#exampleModal">
@@ -173,10 +173,10 @@
                 <div class="form-group">
                     <div class="form-row">
                     <div class="col-9">
-                      <input type="input" [(ngModel)]="mensaje" id="msjbox" (keyup.enter)="agregar()" name="mensaje" placeholder="Escribe el mensaje aquí" class="form-control rounded shadow-sm">
+                      <input type="input" [(ngModel)]="mensaje" id="msjbox" (keyup.enter)="enviar()" name="mensaje" placeholder="Escribe el mensaje aquí" class="form-control rounded shadow-sm">
                     </div>
                     <div class="col">
-                      <button type="button" (click)="agregar()" class="btn-dark">
+                      <button type="button" (click)="enviar()" class="btn-dark">
                         <i class=" fa fa-arrow-circle-right" style="font-size: 30px; color: white;"></i>
 
                       </button>

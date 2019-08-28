@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', res.token);
           localStorage.setItem('tipo', res.tipo);
 
-          if (res.tipo == 'alumno' || res.tipo == 'jefesito') {
+          if (res.tipo == 'alumno' || res.tipo == 'jefesito' || res.tipo == 'profe') {
             localStorage.setItem('alumno', res.alumno);
             localStorage.setItem('idAlumno', res._id.toString());
             localStorage.setItem('tutor', res.tutor);
