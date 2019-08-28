@@ -1,0 +1,177 @@
+/*------BARRA LATERAL DE CONTACTOS-----*/
+.barra-contact{
+    height: 100vh;
+    overflow-y: scroll;
+    width: 100vh;
+}
+
+.namecontact{
+    margin-top:6%;
+}
+
+.lista{
+    margin-top:5px;
+}
+
+.pointer{
+    cursor:pointer;
+}
+
+.contacto:hover{
+    background: rgba(238, 238, 238,0.9);
+}
+
+
+
+/*----------SCROLL PERSONALIZADO------------*/
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #7A7A7A  ; 
+}
+
+
+/*---BARRA AGREGAR GRUPO,NICKNAME Y CERRAR SESIÓN*/
+.barra{
+    font-family: "Poppins", Helvetica, Arial, sans-serif;
+    background-color:rgb(52,58,64);
+}
+
+.gruposimg{
+    width: 6vh;
+    height: 6vh; 
+    filter: invert(100%);
+}
+
+.addgroup{
+    text-align: center;
+    padding: 5%;
+}
+
+.addgroup:hover{
+    cursor: pointer;
+}
+
+
+.nickname{
+    padding: 8.5%;
+    text-align: center;
+    color: white;
+}
+
+.btnexit{
+    width: 7%;
+    height: 10%;
+    background: url("https://cdn4.iconfinder.com/data/icons/miu/24/common-logout-signout-exit-glyph-512.png");
+
+}
+
+.signout{
+    padding: 7%;
+    align-content: center
+}
+
+.salir{
+    width: 80%;
+    height: 80%; 
+    filter: invert(100%);
+}
+
+.salir:hover{
+    cursor: pointer;
+}
+
+.dot{
+    height: 1.4vh;
+    width: 1.4vh;
+    background-color: rgb(78, 207, 85);
+    border-radius: 50%;
+    margin-left: 1.4vh;
+}
+
+
+/*--------GRUPOS-----------------*/
+.conversaciones{
+    font-weight: 100%;
+    margin: 5%;
+    text-align: center;    
+}
+
+.btncreagrupo{
+    width: 40%;
+    height: 100%;
+}
+
+.btncreagrupo:hover{
+    cursor: pointer;
+}
+
+
+/*------MODAL----------*/
+.modal-body{
+    height: 70vh;
+}
+
+.contacto2{
+    height: 10vh;
+}
+
+.seleccionado{
+    background: rgba(189, 189, 189,0.8);
+}
+
+.lista2{
+    margin-top:5px;
+}
+
+.checar{
+    margin-top:3%;
+    margin-right:1%; 
+}
+
+
+
+
+
+
+/*---ESTE DISEÑO NO SÉ DE QUE ES---*/
+
+.container-fluid{
+    margin:0;
+}
+
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn-dark {
+  padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }

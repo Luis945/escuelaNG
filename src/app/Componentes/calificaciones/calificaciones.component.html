@@ -1,22 +1,23 @@
+<app-navbar></app-navbar>
 <div class="row offset-md-4" style="margin-top: 2%;">
   <label for="ciclo_escolar">Ciclo escolar: </label>&nbsp;
     <select name="carlist" form="carform" id="ciclo_escolar">
-        <option *ngFor="let item of ciclos" value="item">{{item}}</option>
+        <option *ngFor="let item of ciclos" value="{{item}}">{{item}}</option>
         <!-- <option value="2002-2008">2002-2008</option>
         <option value="2008-2014">2008-2014</option>
         <option value="2014-2020">2014-2020</option> -->
       </select>
     <label for="grado">Grado: </label>
       <select name="carlist" form="carform" id="grado">&nbsp;
-          <option *ngFor="let item of grados" value="item">{{item}}°</option>
+          <option *ngFor="let item of grados" value="{{item}}">{{item}}°</option>
         </select>
       <label for="seccion">Seccion: </label>&nbsp;
         <select name="carlist" form="carform" id="seccion">
-          <option *ngFor="let item of secciones" value="item">"{{item}}"</option>
+          <option *ngFor="let item of secciones" value="{{item}}">"{{item}}"</option>
         </select>
       <label for="materia">Materia: </label>&nbsp;
       <select name="carlist" form="carform" id="materia">
-        <option *ngFor="let item of materias" value="item._id">{{ item.materia }}</option>
+        <option *ngFor="let item of materias" value="{{item._id}}">{{ item.materia }}</option>
       </select>
 
       <button type="button" (click)="buscar()" id="btnSearch" class="btn btn-primary">Buscar jrupo</button>

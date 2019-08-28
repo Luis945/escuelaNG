@@ -31,6 +31,7 @@ export class CalificacionesComponent implements OnInit {
 
   ngOnInit() {
     this.service.getSalones().subscribe(res => {
+      debugger;
       this.grados = res.grados;
       this.secciones = res.secciones;
       this.ciclos = res.ciclos;
