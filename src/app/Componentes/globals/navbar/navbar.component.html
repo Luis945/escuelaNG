@@ -19,7 +19,6 @@
         <li *ngIf="iniciado&&admin_iniciado"  class="nav-item"><a class="nav-link" href="/menu-salones">Menu de salones</a></li>
         <li *ngIf="iniciado&&alumno_iniciado"  class="nav-item"><a class="nav-link" href="/alertaalumno">Alertas</a></li>
         <li *ngIf="iniciado&&profesor_iniciado"  class="nav-item"><a class="nav-link" href="/alertaprofe">Alertas</a></li>
-        <li *ngIf="iniciado&&admin_iniciado"  class="nav-item"><a class="nav-link" href="/alertaadmin">Alertas</a></li>
         <li *ngIf="iniciado&&profesor_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/chat">CHAT con padres</a></li>
         <li *ngIf="iniciado&&profesor_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/calificar">Calificar</a></li>
         <li *ngIf="iniciado&&padre_iniciado&&!alumno_iniciado"  class="nav-item"><a class="nav-link" href="/chat">CHAT con profesor</a></li>
