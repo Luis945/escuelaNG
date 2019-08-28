@@ -3,33 +3,42 @@
   <div class="row">
     <!-- sección para agregar -->
     <div class="col-4 mt-5 mb-5">
-        <form >
-
+        <form  name="mensajeform" [(formGroup)]="mensajeform" (ngSubmit)="mandarMensaje(mensajeform)" >
           <div class="form-group">
-            <label for="">Seleccione alumno</label>
-            <Select class="form-control">
-              <option value=""></option>
+            <label for="">Seleccione salon</label>
+            <Select class="form-control" (change)="selecionarSalon($event.target.value)">
+              <option  disabled>Selecciona un salón</option>
+              <option *ngFor="let salon of obtenido" value="{{ salon._id }}">{{ salon.Grado+' '+salon.Seccion+' del ' + salon.Ciclo }}</option>
             </Select>
           </div>
-
+          <div class="form-group">
+            <label for="">Seleccione alumno</label>
+            <Select class="form-control" *ngIf="alumnos" (change)="seleccionarAlumno($event.target.value)">
+                <option  *ngFor="let alumno of alumnos" value="{{ alumno._id }}">{{ alumno.Nombre }}</option>
+            </Select>
+          </div>
           <div class="form-group">
             <label for="">TItulo</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" formControlName="Titulo"
+            [ngClass]="{'is-invalid': mensajeform.get('Titulo').touched
+                            && mensajeform.get('Titulo').invalid, 'is-valid': mensajeform.get('Titulo').touched
+                            && mensajeform.get('Titulo').valid}">
           </div>
-
           <div class="form-group">
             <label for="">Mensaje</label>
-            <textarea  cols="30" rows="5" class="form-control"></textarea>
+            <textarea  cols="30" rows="5" class="form-control" formControlName="Mensaje"
+            [ngClass]="{'is-invalid': mensajeform.get('Mensaje').touched
+                            && mensajeform.get('Mensaje').invalid, 'is-valid': mensajeform.get('Mensaje').touched
+                            && mensajeform.get('Mensaje').valid}"></textarea>
           </div>
-
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+            <button type="submit" [disabled]="!mensajeform.valid" class="btn btn-primary btn-block">Guardar</button>
           </div>
         </form>
     </div>
 
     <!-- sección para ver las alertas mandadas -->
-    <div class="col">
+    <div class="col mt-5 mb-5">
 
       <div class="container-fluid">
         <div class="row">
