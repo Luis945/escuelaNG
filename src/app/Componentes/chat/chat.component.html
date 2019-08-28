@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
     <div class="row overflow-auto ">
@@ -6,9 +7,6 @@
 
             <!--------CONTACTOS, NICKNAME Y CERRAR SESIÓN------>
             <div class="row barra">
-              <div class="addgroup col">
-                <img data-toggle="tooltip" data-placement="top" title="Contactos" (click)="MostrarContactos()" class="gruposimg" src="https://www.ktfg.co/wp-content/uploads/sites/3017/2019/04/plus.png" alt="imagen">
-              </div>
               <div class="col-6 nickname" >
                   <h6 class="display-9">{{this.nick}}
                     <svg class="dot">
@@ -16,12 +14,8 @@
                     </svg>
                   </h6>
               </div>
-              <div class="col signout">
-                <img data-toggle="tooltip" data-placement="top" title="Cerrar Sesión" class="salir" (click)="CerrarSesion()" src="https://cdn4.iconfinder.com/data/icons/miu/24/common-logout-signout-exit-glyph-512.png" alt="">
-              </div>
 
             </div>
-
             <!--------------MODAL CREAR GRUPOS------------->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -106,9 +100,6 @@
                 <div class="col">
                   <p>{{mensajeTitulo}}</p>
                 </div>
-                <div class="col">
-                  <img class="btncreagrupo" src="https://image.flaticon.com/icons/png/512/33/33308.png" alt="" data-toggle="modal" data-target="#exampleModal">
-                </div>
               </div>
               <div class="lista" >
                 <ul class="list-group" id="contact-list">
@@ -175,10 +166,8 @@
                     <div class="col-9">
                       <input type="input" [(ngModel)]="mensaje" id="msjbox" (keyup.enter)="enviar()" name="mensaje" placeholder="Escribe el mensaje aquí" class="form-control rounded shadow-sm">
                     </div>
-                    <div class="col">
-                      <button type="button" (click)="enviar()" class="btn-dark">
-                        <i class=" fa fa-arrow-circle-right" style="font-size: 30px; color: white;"></i>
-
+                    <div class="col-3">
+                      <button type="button" (click)="enviar()" class="btn-dark">Enviar
                       </button>
                     </div><br>
 

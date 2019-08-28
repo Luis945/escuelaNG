@@ -23,6 +23,7 @@ import { AdminGuard } from './Guards/admin.guard';
 import { ProfesorGuard } from './Guards/profesor.guard.';
 import { AlumnoGuard } from './Guards/alumno.guard';
 import { PadreGuard } from './Guards/padre.guard';
+import { ChatGuard } from './Guards/chat.guard';
 const routes: Routes = [
 
   {path:'login', component: LoginComponent },
@@ -47,7 +48,7 @@ const routes: Routes = [
   {path:'calificaciones', component: VerCalificacionesComponent ,canActivate:[AuthGuard,AlumnoGuard]},
   {path:'VerMaestros',component:VerMaestrosComponent,canActivate:[AuthGuard,AdminGuard]},
   {path:'', component:MenuComponent},
-  {path:'chat', component: ChatComponent,canActivate:[AuthGuard,ProfesorGuard,PadreGuard]},
+  {path:'chat', component: ChatComponent,canActivate:[AuthGuard,ChatGuard]}
 ];
 
 @NgModule({
