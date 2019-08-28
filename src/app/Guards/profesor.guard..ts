@@ -13,11 +13,13 @@ export class ProfesorGuard implements CanActivate {
   constructor(private router:Router){ }
    
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    if(localStorage.getItem('token')){
-      return true;
-    }
-    this.router.navigate(['/'])
-    return false;
+    if( localStorage.getItem('tipo')=="profe"){
+        return true;
+       }
+       else{
+        this.router.navigate([''])
+        return false;
+       }
 
   }
 }
