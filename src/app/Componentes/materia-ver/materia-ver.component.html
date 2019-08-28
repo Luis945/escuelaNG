@@ -96,12 +96,12 @@
                             && formunidad.get('Hora').valid}">
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-block" id="agregar-unidad"  data-toggle="collapse" data-target="#editarunidad" >Editar</button>
+                      <button type="submit" [disabled]="!formunidad.valid" class="btn btn-block" id="agregar-unidad"  data-toggle="collapse" data-target="#editarunidad" >Editar</button>
                     </div>
                   </form>
 
                   <div class="modal-footer">
-                    <button type="submit" class="btn-block btn-info"   data-toggle="collapse" data-target="#editarunidad" data-dismiss="modal" >Actualizar materia</button>
+                    <button type="submit" [disabled]="!formulario.valid"  class="btn-block btn-info"   data-toggle="collapse" data-target="#editarunidad" data-dismiss="modal" >Actualizar materia</button>
                   </div>
 
 
