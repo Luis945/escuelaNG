@@ -3,6 +3,7 @@ import { SalonService } from 'src/app/Servicios/salon.service';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { stringify } from 'querystring';
 import { AlertasService } from 'src/app/Servicios/alertas.service';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-alertas',
@@ -11,7 +12,9 @@ import { AlertasService } from 'src/app/Servicios/alertas.service';
 })
 export class AlertasComponent implements OnInit {
 
-  constructor(private salon:SalonService,private alerta:AlertasService) {
+  constructor(private salon:SalonService,private alerta:AlertasService, private show:AlertService) {
+    console.log(localStorage.idAlumno)
+    this.maestro_id=localStorage.idAlumno
     this.salon.salonprofe(localStorage.idAlumno).subscribe((data)=>{
       this.obtenido= data['salones'];
     });
@@ -29,7 +32,6 @@ export class AlertasComponent implements OnInit {
   public selecionarSalon(valor){
    var index =this.obtenido.findIndex(v=>v._id==valor);
    this.alumnos = this.obtenido[index].Alumnos;
-   this.maestro_id=valor;
 
   }
   maestro_id:string;
@@ -53,7 +55,9 @@ export class AlertasComponent implements OnInit {
     });
   }
   public mandarMensaje(formulario){
-    console.log(formulario);
+
+    this.show.success('se ha agregado correctamente el mensaje');
+
     var empaquetado={
       alumno:this.alumno_id,
       maestro:this.maestro_id,
@@ -64,7 +68,19 @@ export class AlertasComponent implements OnInit {
 
     this.alerta.sendAlerta(empaquetado).subscribe(data=>{
       this.mostrar_alertas=data['data']
+      console.log(this.mostrar_alertas);
     });
+  }
+
+  public eliminar(mensaje){
+    if (confirm("¿está seguro de borrar ?")) {
+      this.alerta.deleteAlerta(mensaje,this.maestro_id).subscribe(data=>{
+        this.mostrar_alertas=data['alertas']
+      });
+
+   } else {
+
+   }
   }
 }
 

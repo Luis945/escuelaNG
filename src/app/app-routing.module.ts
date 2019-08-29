@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'agregar-salones',component:AgregarSalonComponent,canActivate:[AuthGuard,AdminGuard]},
   {path: 'vermaterias',component:MateriasPorsalonComponent,canActivate:[AuthGuard]},
   /**-------------------------- Alertas   */
-  {path:'maestro/alertas',component:AlertasComponent},
+  {path:'alertaprofe',component:AlertasComponent},
   {path:'maestro',component:PrincipalComponent},
 
   /*---------Alumnos--------*/
