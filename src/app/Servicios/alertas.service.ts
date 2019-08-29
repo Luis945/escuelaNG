@@ -20,4 +20,7 @@ export class AlertasService {
     return this.http.delete(url.url_http+'alertas/remover/'+id+'/'+maestro);
   }
 
+  getAlertasAlumnos(id){
+    return this.http.get(url.url_http+'alertas/ver/alumno/'+id);
+  }
 }

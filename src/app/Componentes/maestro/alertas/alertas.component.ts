@@ -4,6 +4,8 @@ import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { stringify } from 'querystring';
 import { AlertasService } from 'src/app/Servicios/alertas.service';
 import { AlertService } from 'ngx-alerts';
+import Ws from '@adonisjs/websocket-client';
+import * as url from '../../../Clases/url';
 
 @Component({
   selector: 'app-alertas',
@@ -12,6 +14,9 @@ import { AlertService } from 'ngx-alerts';
 })
 export class AlertasComponent implements OnInit {
 
+  socket= Ws(url.url_websocket);
+  channel: any;
+
   constructor(private salon:SalonService,private alerta:AlertasService, private show:AlertService) {
     console.log(localStorage.idAlumno)
     this.maestro_id=localStorage.idAlumno
@@ -19,21 +24,38 @@ export class AlertasComponent implements OnInit {
       this.obtenido= data['salones'];
     });
     this.alerta.getAlertasMaestro(localStorage.idAlumno).subscribe(data=>{
-      console.log(data);
       this.mostrar_alertas=data['data'];
     });
+
   }
   obtenido:Array<any>;
   mostrar_alertas:Array<any>;
   ngOnInit() {
     this.validar();
+    this.socket.connect();
+
   }
   alumnos:Array<any>;
   public selecionarSalon(valor){
    var index =this.obtenido.findIndex(v=>v._id==valor);
    this.alumnos = this.obtenido[index].Alumnos;
+   localStorage.idSalon= this.obtenido[index]._id;
+   this.suscribirse(localStorage.idSalon);
+
 
   }
+  private suscribirse(salon){
+
+    this.channel = this.socket.getSubscription('alerta:' + localStorage.getItem('idSalon'));
+
+    if (!this.channel) {
+      this.channel = this.socket.subscribe('alerta:' + localStorage.getItem('idSalon'));
+    }
+
+  }
+
+
+
   maestro_id:string;
   alumno_id:string;
   public seleccionarAlumno(valor){
@@ -64,11 +86,11 @@ export class AlertasComponent implements OnInit {
       Titulo:formulario.value.Titulo,
       Descripcion:formulario.value.Mensaje,
       Estado:'Activo'}
-      console.log(empaquetado);
 
     this.alerta.sendAlerta(empaquetado).subscribe(data=>{
       this.mostrar_alertas=data['data']
-      console.log(this.mostrar_alertas);
+        this.channel.emit('alerta');
+
     });
   }
 
@@ -76,6 +98,8 @@ export class AlertasComponent implements OnInit {
     if (confirm("¿está seguro de borrar ?")) {
       this.alerta.deleteAlerta(mensaje,this.maestro_id).subscribe(data=>{
         this.mostrar_alertas=data['alertas']
+        this.channel.emit('alerta');
+
       });
 
    } else {

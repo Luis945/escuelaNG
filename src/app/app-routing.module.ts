@@ -24,6 +24,7 @@ import { ProfesorGuard } from './Guards/profesor.guard.';
 import { AlumnoGuard } from './Guards/alumno.guard';
 import { PadreGuard } from './Guards/padre.guard';
 import { ChatGuard } from './Guards/chat.guard';
+import { DashboardComponent } from './Componentes/alumno/dashboard/dashboard.component';
 const routes: Routes = [
 
   {path:'login', component: LoginComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   /*---------Alumnos--------*/
   {path:'RegistroAlumno',component:RegistroAlumnoComponent,canActivate:[AuthGuard,AdminGuard] },
   {path:'VerAlumnos',component:VerAlumnosComponent,canActivate:[AuthGuard,AdminGuard]},
+  {path:'alertaalumno',component:DashboardComponent},
   /*--------Maestro--------*/
   {path:'RegistroMaestro',component:RegistroMaestroComponent,canActivate:[AuthGuard,AdminGuard]},
   {path:'calificar', component: CalificacionesComponent ,canActivate:[AuthGuard,ProfesorGuard]},

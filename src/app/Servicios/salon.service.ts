@@ -39,4 +39,7 @@ export class SalonService {
   salonprofe(id:string){
     return this.http.get(url.url_http+'alertas/profesor/'+id);
   }
+  salonalumno(id:string){
+    return this.http.get(url.url_http+'alertas/alumno/'+id);
+  }
 }
