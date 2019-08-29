@@ -34,7 +34,8 @@ export class DashboardComponent implements OnInit {
     if (!this.channel) {
       this.channel = this.socket.subscribe('alerta:' + localStorage.getItem('idSalon'));
     }
-    this.channel.on('Message',()=>{
+    this.channel.on('message',(info)=>{
+      console.log(info);
       this.alertas.getAlertasAlumnos(localStorage.idAlumno).subscribe(data=>{
         this.mostrarAlertas=data['data'];
       });

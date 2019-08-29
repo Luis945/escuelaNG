@@ -51,6 +51,7 @@ export class AlertasComponent implements OnInit {
     if (!this.channel) {
       this.channel = this.socket.subscribe('alerta:' + localStorage.getItem('idSalon'));
     }
+    this.channel.emit('message',{data:'hola'});
 
   }
 
@@ -89,8 +90,7 @@ export class AlertasComponent implements OnInit {
 
     this.alerta.sendAlerta(empaquetado).subscribe(data=>{
       this.mostrar_alertas=data['data']
-        this.channel.emit('alerta');
-
+        this.suscribirse(localStorage.idSalon)
     });
   }
 
@@ -98,8 +98,8 @@ export class AlertasComponent implements OnInit {
     if (confirm("¿está seguro de borrar ?")) {
       this.alerta.deleteAlerta(mensaje,this.maestro_id).subscribe(data=>{
         this.mostrar_alertas=data['alertas']
-        this.channel.emit('alerta');
 
+        this.suscribirse(localStorage.idSalon);
       });
 
    } else {
