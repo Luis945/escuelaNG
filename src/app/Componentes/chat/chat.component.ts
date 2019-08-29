@@ -25,6 +25,7 @@ export class ChatComponent implements OnInit {
   constructor(private Chat_Service: ChatService) { }
 
   ngOnInit() {
+    debugger;
     this.nick = localStorage.getItem('tutor');
     this.mensajeTitulo = localStorage.getItem('salonNom');
 

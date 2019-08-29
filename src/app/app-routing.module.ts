@@ -51,9 +51,9 @@ const routes: Routes = [
   {path:'calificaciones', component: VerCalificacionesComponent ,canActivate:[AuthGuard,AlumnoGuard]},
   {path:'VerMaestros',component:VerMaestrosComponent,canActivate:[AuthGuard,AdminGuard]},
   {path:'', component:MenuComponent},
-  {path:'chat', component: ChatComponent,canActivate:[AuthGuard,ProfesorGuard,PadreGuard]},
+  // {path:'chat', component: ChatComponent,canActivate:[AuthGuard,ProfesorGuard,PadreGuard]},
   {path:'socket',component:SockeComponent},
-  {path:'chat', component: ChatComponent,canActivate:[AuthGuard,ChatGuard]}
+  {path:'chat', component: ChatComponent, canActivate:[AuthGuard,ChatGuard]}
 ];
 
 @NgModule({

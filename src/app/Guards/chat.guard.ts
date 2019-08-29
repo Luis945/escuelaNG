@@ -13,6 +13,7 @@ export class ChatGuard implements CanActivate {
   constructor(private router:Router){ }
    
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+    debugger;
     if( localStorage.getItem('tipo')=="jefesito"||localStorage.getItem('tipo')=='profe'){
         return true;
        }
