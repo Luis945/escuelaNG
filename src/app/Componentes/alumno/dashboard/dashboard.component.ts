@@ -29,6 +29,12 @@ export class DashboardComponent implements OnInit {
     });
 
   }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.socket.close();
+  }
   private suscribirse(salon){
     this.channel = this.socket.getSubscription('alerta:' + localStorage.getItem('idSalon'));
     if (!this.channel) {
