@@ -51,7 +51,7 @@ export class AlertasComponent implements OnInit {
     if (!this.channel) {
       this.channel = this.socket.subscribe('alerta:' + localStorage.getItem('idSalon'));
     }
-    this.channel.emit('message',{data:'hola'});
+    this.channel.emit('message',{id:this.alumno_id});
 
   }
 
