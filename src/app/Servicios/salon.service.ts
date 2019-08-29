@@ -26,7 +26,7 @@ export class SalonService {
     return this.http.get<any>(url.url_http+'versalones');
   }
   getMaestros(){
-    return this.http.get<any>(url.url_http+'vermaestros');
+    return this.http.get<any>(url.url_http+'VerMaestros_octa');
   }
 
   eliminarSalon(id:String){
