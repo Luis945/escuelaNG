@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 
 import 'datatables.net';
 import { AlertasService } from 'src/app/Servicios/alertas.service';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-calificaciones',
@@ -28,7 +29,7 @@ export class CalificacionesComponent implements OnInit {
   materias: any;
 
 
-  constructor(public service: CalificacionesService, private alertasService: AlertasService) { }
+  constructor(public service: CalificacionesService, private alertasService: AlertService) { }
 
   ngOnInit() {
     this.service.getSalones().subscribe(res => {
@@ -63,8 +64,11 @@ export class CalificacionesComponent implements OnInit {
       });
 
       this.service.calificarAlumnos(calificaciones).subscribe((res) => {
+        this.alertasService.success("Alumnos calificados con éxito!");
+        setTimeout(() => {
+          window.location.reload();
+        }, 950);
         
-        //alerta y recargar página porfa
       });
     });
   }
@@ -78,12 +82,13 @@ export class CalificacionesComponent implements OnInit {
     var seccion = $("#seccion :selected").val();
     var ciclo = $("#ciclo_escolar :selected").val();
     var materia = $("#materia :selected").val();
-
+    // grado = "1";
     this.service.buscarSalon(grado, seccion, ciclo, materia).subscribe(res => {
       
       var dataToSend = [];
 
-      res.salon.Alumnos.forEach(alumno => {
+      if (res.salon) {
+        res.salon.Alumnos.forEach(alumno => {
         dataToSend.push({
           Matricula: alumno.Matricula,
           Nombre: alumno.Nombre,
@@ -93,6 +98,11 @@ export class CalificacionesComponent implements OnInit {
         })
       });
       this.displayTable(dataToSend)
+      } else {
+        this.alertasService.danger('No se encontró el salón solicitado');
+      }
+
+      
     });
   }
 
