@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlumnoService } from 'src/app/Servicios/alumno.service';
+import { AlertService } from 'ngx-alerts';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-alumno',
@@ -31,10 +33,6 @@ export class RegistroAlumnoComponent implements OnInit {
       [
         Validators.required,
       ]),
-      Fotografia: new FormControl('',
-      [
-        Validators.required
-      ]),
       Direccion: new FormControl('',[
         Validators.required
       ]),
@@ -60,7 +58,7 @@ export class RegistroAlumnoComponent implements OnInit {
     //Objeto Alumno
     matricula:string;
 
-  constructor(private _AlumnoService:AlumnoService) { }
+  constructor(private _AlumnoService:AlumnoService,private alertService: AlertService,private rutas :Router) { }
 
   ngOnInit() {
   }
@@ -71,7 +69,6 @@ export class RegistroAlumnoComponent implements OnInit {
       Apellido_paterno,
       Apellido_materno,
       Fecha_nacimiento,
-      Fotografia,
       Direccion,
       Curp,
       nombre_padre_tutor,
@@ -82,7 +79,6 @@ export class RegistroAlumnoComponent implements OnInit {
         Apellido_paterno:Apellido_paterno,
         Apellido_materno:Apellido_materno,
         Fecha_nacimiento:Fecha_nacimiento,
-        Fotografia:Fotografia,
         Direccion:Direccion,
         Curp:Curp,
         nombre_padre_tutor:nombre_padre_tutor,
@@ -91,6 +87,8 @@ export class RegistroAlumnoComponent implements OnInit {
 
       this._AlumnoService.GuardarAlumno(alumno).subscribe(data=>{
         console.log(alumno)
+        this.alertService.success('Alumno agregado correctamente')
+        this.rutas.navigate(['VerAlumnos']);
       })
 
   }

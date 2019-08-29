@@ -34,6 +34,7 @@ export class VerAlumnosComponent implements OnInit {
     this.alumnosel=item;  //Item es igual 
     this.alumnosel2=item['Datos_secundarios'];
     this.AñadirValidaciones(this.alumnosel,this.alumnosel2);
+    this.alertService.info('Ahora puedes editar la información')
   }
 
   AñadirValidaciones(item1,item2){

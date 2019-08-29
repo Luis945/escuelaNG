@@ -1,0 +1,24 @@
+.box-container {
+    background-color:white;
+    padding: 2rem;
+    box-shadow: 0rem 0rem 0.3rem rgba(45, 134, 236, 0.548);
+    margin-bottom: 2rem;
+    border-radius: 0.3rem;
+    margin-top: 2rem;
+}
+.form-control{
+    outline: transparent !important;
+  border-color: #95E1FB;
+}
+
+.btn {
+    background-color: #070157;
+}
+
+.eliminar:hover{
+    background-color:red;
+  
+}
+.registrar:hover{
+    background-color:green;
+}

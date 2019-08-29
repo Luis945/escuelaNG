@@ -3,6 +3,7 @@ import { Materia } from 'src/app/Clases/materia';
 import { Unidad } from 'src/app/Clases/unidad';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MateriaService } from 'src/app/Servicios/materia.service';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-materia',
@@ -11,7 +12,7 @@ import { MateriaService } from 'src/app/Servicios/materia.service';
 })
 export class MateriaComponent implements OnInit {
 
-  constructor(private servicio:MateriaService) {
+  constructor(private servicio:MateriaService,private alertService: AlertService) {
 
   }
 
@@ -30,9 +31,8 @@ export class MateriaComponent implements OnInit {
   agregarNombre($event){
     if($event.keyCode==13){
      if (this.materia_Nombre){
-          alert('Materia Agregada correctamente ');
+          this.alertService.success('Materia agregada correctamente')
         this.materiaNueva= new Materia(this.materia_Nombre);
-      
       }
     }
   }
@@ -40,7 +40,7 @@ export class MateriaComponent implements OnInit {
   // set unidad to save on materias
   agregarUnidades(){
      if( this.Nombre_unidad && this.Num_unidad  && this.Hora_de_unidad ){
-      alert('Unidad Agregada');
+      this.alertService.success('Unidad agregada')
       var nuevo = new Unidad();
       nuevo.Nombre_unidad= this.Nombre_unidad;
       nuevo.Num_unidad= this.Num_unidad;
@@ -56,7 +56,7 @@ export class MateriaComponent implements OnInit {
   borrarUnidad(unidad){
     //delete this.materiaNueva.unidades[numero-1]
   
-    if (confirm("¿está seguro de borro ?")) {
+    if (confirm("¿está seguro de borrar la materia?")) {
       const index = this.materiaNueva.unidades.indexOf(unidad, 0);
       if (index > -1) {
       this.materiaNueva.unidades.splice(index, 1);
@@ -69,9 +69,9 @@ export class MateriaComponent implements OnInit {
 
   }
   mandarMateria(){
-    if (confirm("¿está seguro de guardar ?")) {
+    if (confirm("¿está seguro de guardar la materia?")) {
       this.servicio.mandar(this.materiaNueva).subscribe((data)=>{
-        alert(data['msg']);
+        this.alertService.success(data['msg'])
         this.materiaNueva=null;
         this.materia_Nombre="";
         this.Num_unidad=1;
