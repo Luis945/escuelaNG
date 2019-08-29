@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as url from '../Clases/url';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,10 @@ export class AuthService {
       matricula: matricula,
       curp: curp
     }
-    return this.http.post<any>(this.root + 'login', alumno);
+    return this.http.post<any>(url.url_http + 'login', alumno);
   }
 
   buscar(matricula: String) {
-    return this.http.get<any>(this.root + 'alumno/' + matricula);
+    return this.http.get<any>(url.url_http + 'alumno/' + matricula);
   }
 }

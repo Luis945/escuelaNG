@@ -28,6 +28,7 @@ import { ChatComponent } from './Componentes/chat/chat.component';
 import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver-calificaciones.component';
 import { AlertasComponent } from './Componentes/maestro/alertas/alertas.component';
 import { PrincipalComponent } from './Componentes/maestro/principal/principal.component';
+import { SockeComponent } from './socke/socke.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { PrincipalComponent } from './Componentes/maestro/principal/principal.co
     VerCalificacionesComponent,
     AlertasComponent,
     PrincipalComponent,
+    SockeComponent,
   ],
   imports: [
     BrowserAnimationsModule,
