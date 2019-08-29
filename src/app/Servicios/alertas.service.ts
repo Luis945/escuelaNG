@@ -16,6 +16,8 @@ export class AlertasService {
   sendAlerta(info){
     return this.http.post(url.url_http+'alertas/guardar/',info);
   }
-
+  deleteAlerta(id,maestro){
+    return this.http.delete(url.url_http+'alertas/remover/'+id+'/'+maestro);
+  }
 
 }

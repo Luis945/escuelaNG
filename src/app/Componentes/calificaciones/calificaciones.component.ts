@@ -5,6 +5,7 @@ import { CalificacionesService } from 'src/app/Servicios/calificaciones.service'
 import { Subject } from 'rxjs';
 
 import 'datatables.net';
+import { AlertasService } from 'src/app/Servicios/alertas.service';
 
 @Component({
   selector: 'app-calificaciones',
@@ -27,7 +28,7 @@ export class CalificacionesComponent implements OnInit {
   materias: any;
 
 
-  constructor(public service: CalificacionesService) { }
+  constructor(public service: CalificacionesService, private alertasService: AlertasService) { }
 
   ngOnInit() {
     this.service.getSalones().subscribe(res => {
@@ -62,7 +63,7 @@ export class CalificacionesComponent implements OnInit {
       });
 
       this.service.calificarAlumnos(calificaciones).subscribe((res) => {
-        debugger;
+        
         //alerta y recargar página porfa
       });
     });
