@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MaestroService } from 'src/app/Servicios/maestro.service';
+import { Router } from '@angular/router';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-registro-maestro',
@@ -31,10 +33,6 @@ export class RegistroMaestroComponent implements OnInit {
     [
       Validators.required,
     ]),
-    Fotografia: new FormControl('',
-    [
-      Validators.required
-    ]),
     Direccion: new FormControl('',[
       Validators.required
     ]),
@@ -46,14 +44,14 @@ export class RegistroMaestroComponent implements OnInit {
     ]),
   });
 
-  constructor(private _MaestroService:MaestroService) { }
+  constructor(private _MaestroService:MaestroService,private rutas :Router,private alertService: AlertService) { }
 
   ngOnInit() {
   }
 
   GuardarMaestro(){
     var {Nombre,Apellido_paterno,Apellido_materno,
-      Fecha_nacimiento,Rfc,Fotografia,Direccion,Telefono}=this.form.value;
+      Fecha_nacimiento,Rfc,Direccion,Telefono}=this.form.value;
 
     var Maestro={
       Nombre:Nombre,
@@ -61,13 +59,14 @@ export class RegistroMaestroComponent implements OnInit {
       Apellido_materno:Apellido_materno,
       Fecha_nacimiento:Fecha_nacimiento,
       Rfc:Rfc,
-      Fotografia:Fotografia,
       Direccion:Direccion,
       Telefono:Telefono
     };
 
     this._MaestroService.RegistroMaestro(Maestro).subscribe(data=>{
       console.log(data);
+      this.alertService.success('Maestro agregado correctamente')
+      this.rutas.navigate(['VerMaestros'])
     });
 
   }

@@ -20,7 +20,7 @@
         <option *ngFor="let item of materias" value="{{item._id}}">{{ item.materia }}</option>
       </select>
 
-      <button type="button" (click)="buscar()" id="btnSearch" class="btn btn-primary">Buscar jrupo</button>
+      <button type="button" (click)="buscar()" id="btnSearch" class="btn btn-primary">Buscar grupo</button>
 </div>
 <div *ngIf="busco" class="row offset-md-1" style="margin-top: 5%;">
   <table datatable [dtOptions]="dtOptions" class="row-border hover table-striped table-inverse table-responsive" id="datat"></table>

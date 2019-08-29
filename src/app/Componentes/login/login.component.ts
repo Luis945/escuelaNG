@@ -18,19 +18,19 @@ export class LoginComponent implements OnInit {
 
   //reactive forms
   form = new FormGroup({
-    matricula: new FormControl('XAXX010101000',
+    matricula: new FormControl('',
     [
       Validators.required,
       Validators.minLength(2),
       Validators.pattern("^[a-zA-Z0-9_]*$")
     ]),
-    curp: new FormControl('XEXX010101HNEXXXA4 ',
+    curp: new FormControl(' ',
     [
       Validators.required,
       Validators.minLength(3)
     ])
   });
-  
+
   constructor(private router: Router, private service: AuthService, private alertService: AlertService) { }
 
   ngOnInit() {
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
           this.alertService.warning(res.error);
         }
 
-        
+
       }, error => {
           //this.alerta.setMessage('Usuario o contraseña invalidos','error');
       });
@@ -90,8 +90,8 @@ export class LoginComponent implements OnInit {
       debounceTime(800))
     .subscribe((x) => {
       var matricula = x.target['value'];
-      
-      
+
+
       this.service.buscar(matricula).subscribe(res => {
 
         if (res.hasOwnProperty('alumno')) {

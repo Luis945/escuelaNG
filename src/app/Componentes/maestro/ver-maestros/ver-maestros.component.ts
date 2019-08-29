@@ -30,6 +30,7 @@ export class VerMaestrosComponent implements OnInit {
   Seleccionado(item){
     this.maestrosel=item;
     this.AñadirValidaciones(item);
+    this.alertService.info('Ahora puedes editar la información')
   }
 
   AñadirValidaciones(item){

@@ -29,6 +29,7 @@ import { VerCalificacionesComponent } from './Componentes/ver-calificaciones/ver
 import { AlertasComponent } from './Componentes/maestro/alertas/alertas.component';
 import { PrincipalComponent } from './Componentes/maestro/principal/principal.component';
 import { SockeComponent } from './socke/socke.component';
+import { DashboardComponent } from './Componentes/alumno/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { SockeComponent } from './socke/socke.component';
     AlertasComponent,
     PrincipalComponent,
     SockeComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserAnimationsModule,

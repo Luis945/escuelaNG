@@ -24,6 +24,8 @@ import { ProfesorGuard } from './Guards/profesor.guard.';
 import { AlumnoGuard } from './Guards/alumno.guard';
 import { PadreGuard } from './Guards/padre.guard';
 import { SockeComponent } from './socke/socke.component';
+import { ChatGuard } from './Guards/chat.guard';
+import { DashboardComponent } from './Componentes/alumno/dashboard/dashboard.component';
 const routes: Routes = [
 
   {path:'login', component: LoginComponent },
@@ -36,12 +38,13 @@ const routes: Routes = [
   {path: 'agregar-salones',component:AgregarSalonComponent,canActivate:[AuthGuard,AdminGuard]},
   {path: 'vermaterias',component:MateriasPorsalonComponent,canActivate:[AuthGuard]},
   /**-------------------------- Alertas   */
-  {path:'maestro/alertas',component:AlertasComponent},
+  {path:'alertaprofe',component:AlertasComponent},
   {path:'maestro',component:PrincipalComponent},
 
   /*---------Alumnos--------*/
   {path:'RegistroAlumno',component:RegistroAlumnoComponent,canActivate:[AuthGuard,AdminGuard] },
   {path:'VerAlumnos',component:VerAlumnosComponent,canActivate:[AuthGuard,AdminGuard]},
+  {path:'alertaalumno',component:DashboardComponent},
   /*--------Maestro--------*/
   {path:'RegistroMaestro',component:RegistroMaestroComponent,canActivate:[AuthGuard,AdminGuard]},
   {path:'calificar', component: CalificacionesComponent ,canActivate:[AuthGuard,ProfesorGuard]},
@@ -49,7 +52,8 @@ const routes: Routes = [
   {path:'VerMaestros',component:VerMaestrosComponent,canActivate:[AuthGuard,AdminGuard]},
   {path:'', component:MenuComponent},
   {path:'chat', component: ChatComponent,canActivate:[AuthGuard,ProfesorGuard,PadreGuard]},
-  {path:'socket',component:SockeComponent}
+  {path:'socket',component:SockeComponent},
+  {path:'chat', component: ChatComponent,canActivate:[AuthGuard,ChatGuard]}
 ];
 
 @NgModule({
