@@ -1,10 +1,9 @@
 <app-navbar></app-navbar>
-<div class="container">
-  <div class="row " *ngFor="let alerta of mostrarAlertas">
-    <div class="col-3"></div>
+<div class="container" *ngIf="mostrarAlertas.length>0; else noMessages">
+  <div class="row justify-content-md-center " *ngFor="let alerta of mostrarAlertas">
 
-    <div class="col-6 mt-3 mb-3 wow slideInDown" data-wow-delay="0.4s" >
-      <div class="card">
+    <div class="col-10 col-md-8 col-lg-6 mt-3 mb-3 wow slideInDown" data-wow-delay="0.4s" >
+      <div class="card shadow-sm">
         <div class="card-body">
           <div class="card-title">{{ alerta.Titulo }}</div>
           <div class="card-text"> {{ alerta.Descripcion }}</div>
@@ -18,8 +17,26 @@
           </div>
         </div>
       </div>
+
     </div>
 
-    <div class="col-6"></div>
   </div>
 </div>
+
+<ng-template #noMessages>
+  <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="card mt-5 shadow wow fadeIn" data-wow-delay="1s">
+            <div class="card-body">
+              <h2 class="card-title text-center">
+                No tienes alertas
+              </h2>
+              <i class="fa fa-smile"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+   </ng-template>
