@@ -49,6 +49,7 @@ const routes: Routes = [
   {path:'RegistroMaestro',component:RegistroMaestroComponent,canActivate:[AuthGuard,AdminGuard]},
   {path:'calificar', component: CalificacionesComponent ,canActivate:[AuthGuard,ProfesorGuard]},
   {path:'calificaciones', component: VerCalificacionesComponent ,canActivate:[AuthGuard,AlumnoGuard]},
+  {path: 'calificacionpadres', component: VerCalificacionesComponent},
   {path:'VerMaestros',component:VerMaestrosComponent,canActivate:[AuthGuard,AdminGuard]},
   {path:'', component:MenuComponent},
   // {path:'chat', component: ChatComponent,canActivate:[AuthGuard,ProfesorGuard,PadreGuard]},
