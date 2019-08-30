@@ -16,6 +16,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a class="dropdown-item" href="/RegistroMaestro">Agregar profesor</a><a class="dropdown-item" href="/VerMaestros">Ver profesores</a></div>
         </li>
         <li *ngIf="iniciado&&admin_iniciado"  class="nav-item"><a class="nav-link" href="/RegistroMateria">Agregar materia</a></li>
+        <li *ngIf="iniciado&&admin_iniciado"  class="nav-item"><a class="nav-link" href="/VerMaterias">Ver materias</a></li>
         <li *ngIf="iniciado&&admin_iniciado"  class="nav-item"><a class="nav-link" href="/menu-salones">Menu de salones</a></li>
         <li *ngIf="iniciado&&alumno_iniciado"  class="nav-item"><a class="nav-link" href="/alertaalumno">Alertas</a></li>
         <li *ngIf="iniciado&&profesor_iniciado"  class="nav-item"><a class="nav-link" href="/alertaprofe">Alertas</a></li>
